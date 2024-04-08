@@ -78,10 +78,17 @@ use App\Models\Language;
             <div id="basket">
                 <a href="#"><i class="icon-basket"></i><span class="num">0</span></a>
             </div>
-
+            @guest
+            <div id="usermenu">
+                <a href="{{ route("register") }}"><i class="icon-user"></i></a>
+            </div>
+            @endguest
+            @auth
             <div id="usermenu">
                 <a href="#"><i class="icon-user"></i></a>
             </div>
+            @endauth
+
             <div id="langs">
                 <span>
                     LanGuages

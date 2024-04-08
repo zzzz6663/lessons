@@ -85,6 +85,7 @@ class ShortController extends Controller
      if(! $exist){
         $short->translates()->create([
             "language_id"=>$request->language_id,
+            "language_id"=>$request->language_id,
             "translate"=>$request->translate
         ]);
      }

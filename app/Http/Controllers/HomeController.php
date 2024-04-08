@@ -38,4 +38,12 @@ class HomeController extends Controller
         return view('site.index', compact([]));
     }
 
+    public function register()
+    {
+// $user=auth()->user();
+        // alert()->success("ss");
+        dd(3);
+        return view('site.register', compact([]));
+    }
+
 }

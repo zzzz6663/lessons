@@ -13,6 +13,9 @@ Route::get('/{language}',function(Language $language){
     return back();
 })->name("locale") ;
 Route::get('/', [HomeController::class,"index"])->name('login');
+Route::get('/register', [HomeController::class,"register"])->name('register');
+
+
 Route::prefix('admin')->namespace('admin')->group(function () {
     Route::get('/login', [AdminController::class,"login"])->name('admin.login');
     Route::get('/check_login', [AdminController::class,"check_login"])->name('admin.check.login');
