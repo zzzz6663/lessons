@@ -1,0 +1,45 @@
+#langs{
+    float: left;
+    color: #fff;
+}
+#langs ul{
+    position: absolute;
+    background: #fff;
+    right: 173px;
+    width: 150px;
+    display: block;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    transition: all .3s;
+    padding: 20px;
+    bottom: 200px;
+}
+
+#langs:hover ul{
+    display: block;
+    bottom: -100px;
+}
+.flag {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+}
+#langs  li *{
+   vertical-align: middle;
+}
+#langs  li a{
+ padding: 0 10px;
+ border-radius: 10px;
+ display: inline-block;
+ width: 100%;
+}
+
+#langs  li a:hover{
+    background: #a1a0a0;
+}
