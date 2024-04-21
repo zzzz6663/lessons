@@ -1,6 +1,6 @@
 window.onload = function() {
     if (window.jQuery) {
-
+// sssss
         $(".translate").on("keyup change", function(e) {
             let el=$(this)
             let lang=el.data("lang")

@@ -7,7 +7,7 @@ function stop_animation() {
 function load_animation() {
     var loading = new Loading({
 
-        // 'ver' or 'hor'
+        // 'ssssssssssver' or 'hsssor'
         direction: 'ver',
 
         // loading title
