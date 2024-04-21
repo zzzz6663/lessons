@@ -11,11 +11,16 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users=User::query();
-        $users=$users->latest()->get();
-        return view("admin.user.all",compact(['users']));
+        $users = User::query();
+        $search = $request->search;
+        $users->when($search, function ($query) use ($search) {
+            $query->where('name', 'LIKE', "%{$search}%")
+                ->orWhere('email', 'LIKE', "%{$search}%");
+        });
+        $users = $users->whereRole("customer")->latest()->get();
+        return view("admin.user.all", compact(['users']));
     }
 
     /**
@@ -37,9 +42,9 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
-        //
+        return view("admin.user.show", compact(['user']));
     }
 
     /**

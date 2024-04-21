@@ -1,3 +1,54 @@
+
+#mo .popup-container{
+
+    width: 100%;
+    border-radius:0;
+    max-height: 100%;
+}
+.profile-setting .cover form{
+    width: 180px;
+}
+.select2-container .select2-selection--single{
+    height: auto;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+display: none!important;
+}
+.select2-container--default .select2-selection--single{
+    border: none!important;
+    background: #f7f7fa;
+    padding: 30px 20px;
+    border-radius: 20px;
+}
+.select2-container--default .select2-selection--multiple{
+    border: none!important;
+    background: #f7f7fa;
+    padding: 20px 20px;
+    border-radius: 20px;
+}
+#topleft #usermenu a{
+    display: inline-block;
+}
+#mo{
+    width: 80%;
+    margin: 0 auto;
+}
+#mo .shade{
+    margin-bottom: 0;
+
+}
+.select2-container{
+    width: 100%!important;
+}
+#er{
+    padding: 30px;
+    color: red;
+    background: rgb(252, 225, 225);
+    border: 1px solid red;
+}
+@media screen and (max-width: 1800px) {
+
+}
 #langs{
     float: left;
     color: #fff;
@@ -42,4 +93,7 @@
 
 #langs  li a:hover{
     background: #a1a0a0;
+}
+.w-320{
+    width: 320px;
 }

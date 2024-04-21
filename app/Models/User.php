@@ -21,6 +21,21 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'family',
+        'country_id',
+        'role',
+        'avatar',
+        'video',
+        'username',
+        'gender',
+        'test_session_status',
+        'test_session_price',
+        'price_1_session',
+        'price_5_session',
+        'price_10_session',
+        'bio',
+        '',
+        '',
     ];
 
     /**
@@ -46,7 +61,16 @@ class User extends Authenticatable
         ];
     }
 
+    public  function languages(){
+        return $this->belongsToMany(Language::class);
+    }
+    public  function transactions(){
+        return $this->hasMany(Transaction::class);
+    }
     public function short($id){
         return  Cache()->get($id."_".app()->getLocale());
+    }
+    public function balance(){
+        return 0;
     }
 }

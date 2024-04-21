@@ -1,11 +1,4 @@
-@php
-use App\Models\User;
-use App\Models\Language;
-    $user =auth()->user();
-    if(!$user){
-        $user=New User();
-    }
-@endphp
+
 <div id="header" class="rows">
     <div class="fullcontainer">
         <div id="logo">
@@ -75,19 +68,24 @@ use App\Models\Language;
         <div id="topleft">
             <div id="mabnav"><span><i class="icon-menu"></i></span></div>
 
-            <div id="basket">
+            {{--  <div id="basket">
                 <a href="#"><i class="icon-basket"></i><span class="num">0</span></a>
-            </div>
+            </div>  --}}
+
             @guest
             <div id="usermenu">
-                <a href="{{ route("register") }}"><i class="icon-user"></i></a>
+                <a href="{{ route("register") }}">register</a>
+                <a href="{{ route("login.user") }}">login</a>
             </div>
             @endguest
+
             @auth
             <div id="usermenu">
                 <a href="#"><i class="icon-user"></i></a>
             </div>
             @endauth
+
+
 
             <div id="langs">
                 <span>

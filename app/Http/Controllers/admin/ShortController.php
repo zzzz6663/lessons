@@ -85,9 +85,10 @@ class ShortController extends Controller
      if(! $exist){
         $short->translates()->create([
             "language_id"=>$request->language_id,
-            "language_id"=>$request->language_id,
             "translate"=>$request->translate
         ]);
+     }else{
+        $exist->update([  "translate"=>$request->translate]);
      }
      $lan=Language::find($request->language_id);
      Cache()->put($short->id."_".$lan->local,$request->translate);

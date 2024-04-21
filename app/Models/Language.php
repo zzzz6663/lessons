@@ -17,11 +17,18 @@ class Language extends Model
         'local',
 
     ];
+
+    public  function users(){
+        return $this->belongsToMany(User::class);
+    }
+
     public function flag(){
         if($this->flag){
             return asset("/media/language/".$this->flag);
         }
         return false;
     }
+
+
 
 }

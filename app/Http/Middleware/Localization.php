@@ -20,6 +20,7 @@ class Localization
             $local=session()->get("locale");
             app()->setlocale($local);
         }
+
         return $next($request);
     }
 }

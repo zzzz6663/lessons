@@ -8,6 +8,7 @@ use App\Models\Advertise;
 use App\Models\Withdrawal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -24,10 +25,26 @@ class AdminController extends Controller
     {
         return view('admin.provinces.all');
     }
-    public function login()
+    public function login(Request $request)
     {
+
         $user = auth()->user();
         return view('admin.auth.login');
+    }
+    public function setting_site(Request $request)
+    {
+        $user = auth()->user();
+        $setting=new Setting();
+        if( $request->isMethod('post')){
+            if($request->setting){
+                $data=$request->validate([
+                    'max_price'=>"required",
+                    'min_price'=>"required",
+                    'max_price'=>"required",
+                ]);
+            }
+        }
+        return view('admin.setting.all',compact(['setting']));
     }
     public function check_login(Request $request)
     {

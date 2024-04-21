@@ -66,11 +66,10 @@
 
                                 <td>
                                     <div class="d-flex justify-content-between">
-
-                                        <a href="#"  class="btn " data-bs-toggle="modal" data-bs-target="#modal-simple">
+                                        <a href="#"  class="btn " data-bs-toggle="modal" data-bs-target="#modal-simple{{  $short->id }}">
                                             Translate
                                         </a>
-                                        <div class="modal modal-blur fade" id="modal-simple" tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal modal-blur fade" id="modal-simple{{  $short->id }}" tabindex="-1" style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">

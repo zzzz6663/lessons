@@ -1098,11 +1098,12 @@ body {
   float: right;
 }
 #topleft #usermenu a {
-  height: 37px;
-  width: 37px;
+  /* height: 37px;
+  width: 37px; */
   margin-top: 15px;
+  padding: 0 10px;
   display: block;
-  border: 1px solid #43567a;
+  /* border: 1px solid #43567a; */
   line-height: 37px;
   text-align: center;
   -webkit-border-radius: 50%;
