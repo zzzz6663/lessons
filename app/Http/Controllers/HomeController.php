@@ -70,7 +70,7 @@ class HomeController extends Controller
     }
     public function login(Request $request)
     {
-// sssss
+// ssssssss
 
         if($request->isMethod('post')){
             $data=$request->validate([
