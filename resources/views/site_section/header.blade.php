@@ -93,7 +93,7 @@
                 </span>
                 <ul>
                     @foreach (Cache::get('active_langs', function() {
-                        return Language::where('active_lang', '1')->get();
+                        return App\Models\Language::where('active_lang', '1')->get();
                     }) as $lang )
                     <li><a href="{{ route("locale",$lang->id) }}">
                     <img class="flag" src="{{ $lang->flag() }}" alt="">
