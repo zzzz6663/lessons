@@ -91,7 +91,7 @@
                 <span>
                     LanGuages
                 </span>
-                {{--    --}}
+                {{--    سسسس--}}
                 <ul>
                     @foreach (Cache::get('active_langs', function() {
                         return App\Models\Language::where('active_lang', '1')->get();
