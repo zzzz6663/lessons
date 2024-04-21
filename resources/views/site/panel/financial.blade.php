@@ -132,7 +132,7 @@
                             <ul>
                                 <li>
                                     {{ $user->short(29) }}
-                                    :</li>
+                                    :</li> 
                                 <li>
                                     {{ number_format($user->balance()) }}
                                 </li>
