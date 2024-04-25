@@ -41,21 +41,22 @@ class PayController extends Controller
     }
 
     public function pay_result(Request $request){
-        dd($request->all()); 
+        // dd($request->all());
         if($request->input("paymentId") && $request->input("PayerID")){
-            $action=$this->getway->completePurchase([
-                'payer_id'=> $request->input("PayerID"),
-                'transactionReference'=> $request->input("paymentId"),
-            ]);
+
+            $transaction = $this->getway->completePurchase(array(
+                'payer_id' => $request->input('PayerID'),
+                'transactionReference' => $request->input('paymentId')
+            ));
+
+            $response = $transaction->send();
 
 
-
-            $res=$action()->send();
-            if($res->isSuccessful()){
-                $arr=$res->getData();
+            if($response->isSuccessful()){
+                $arr=$response->getData();
                 return "pays is  success";
             }else{
-                return $res->getMessage();
+                return $response->getMessage();
             }
         }
 
