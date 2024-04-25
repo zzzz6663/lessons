@@ -122,7 +122,7 @@ class User extends Authenticatable
         ]);
 
     }
-    
+
     public function save_attr($key,$val){
         $atr=  $this->hasMany(Attribute::class)->whereName($key)->first();
 

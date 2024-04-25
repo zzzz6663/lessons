@@ -19,10 +19,11 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="pay-form">
-
+                        <div class="right">
+                            <img src="/site/images/wallet3.png" alt="">
+                        </div>
                         <div class="left m-0">
                             <h3> {{ $user->short(32) }} :</h3>
-
                             <div class="input-container fill">
                                 <i class="icon-credit-card"></i>
                                 <label for="">
@@ -143,12 +144,12 @@
                 <div class="col-lg-7 col-md-12">
                     <div>
                         <ul class="etmen">
-                            <li>
+                            {{--  <li>
                                 <div class="button-container reight">
                                     <span class="butt"><i class="icon-checkout"></i> {{ $user->short(30) }}
                                     </span>
                                 </div>
-                            </li>
+                            </li>  --}}
                             <li>
                                 <form id="pay" action="{{ route("send.pay") }}" method="post">
                                     @csrf

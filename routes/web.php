@@ -67,5 +67,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/send_pay', [PayController::class,"send_pay"])->name('send.pay');
     Route::get('/pay_result', [PayController::class,"pay_result"])->name('pay.result');
     Route::get('/pay_cancel', [PayController::class,"pay_cancel"])->name('pay.cancel');
+    Route::get('/pay_success', [PayController::class,"pay_success"])->name('pay.success');
 });
 

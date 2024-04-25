@@ -24,24 +24,41 @@ class PayController extends Controller
 
         return view('site.panel.pay_cancel', compact(['transaction']));
     }
+    public function pay_success(Request $request){
+        $transaction=Transaction::where("transactionId", $request->transactionId)->first();
+
+        return view('site.panel.pay_success', compact(['transaction']));
+    }
     public function send_pay(Request $request){
         // سسs
+        $customer=auth()->user();
         try{
             $response=$this->getway->purchase([
                 'amount'=>$request->amount,
                 'currency'=>'USD',
                 "returnUrl"=>route("pay.result"),
-                "cancelUrl"=>route("pay.result"),
+                "cancelUrl"=>route('pay.cancel'),
             ])->send();
-            dd(  $response->getData());
+           $data=$response->getData();
+           dd( $data);
             if($response->isRedirect()){
+                $customer->transactions()->create([
+                    'meet_id'=>null,
+                    'amount'=>$request->amount,
+                    'type'=>"charge_wallet",
+                    'status'=>"payed",
+                    'currency'=>"usd",
+                    'transactionId'=>time(),
+                ]);
                 $response->redirect();
             }else{
-                return            $response->getMessage();
+                // return            $response->getMessage();
+                return redirect()->route('pay.cancel');
             }
 
         }catch(\Throwable $t){
-            return     $t->getMessage();
+            // return     $t->getMessage();
+           return redirect()->route('pay.cancel');
 
         }
     }
@@ -56,9 +73,10 @@ class PayController extends Controller
             $response = $transaction->send();
             if($response->isSuccessful()){
                 $arr=$response->getData();
-                return "pays is  success";
+                return redirect()->route('pay.success');
             }else{
-                return $response->getMessage();
+                // return $response->getMessage();
+                return redirect()->route('pay.cancel');
             }
         }
 
