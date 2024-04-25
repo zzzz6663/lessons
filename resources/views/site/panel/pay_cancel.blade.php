@@ -32,7 +32,7 @@
                 </a>
             </div>
             <div class="call">
-                <a href="#"><i class="icon-support"></i><span>    {{ $user->short(136) }}</span></a>
+                <a href="{{ route("panel.dashboard") }}"><i class="icon-support"></i><span>    {{ $user->short(136) }}</span></a>
             </div>
         </div>
     </div>
