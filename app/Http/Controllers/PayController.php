@@ -15,6 +15,7 @@ class PayController extends Controller
         $this->getway->setClientId('AQWti9DsXSbSFp2tuafEntVjLzkBs8iNhgGTy68971XbAQlu9bMTlejxilJweBZfnX3l8GNdD8VgWt8p');
         $this->getway->setSecret('ECqJF5NKhsBRIluw1AikjHsNo-6eLQmYLLYDGRTLmzccnzwJ5AQA6bd-QqvoTlZw8V7Z8h67HAcjzxXN');
         $this->getway->setTestMode(true);
+
     }
 
     public function send_pay(Request $request){
@@ -40,13 +41,15 @@ class PayController extends Controller
     }
 
     public function pay_result(Request $request){
+        dd($request->all());
         if($request->input("paymentId") && $request->input("PayerID")){
             $action=$this->getway->completePurchase([
                 'payer_id'=> $request->input("PayerID"),
                 'transactionReference'=> $request->input("paymentId"),
             ]);
 
-     
+
+
             $res=$action()->send();
             if($res->isSuccessful()){
                 $arr=$res->getData();
