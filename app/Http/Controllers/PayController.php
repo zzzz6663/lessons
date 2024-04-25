@@ -18,6 +18,7 @@ class PayController extends Controller
     }
 
     public function send_pay(Request $request){
+        // سس
         try{
 
             $response=$this->getway->purchase([
