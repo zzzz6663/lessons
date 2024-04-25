@@ -52,12 +52,12 @@ class PayController extends Controller
                 ]);
                 $response->redirect();
             }else{
-                // return            $response->getMessage();
+                return            $response->getMessage();
                 return redirect()->route('pay.cancel');
             }
 
         }catch(\Throwable $t){
-            // return     $t->getMessage();
+            return     $t->getMessage();
            return redirect()->route('pay.cancel');
 
         }
