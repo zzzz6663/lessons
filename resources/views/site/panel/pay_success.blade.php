@@ -1,7 +1,7 @@
 @extends('master.site')
 @section('content')
 <dvi id="teacherpish">
-  
+
     <div class="popup- shade">
 
         <div class="paypop pay_s green">
@@ -20,7 +20,11 @@
             </div>
             <div class="text">
                 <span>{{ $user->short(133) }} : </span>
-                <span>544855542</span>
+                <span>
+                    @if( $transaction)
+                    {{ $transaction->transactionId }}
+                    @endif
+                </span>
             </div>
             <div class="button-container reight">
                 <a href="{{ route("panel.dashboard") }}" class="butt w-320"><i class="icon-dashboard"> {{ $user->short(132) }}</i>

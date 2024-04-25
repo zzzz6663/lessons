@@ -22,7 +22,9 @@
             <div class="text">
                 <!-- <span> پرداخت شما ناموفق بوده است  !</span> -->
                 <span>
-
+                    @if( $transaction)
+                    {{ $transaction->transactionId }}
+                    @endif
                 </span>
             </div>
             <div class="button-container reight">
