@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
 
@@ -18,6 +19,11 @@ class PayController extends Controller
 
     }
 
+    public function pay_cancel(Request $request){
+        $transaction=Transaction::where("transactionId", $request->transactionId)->first();
+
+        return view('site.panel.pay_cancel', compact(['transaction']));
+    }
     public function send_pay(Request $request){
         // سسs
         try{
@@ -27,7 +33,7 @@ class PayController extends Controller
                 "returnUrl"=>route("pay.result"),
                 "cancelUrl"=>route("pay.result"),
             ])->send();
-            dd(  $response);
+            dd(  $response->data);
             if($response->isRedirect()){
                 $response->redirect();
             }else{
@@ -58,9 +64,5 @@ class PayController extends Controller
 
     }
 
-    public function pay_cancel()
-    {
-        return 'User declined the payment!';
-    }
 
 }

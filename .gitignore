@@ -20,6 +20,9 @@ yarn-error.log
 /public/storage
 /storage/*.key
 .env.backup
+.env
+/.env
+
 .env.production
 .phpunit.result.cache
 Homestead.json
