@@ -42,9 +42,11 @@ class PayController extends Controller
     public function pay_result(Request $request){
         if($request->input("paymentId") && $request->input("PayerID")){
             $action=$this->getway->completePurchase([
-                'payes_id'=> $request->input("PayerID"),
+                'payer_id'=> $request->input("PayerID"),
                 'transactionReference'=> $request->input("paymentId"),
             ]);
+
+     
             $res=$action()->send();
             if($res->isSuccessful()){
                 $arr=$res->getData();
