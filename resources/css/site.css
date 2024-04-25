@@ -98,3 +98,57 @@ display: none!important;
 .w-320{
     width: 320px;
 }
+
+#teacher-clander .cond ul li .hour:last-child{
+    display: block;
+}
+
+.pay-form .lang-listc .lang-list li {
+    width: 100%;
+    padding: 5px 15px !important;
+  }
+  .pay-form .lang-listc .lang-list li img {
+    margin: 0 !important;
+  }
+
+
+  .bt,
+.btr {
+  box-sizing: border-box;
+  padding: 18px 30px 15px 30px;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  line-height: 1;
+  color: #fff;
+  background-color: #0EB582;
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  border-color: #0eb582;
+  border-radius: 36px 36px 36px 36px;
+  cursor: pointer;
+}
+.bt:hover,
+.btr:hover {
+  background: #fff;
+  color: #0eb582;
+}
+
+.btr {
+  background: #fff;
+  border: 2px solid #eceff4;
+  color: #7b94ab;
+  transition: all 0.3s;
+}
+.btr:hover {
+  border: 2px solid #0eb582;
+  color: #0eb582;
+}
+#sidefilter .filter-wdiget .choose-language .lang-select label .left span.top
+{
+    bottom:-11px;
+    left: 10px;
+}
+#sidefilter .filter-wdiget .choose-language .lang-select label{
+    height: 51px;
+}

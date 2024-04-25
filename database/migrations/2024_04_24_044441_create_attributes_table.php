@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('language_user', function (Blueprint $table) {
+        Schema::create('attributes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('active')->default(1)->nullable();
-            $table->string('status')->nullable();
-            $table->string('level')->nullable();
+            $table->string('name');
+            $table->string('value')->nullable();
+            $table->string('info')->default('0');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('language_user');
+        Schema::dropIfExists('attributes');
     }
 };

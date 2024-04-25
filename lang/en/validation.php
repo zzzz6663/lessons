@@ -190,6 +190,12 @@ return [
     'attributes' => [
     'country_id' => 'country',
     'country_id' => 'country',
+    'price_1_session' => 'The price of one session',
+    'price_5_session' => 'The price of five session',
+    'price_10_session' => 'The price of ten session',
+    'test_session_status' => '',
+    'test_session_price' => '',
+
 
     ],
 

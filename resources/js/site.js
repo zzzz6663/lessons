@@ -118,6 +118,68 @@ $('input[name="pricech"]')  .click(function (e) {
 
 
 
+$('#image_f')  .change(function (e) {
+    let el =$(this)
+    if(el.get(0).files.length ){
+        var filename = $('#image_f').val().split('\\').pop();
+        $('#name_img').text(filename)
+    }
+
+});
+
+$('.lang-listc .lang-list li').click(function() {
+    var a = $(this).find('.top').text();
+    var b = $(this).find('.id').text();
+    console.log(a)
+    console.log(b)
+    $('.lang-listc input').val(a);
+    // $('#la_d').val(a);
+    $('.lang-listc .lang-list').fadeOut();
+    $('#lang_id').val(b)
+})
+
+$('input[type=radio][name=test_session_status]').change(function() {
+    if (this.value == 'nofree') {
+        $('.clas_sec').show(400)
+    } else {
+        $('.clas_sec').hide(400)
+    }
+});
+
+$('.remove_post')  .click(function (e) {
+    let el =$(this)
+    let id=el.data("id")
+    let yes=el.data("confirm")
+    let no=el.data("reject")
+    let message=el.data("message")
+    Swal.fire({
+        title: message,
+        showDenyButton: true,
+        confirmButtonText: yes,
+        denyButtonText: no
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax('/panel/remove_write/'+ id, {
+                headers: {
+                    'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
+                },
+                type: 'post',
+                datatype: 'json',
+                success: function (data) {
+                    console.log(data)
+                    el.closest(".single-article-ad").slideUp(600)
+                },
+                error: function (request, status, error) {
+                    console.log(request)
+                 }
+            })
+        } else if (result.isDenied) {
+        }
+      });
+});
+
+
+
 if( $('.select_2').length){
     $('.select_2').select2({
         dir: "ltr",

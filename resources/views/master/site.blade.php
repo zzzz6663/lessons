@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('/libs/modal-loading.css') }}">
     <link rel="stylesheet" href="{{ asset('/site/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/site/css/style2.css') }}">
+    <link rel="stylesheet" href="{{ asset('/site/css/more.css') }}">
     <link rel="stylesheet" href="{{ asset('/site/css/responsive.css') }}">
     <script src="{{ asset('/libs/sw.js') }}"></script>
     @vite('resources/css/site.css')
@@ -40,8 +41,16 @@
     </div>
     <script src="{{ asset('/site/js/jquery-2.2.0.min.js') }}"></script>
     <script src="{{ asset('/site/js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('/site/js/plyr.min.js') }}"></script>
     <script src="{{ asset('/site/js/jquery.videoplayer.js') }}"></script>
     <script src="{{ asset('/site/js/jquery-ui-slider-pips.min.js') }}"></script>
+    <script src="{{ asset('/site/js/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('/site/js/jquery.event.drop-2.2.js') }}"></script>
+    <script src="{{ asset('/site/js/jquery.event.drop.live-2.2.js') }}"></script>
+    <script src="{{ asset('/site/js/jquery.event.drag-2.2.js') }}"></script>
+    <script src="{{ asset('/site/js/jquery.event.drag.live-2.2.js') }}"></script>
+    <script src="{{ asset('/site/js/') }}"></script>
+
     <script src="{{ asset('/site/js/template.js') }}"></script>
     <script src="{{ asset('/libs/sw.js') }}"></script>
     <script src="{{ asset('/libs/select2.js') }}"></script>

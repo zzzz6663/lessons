@@ -29,7 +29,7 @@
             }
         })
 
-       
+
 
         $('#scat > span').click(function(){
             if($(this).hasClass('active')){
@@ -49,7 +49,7 @@
             $('body').removeClass('out');
         })
 
-       
+
 
         $('.mmen').click(function(){
             if($('#header').hasClass('active')){
@@ -69,15 +69,15 @@
             $( "#slider-range" ).slider({
               range: true,
               min: 0,
-              max: 500,
-              values: [ 75, 300 ],
+              max: 300,
+              values: [ 5, 50 ],
               slide: function( event, ui ) {
-                $( "#amount1" ).val( ui.values[ 0 ] + " هزارتومان"  );
-                $( "#amount2" ).val( ui.values[ 1 ] + " هزارتومان"   );
+                $( "#amount1" ).val( ui.values[ 0 ] + " "  );
+                $( "#amount2" ).val( ui.values[ 1 ] + " "   );
               }
             });
-            $( "#amount1" ).val(  $( "#slider-range" ).slider( "values", 0 ) + " هزارتومان"  );
-            $( "#amount2" ).val(  $( "#slider-range" ).slider( "values", 1 ) + " هزارتومان"  );
+            $( "#amount1" ).val(  $( "#slider-range" ).slider( "values", 0 ) + " "  );
+            $( "#amount2" ).val(  $( "#slider-range" ).slider( "values", 1 ) + " "  );
           } );
 
         }
@@ -95,7 +95,7 @@
 
         if($( ".js-player" ).length){
             const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p));
-   
+
         }
 
     $('#sidefilter .filter-wdiget .ftitle i').click(function(){
@@ -291,7 +291,7 @@
         if(a.hasClass('open')){
             var ftime= $(this).data('time');
             var ltime= a.next().data('time');
-            
+
         }else if(b.hasClass('open')){
             var ftime= b.data('time');
             var ltime= a.data('time');
@@ -317,19 +317,19 @@
                        ' <span>رزرو جلسه </span>'+
                     '</div>'+
                '</div>'+
-                
+
             '</div>';
             var e= '<div class="buto">'+
                     '<span>'+ftime+'</span>'+
                     '</div>';
-        
+
         if(a.hasClass('open')){
             parent.append(d);
             $(this).append(e).addClass('act');
         }else if(b.hasClass('open')){
             parent.append(d);
             b.append(e).addClass('act');
-           
+
         }
 
     })
@@ -393,8 +393,8 @@ $('.teacher-nav a[href*="#"]')
   .click(function(event) {
     // On-page links
     if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      &&
       location.hostname == this.hostname
     ) {
       // Figure out element to scroll to
@@ -497,16 +497,23 @@ $(".backtop").click(function () {
         $(this).parent().remove();
     })
 
-    
 
 
-    $('#article-from .add-tag .form .addt').click(function(){
+
+    $("body").on('click','.add_tag',function(){
         var a= $(this).siblings().val();
         var c= $(this).parent().siblings('.result');
-        var b= '<span>'+a+'<i class="icon-close"></i></span>';
-        if (a){
-            c.append(b);
+        var b= `    <span class="tag_s"> <i class="icon-close"></i>${a}
+        <input type="text" name="tags[]" hidden value="${a}">
+        </span>`;
+        console.log( $('.tag_s').length)
+        if(    $('.tag_s').length<=4){
+            if (a){
+                c.append(b);
+            }
         }
+        $('#tag_name').val("")
+
     })
 
     $('body').on('click', '#article-from .add-tag div.result span i', function() {
@@ -523,7 +530,7 @@ $(".backtop").click(function () {
       tinymce.init({
         selector: '#mytextarea',
         theme : "silver",
-        language : "fa_IR",
+        // language : "fa_IR",
         branding: false
       });
 
@@ -531,7 +538,7 @@ $(".backtop").click(function () {
 
 
     if($("input[type='number']").length){
-        
+
      $("input[type='number']").inputSpinner()
     }
 
@@ -571,25 +578,43 @@ $( document ).drag("start",function( ev, dd ){
         });
     $('.hour')
         .drop("start",function(){
-            $( this ).addClass("reservedd");
+            // $( this ).addClass("reservedd");
+            console.log('1')
         })
         .drop(function( ev, dd ){
-            $( this ).toggleClass("open");
+            let el=$(this)
+
+            // $( this ).toggleClass("open");
+            if($(this).hasClass('open')){
+                console.log('a')
+               el.removeClass('open');
+               el.find(".reserve").val(null)
+            }else{
+                el.addClass('open');
+                let time=el.data("time")
+                console.log(time)
+                el.find(".reserve").val(time)
+            }
+            console.log('2')
         })
         .drop("end",function(){
-            $( this ).removeClass("reservedd");
+            // $( this ).removeClass("reservedd");
+            console.log('3')
         });
     $.drop({ multi: true });
 
 
     $('#teacher-clander .cond ul li .hour').click(function(){
-        if($(this).hasClass('open')){
+        let ele=$(this)
+        let time=ele.data("time")
+        if(ele.hasClass('open')){
             console.log('a')
-            $(this).removeClass('open');
+            ele.removeClass('open');
+            ele.find(".reserve").val(null)
         }else{
-            $(this).addClass('open');
-            console.log('b')
-
+            ele.addClass('open');
+            console.log(time)
+            ele.find(".reserve").val(time)
         }
     })
 
@@ -611,12 +636,12 @@ $('.lang-listc input').click(function(){
     // }
 })
 
-$('.lang-listc .lang-list li').click(function(){
-    var a= $(this).find('.top').text();
-    $('.lang-listc input').val(a);
-    $('.lang-listc .lang-list').fadeOut();
+// $('.lang-listc .lang-list li').click(function(){
+//     var a= $(this).find('.top').text();
+//     $('.lang-listc input').val(a);
+//     $('.lang-listc .lang-list').fadeOut();
 
-})
+// })
 
 $('body').click(function(){
     $('.lang-listc .lang-list').fadeOut();

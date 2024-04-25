@@ -21,6 +21,44 @@
                     </a>
                 </li>
 
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::url() == route('resume.index') ? 'active' : '' }}" href="{{ route("resume.index") }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fas fa-business-time"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            resumes
+                        </span>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::url() == route('country.index') ? 'active' : '' }}" href="{{ route("country.index") }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fas fa-flag-usa"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            countries
+                        </span>
+                    </a>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::url() == route('write.index') ? 'active' : '' }}" href="{{ route("write.index") }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fas fa-newspaper"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            write
+                        </span>
+                    </a>
+                </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link {{ Request::url() == route('language.index') ? 'active' : '' }}" href="{{ route("language.index") }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -31,6 +69,8 @@
                         </span>
                     </a>
                 </li>
+
+
 
                 <li class="nav-item">
                     <a class="nav-link {{ Request::url() == route('short.index') ? 'active' : '' }}" href="{{ route("short.index") }}">

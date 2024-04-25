@@ -40,6 +40,12 @@ class HomeController extends Controller
         return view('site.index', compact([]));
     }
 
+    public function teachers()
+    {
+        $languages=Language::where("active_course",1)->get();
+        return view('site.teachers', compact(["languages"]));
+    }
+
     public function register(Request $request)
     {
         if($request->isMethod('post')){

@@ -62,15 +62,70 @@ class User extends Authenticatable
     }
 
     public  function languages(){
-        return $this->belongsToMany(Language::class);
+        return $this->belongsToMany(Language::class)->withPivot(['status',"level"]);
     }
     public  function transactions(){
         return $this->hasMany(Transaction::class);
     }
+    public  function meets(){
+        return $this->hasMany(Meet::class);
+    }
+    public  function student_meets(){
+        return $this->hasMany(Meet::class,'student_id');
+    }
+    public  function posts(){
+        return $this->hasMany(Post::class);
+    }
+    public  function resumes(){
+        return $this->hasMany(Resume::class);
+    }
     public function short($id){
-        return  Cache()->get($id."_".app()->getLocale());
+        $ca=Cache()->get($id."_".app()->getLocale());
+        if(!$ca){
+            $lang=Language::whereLocal(app()->getLocale())->first();
+            $short=Short::find($id);
+            $exist= $short->translates()->where("language_id",$lang->id)->first();
+            if($exist){
+                $ca=$exist->translate;
+                Cache()->put($short->id."_".$lang->local, $ca);
+            }
+        }
+        return $ca ;
     }
     public function balance(){
         return 0;
+    }
+
+
+
+
+    public function attributes(){
+        return $this->hasMany(Attribute::class);
+    }
+    public function attr($name){
+        $name=trim($name);
+        $atr=  $this->hasMany(Attribute::class)->whereName($name)->first();
+        if ($atr){
+            return $atr->value;
+        }
+        return  false;
+    }
+
+    public function save_attr($key,$val){
+        $atr=  $this->hasMany(Attribute::class)->whereName($key)->first();
+
+        if ($atr){
+            $atr->update([
+                'name'=>$key,
+                'value'=>$val,
+            ]);
+            return false;
+        }else{
+            $this->attributes()->create([
+                'name'=>$key,
+                'value'=>$val,
+            ]);
+            return true;
+        }
     }
 }

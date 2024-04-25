@@ -38,7 +38,7 @@ class ShortController extends Controller
         ]);
         $short = Short::create($data);
 
-        alert()->success("New short created successfully");
+        // alert()->success("New short created successfully");
         return redirect()->route("short.index");
     }
 

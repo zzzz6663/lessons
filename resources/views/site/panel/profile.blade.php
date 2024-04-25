@@ -158,7 +158,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="add-language">
+                                        {{--  <div class="add-language">
                                             <div class="label">
                                                 {{ $user->Short(21) }}
 
@@ -168,8 +168,7 @@
                                                 <option {{in_array( $lang->id,$customer->languages->pluck("id")->toArray())? "selected":"" }} value="{{ $lang->id }}">{{ $lang->name }}</option>
                                                 @endforeach
                                             </select>
-                                            {{-- <span class="add"><i class="icon-plus"></i>    {{ $user->Short(22) }}</span> --}}
-                                        </div>
+                                        </div>  --}}
 
                                         <div class="button-container reight full">
                                             <button class="butt">

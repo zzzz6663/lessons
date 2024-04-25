@@ -36,6 +36,14 @@
             </li>  --}}
 
 
+            <li class="{{ Request::url() == route('panel.prices') ? 'active' : '' }}">
+                <a href="{{ route("panel.prices") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(107) }}
+                    </span>
+                </a>
+            </li>
             <li class="{{ Request::url() == route('panel.profile') ? 'active' : '' }}">
                 <a href="{{ route("panel.profile") }}">
                     <i class="icon-dsetting"></i>
@@ -54,6 +62,50 @@
                     </span>
                 </a>
             </li>
+            <li class="{{ Request::url() == route('panel.written') ? 'active' : '' }}">
+                <a href="{{ route("panel.written") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(46) }}
+                    </span>
+                </a>
+            </li>
+            <li class="{{ Request::url() == route('panel.plan') ? 'active' : '' }}">
+                <a href="{{ route("panel.plan") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(67) }}
+                    </span>
+                </a>
+            </li>
+
+            <li class="{{ Request::url() == route('panel.langs') ? 'active' : '' }}">
+                <a href="{{ route("panel.langs") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(83) }}
+                    </span>
+                </a>
+            </li>
+            <li class="{{ Request::url() == route('panel.experts') ? 'active' : '' }}">
+                <a href="{{ route("panel.experts") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(118) }}
+                    </span>
+                </a>
+            </li>
+
+
+            <li class="{{ Request::url() == route('panel.resume') ? 'active' : '' }}">
+                <a href="{{ route("panel.resume") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(93) }}
+                    </span>
+                </a>
+            </li>
+
 
 
             {{--  <li class="{{ Request::url() == route('panel.dashboard') ? 'active' : '' }}"><a href="{{ route("panel.dashboard") }}"><i class="icon-dsetting"></i><span>پیشخوان</span></a></li>  --}}

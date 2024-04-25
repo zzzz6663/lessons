@@ -11,13 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('language_user', function (Blueprint $table) {
+        Schema::create('resumes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('language_id');
+
             $table->unsignedBigInteger('user_id');
-            $table->string('active')->default(1)->nullable();
+            $table->string('title')->nullable();;
+            $table->string('from')->nullable();;
+            $table->string('till')->nullable();;
+            $table->string('type')->nullable();
+            $table->string('publish')->nullable();
+            $table->string('place')->nullable();
             $table->string('status')->nullable();
-            $table->string('level')->nullable();
+            $table->text('info')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('language_user');
+        Schema::dropIfExists('resumes');
     }
 };
