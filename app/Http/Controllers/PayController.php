@@ -40,7 +40,7 @@ class PayController extends Controller
                 "cancelUrl"=>route('pay.cancel'),
             ])->send();
            $data=$response->getData();
-           dd( $data);
+        //    dd( $data);
             if($response->isRedirect()){
                 $customer->transactions()->create([
                     'meet_id'=>null,
@@ -48,7 +48,7 @@ class PayController extends Controller
                     'type'=>"charge_wallet",
                     'status'=>"payed",
                     'currency'=>"usd",
-                    'transactionId'=>time(),
+                    'transactionId'=>$data['id'],
                 ]);
                 $response->redirect();
             }else{
