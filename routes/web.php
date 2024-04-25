@@ -65,6 +65,6 @@ Route::prefix('panel')->middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/send_pay', [PayController::class,"send_pay"])->name('send.pay');
-    Route::get('/pay_result', [PanelController::class,"pay_result"])->name('pay.result');
+    Route::get('/pay_result', [PayController::class,"pay_result"])->name('pay.result');
 });
 
