@@ -33,8 +33,7 @@ class PayController extends Controller
                 "returnUrl"=>route("pay.result"),
                 "cancelUrl"=>route("pay.result"),
             ])->send();
-
-            dd(  gettype($response) );
+            dd(  $response);
             if($response->isRedirect()){
                 $response->redirect();
             }else{
