@@ -30,7 +30,7 @@ class PayController extends Controller
         return view('site.panel.pay_success', compact(['transaction']));
     }
     public function send_pay(Request $request){
-        // سسs
+        // سسsss
         $customer=auth()->user();
         try{
             $response=$this->getway->purchase([
