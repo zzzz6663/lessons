@@ -21,13 +21,13 @@ class PayController extends Controller
     public function send_pay(Request $request){
         // سس
         try{
-
             $response=$this->getway->purchase([
                 'amount'=>$request->amount,
                 'currency'=>'USD',
                 "returnUrl"=>route("pay.result"),
                 "cancelUrl"=>route("pay.result"),
             ])->send();
+            dd(  $response);
             if($response->isRedirect()){
                 $response->redirect();
             }else{
@@ -41,17 +41,13 @@ class PayController extends Controller
     }
 
     public function pay_result(Request $request){
-        // dd($request->all());
+        dd($request->all());
         if($request->input("paymentId") && $request->input("PayerID")){
-
             $transaction = $this->getway->completePurchase(array(
                 'payer_id' => $request->input('PayerID'),
                 'transactionReference' => $request->input('paymentId')
             ));
-
             $response = $transaction->send();
-
-
             if($response->isSuccessful()){
                 $arr=$response->getData();
                 return "pays is  success";
@@ -61,4 +57,10 @@ class PayController extends Controller
         }
 
     }
+
+    public function pay_cancel()
+    {
+        return 'User declined the payment!';
+    }
+
 }

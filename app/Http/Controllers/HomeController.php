@@ -29,6 +29,8 @@ class HomeController extends Controller
         Artisan::call('view:clear');
         Artisan::call('optimize:clear');
         Artisan::call('config:clear');
+        $user=auth()->user();
+        
         return 12;
     }
 

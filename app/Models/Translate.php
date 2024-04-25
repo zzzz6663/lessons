@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Translate extends Model
 {
+
+    // type charge_wallet
+    // status payed
     use HasFactory;
     protected $fillable=[
         'short_id',

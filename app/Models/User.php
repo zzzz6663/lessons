@@ -111,6 +111,18 @@ class User extends Authenticatable
         return  false;
     }
 
+    public function add_charge($amount){
+        $this->transactions()->create([
+            'meet_id'=>null,
+            'amount'=>$amount,
+            'type'=>"charge_wallet",
+            'status'=>"payed",
+            'currency'=>"usd",
+            'transactionId'=>time(),
+        ]);
+
+    }
+    
     public function save_attr($key,$val){
         $atr=  $this->hasMany(Attribute::class)->whereName($key)->first();
 
