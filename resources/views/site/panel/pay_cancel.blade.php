@@ -12,12 +12,16 @@
         </div>
         <div class="title">
             <h3>
+                <span>
+                    {{ $user->short(134) }}
+
+                </span>
                 <img src="/site/images/card.svg" alt="">
-                <span>پرداخت با موفقیت انجام شد</span>
+
             </h3>
         </div>
         <div class="text">
-            <span>شماره سریال پرداختی شما  : </span>
+            <span>{{ $user->short(133) }}  : </span>
             <span>544855542</span>
         </div>
         <div class="button-container reight">
