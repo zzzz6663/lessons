@@ -9,14 +9,14 @@
 
                 </div>
                 <h2 class="page-title">
-                    users
+                    transactions
                 </h2>
             </div>
             <div class="col-lg-9">
-                <form action="{{ route("user.index") }}" method="get">
+                <form action="{{ route("transaction.index") }}" method="get">
                     @csrf
                     @method('get')
-                    <div class="row">
+                    {{--  <div class="row">
                         <div class="col-lg-3">
                             <div class="mb-3">
                                 <label class="form-label">name email (search)</label>
@@ -29,7 +29,7 @@
                                 <input type="submit" class="btn btn-danger" >
                               </div>
                         </div>
-                    </div>
+                    </div>  --}}
                 </form>
             </div>
             <!-- Page title actions -->
@@ -69,35 +69,48 @@
                             <tr>
                                 <th>id</th>
                                 <th>Name</th>
-                                <th>email</th>
-                                <th>registred</th>
+                                <th>type</th>
+                                <th>status</th>
+                                <th>amount</th>
+                                <th>meet</th>
+                                <th>date</th>
                                 <th class="w-1">action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user )
+                            @foreach ($transactions as $transaction )
 
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td class="text-muted">
-                                    {{ $user->name }}
+                                    {{ $transaction->user->name }}
                                 </td>
 
                                 <td class="text-muted">
-                                    {{ $user->email }}
+                                    {{ $transaction->type }}
                                 </td>
 
                                 <td class="text-muted">
-                                    {{ $user->created_at }}
+                                    {{ $transaction->status }}
+                                </td>
+
+                                <td class="text-muted">
+                                    {{ $transaction->amount }}
+                                </td>
+                                <td class="text-muted">
+                                </td>
+
+                                <td class="text-muted">
+                                    {{ $transaction->created_at }}
                                 </td>
 
 
                                 <td>
                                     <div class="d-flex justify-content-between">
-                                        {{--  <a href="#"  class="btn " data-bs-toggle="modal" data-bs-target="#modal-simple{{  $user->id }}">
+                                        {{--  <a href="#"  class="btn " data-bs-toggle="modal" data-bs-target="#modal-simple{{  $transaction->id }}">
                                             Translate
                                         </a>
-                                        <div class="modal modal-blur fade" id="modal-simple{{  $user->id }}" tabindex="-1" style="display: none;" aria-hidden="true">
+                                        <div class="modal modal-blur fade" id="modal-simple{{  $transaction->id }}" tabindex="-1" style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -110,7 +123,7 @@
                                                             <div class="col-lg-6 mb-3">
                                                                 <label class="form-label required">{{ $language->name }}</label>
                                                                 <div>
-                                                                    <input type="text" value="{{ $user->cache($language) }}" name="user" class="form-control translate" data-lang="{{ $language->id }}"  data-user="{{ $user->id }}" value="{{ old("user") }}" aria-describedby="emailHelp" placeholder="Enter translate">
+                                                                    <input type="text" value="{{ $transaction->cache($language) }}" name="transaction" class="form-control translate" data-lang="{{ $language->id }}"  data-transaction="{{ $transaction->id }}" value="{{ old("transaction") }}" aria-describedby="emailHelp" placeholder="Enter translate">
                                                                 </div>
                                                             </div>
                                                             @endforeach
@@ -122,8 +135,8 @@
                                                 </div>
                                             </div>
                                         </div>  --}}
-                                        <a class="btn btn-outline-success ml-1 " href="{{ route("user.show",$user->id) }}">Detail</a>
-                                        {{--  <a class="btn btn-outline-secondary ml-1" href="{{ route("user.show",$user->id) }}">Translate</a>  --}}
+                                        <a class="btn btn-outline-success ml-1 " href="{{ route("transaction.show",$transaction->id) }}">Detail</a>
+                                        {{--  <a class="btn btn-outline-secondary ml-1" href="{{ route("transaction.show",$transaction->id) }}">Translate</a>  --}}
                                     </div>
                                 </td>
                             </tr>

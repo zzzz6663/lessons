@@ -45,6 +45,16 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::url() == route('transaction.index') ? 'active' : '' }}" href="{{ route("transaction.index") }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fas fa-money-check-alt"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            transaction
+                        </span>
+                    </a>
+                </li>
 
 
                 <li class="nav-item">

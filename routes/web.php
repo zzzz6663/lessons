@@ -5,13 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PanelController;
-use App\Http\Controllers\admin\WriteController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ShortController;
+use App\Http\Controllers\admin\WriteController;
 use App\Http\Controllers\admin\ResumeController;
-use App\Http\Controllers\admin\LanguageController;
 use App\Http\Controllers\admin\CountryController;
+use App\Http\Controllers\admin\LanguageController;
+use App\Http\Controllers\admin\TransactionController;
 
 Route::any('/register', [HomeController::class,"register"])->name('register');
 Route::any('/login', [HomeController::class,"login"])->name('login.user');
@@ -33,7 +34,7 @@ Route::prefix('admin')->namespace('admin')->group(function () {
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::post('/translate_short/{short}', [ShortController::class,"translate_short"])->name('translate.short');
     Route::resource('user', UserController::class)->middleware(['role:admin']);
-    Route::resource('Transaction', Transaction::class)->middleware(['role:admin']);
+    Route::resource('transaction', TransactionController::class)->middleware(['role:admin']);
     Route::resource('language', LanguageController::class)->middleware(['role:admin']);
     Route::resource('country', CountryController::class)->middleware(['role:admin']);
     Route::resource('write', WriteController::class)->middleware(['role:admin']);

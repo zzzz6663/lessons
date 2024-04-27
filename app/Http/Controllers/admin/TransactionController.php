@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -13,14 +13,14 @@ class TransactionController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::query();
+        $transactions = Transaction::query();
         $search = $request->search;
-        $users->when($search, function ($query) use ($search) {
+        $transactions->when($search, function ($query) use ($search) {
             $query->where('name', 'LIKE', "%{$search}%")
                 ->orWhere('email', 'LIKE', "%{$search}%");
         });
-        $users = $users->whereRole("customer")->latest()->get();
-        return view("admin.user.all", compact(['users']));
+        $transactions = $transactions->latest()->get();
+        return view("admin.transaction.all", compact(['transactions']));
     }
 
     /**
@@ -42,9 +42,9 @@ class TransactionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(transaction $transaction)
     {
-        return view("admin.user.show", compact(['user']));
+        return view("admin.transaction.show", compact(['transaction']));
     }
 
     /**
