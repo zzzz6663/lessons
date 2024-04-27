@@ -66,6 +66,7 @@ class PayController extends Controller
     public function pay_result(Request $request){
 
         $data=$request->all();
+        dd(  $data);
         $transaction=Transaction::where('transactionId', $data['paymentId'])->first();
         if($request->input("paymentId") && $request->input("PayerID")){
             $transaction = $this->getway->completePurchase(array(
