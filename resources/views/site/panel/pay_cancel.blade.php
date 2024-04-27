@@ -33,6 +33,7 @@
                     <i  style="color:#fff" class="icon-dashboard"></i>
                 </a>
             </div>
+            {{--    --}}
             <div class="call">
                 <a href="{{ route("panel.dashboard") }}"><i class="icon-support"></i><span>    {{ $user->short(136) }}</span></a>
             </div>
