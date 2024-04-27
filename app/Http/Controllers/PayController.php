@@ -66,8 +66,7 @@ class PayController extends Controller
     public function pay_result(Request $request){
 
         $data=$request->all();
-        dd(  $data);
-        $transaction=Transaction::where('transactionId', $data['paymentId'])->first();
+        $tran=Transaction::where('transactionId', $data['paymentId'])->first();
         if($request->input("paymentId") && $request->input("PayerID")){
             $transaction = $this->getway->completePurchase(array(
                 'payer_id' => $request->input('PayerID'),
@@ -76,10 +75,10 @@ class PayController extends Controller
             $response = $transaction->send();
             if($response->isSuccessful()){
                 $arr=$response->getData();
-                $transaction->update(['status'=>"payed"]);
+                $tran->update(['status'=>"payed"]);
                 return redirect()->route('pay.success',['transactionId'=> $data['paymentId']]);
             }else{
-                $transaction->update(['status'=>"failed"]);
+                $tran->update(['status'=>"failed"]);
                 // return $response->getMessage();
                 return redirect()->route('pay.cancel',['transactionId'=> $data['paymentId']]);
             }
