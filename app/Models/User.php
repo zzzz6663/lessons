@@ -93,7 +93,8 @@ class User extends Authenticatable
         return $ca ;
     }
     public function balance(){
-       return $this->transactions()->whereStatus("payed")->sum("amount");
+        //
+       return $this->transactions->whereStatus("payed")->sum("amount");
     }
 
 
