@@ -96,7 +96,7 @@
                                             <label for="p500">
                                                 <div>
                                                     <span>
-                                                        500%
+                                                        500$
                                                     </span>
                                                 </div>
                                             </label>
@@ -108,7 +108,7 @@
                                             <input type="radio" name="pricech" id="p1000" value="1000">
                                             <label for="p1000">
                                                 <div>
-                                                    <span> 1000%
+                                                    <span> 1000$
                                                     </span>
                                                 </div>
                                             </label>
@@ -135,7 +135,7 @@
                                     {{ $user->short(29) }}
                                     :</li>
                                 <li>
-                                    {{ number_format($user->balance()) }}
+                                    {{ number_format($customer->balance()) }} $
                                 </li>
                             </ul>
                         </div>
