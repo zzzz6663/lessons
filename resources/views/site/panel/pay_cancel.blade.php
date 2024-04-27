@@ -28,14 +28,14 @@
                 </span>
             </div>
             <div class="button-container reight">
-                <a class="butt w-320" style="color:#fff"> {{ $user->short(132) }}
+                <a href="{{ route("panel.dashboard") }}" class="butt w-320" style="color:#fff"> {{ $user->short(132) }}
 
                     <i  style="color:#fff" class="icon-dashboard"></i>
                 </a>
             </div>
             {{--    --}}
             <div class="call">
-                <a href="{{ route("panel.dashboard") }}"><i class="icon-support"></i><span>    {{ $user->short(136) }}</span></a>
+                <a href=""><i class="icon-support"></i><span>    {{ $user->short(136) }}</span></a>
             </div>
         </div>
     </div>

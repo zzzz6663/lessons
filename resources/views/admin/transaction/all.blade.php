@@ -135,7 +135,7 @@
                                                 </div>
                                             </div>
                                         </div>  --}}
-                                        <a class="btn btn-outline-success ml-1 " href="{{ route("transaction.show",$transaction->id) }}">Detail</a>
+                                        {{--  <a class="btn btn-outline-success ml-1 " href="{{ route("transaction.show",$transaction->id) }}">Detail</a>  --}}
                                         {{--  <a class="btn btn-outline-secondary ml-1" href="{{ route("transaction.show",$transaction->id) }}">Translate</a>  --}}
                                     </div>
                                 </td>

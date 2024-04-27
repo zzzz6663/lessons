@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Resume;
 use App\Models\Language;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -289,8 +290,12 @@ class PanelController extends Controller
                 ''
             ]));
         }
+        $transactions=Transaction::query();
+        $transactions->where("user_id",$customer->id);
+        $transactions->whereStatus("payed");
+        $transactions= $transactions->latest()->get();
 
-        return view('site.panel.financial', compact(['customer']));
+        return view('site.panel.financial', compact(['customer',"transactions"]));
     }
     public function profile(Request $request)
     {
