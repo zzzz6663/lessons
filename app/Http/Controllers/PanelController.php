@@ -87,20 +87,6 @@ class PanelController extends Controller
             'meet_id' => $meet->id,
             'start' => $meet->start,
         ]);
-        $meet_next->update([
-            'pair' => null,
-            'price' => null,
-            'student_id' => null,
-            'status' => "no_reserved",
-            'edit' => Carbon::now(),
-        ]);
-        $meet->update([
-            'pair' => null,
-            'price' => null,
-            'student_id' => null,
-            'status' => "no_reserved",
-            'edit' => Carbon::now(),
-        ]);
 
         $paymentId = $meet->id . '_' . $student->id . '_' . time();
         $dd = $student->transactions()->create([
@@ -123,6 +109,20 @@ class PanelController extends Controller
             'status' => "payed",
             'currency' => "usd",
             'transactionId' => $paymentId,
+        ]);
+        $meet_next->update([
+            'pair' => null,
+            'price' => null,
+            'student_id' => null,
+            'status' => "no_reserved",
+            'edit' => Carbon::now(),
+        ]);
+        $meet->update([
+            'pair' => null,
+            'price' => null,
+            'student_id' => null,
+            'status' => "no_reserved",
+            'edit' => Carbon::now(),
         ]);
 
 
