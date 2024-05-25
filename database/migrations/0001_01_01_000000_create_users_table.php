@@ -17,8 +17,9 @@ return new class extends Migration
             $table->string('family')->nullable();
             $table->unsignedBigInteger('country_id')->nullable();
             $table->string('role')->nullable();
-            $table->string('avatar')->nullable();;
-            $table->string('video')->nullable();;
+            $table->string('cover',50)->nullable();;
+            $table->string('avatar',50)->nullable();;
+            $table->string('video',50)->nullable();;
             $table->string('username',50)->nullable()->unique();
             $table->string('gender',10)->nullable();
             $table->string('test_session_status',30)->nullable();
@@ -26,8 +27,17 @@ return new class extends Migration
             $table->string('price_1_session',30)->nullable();
             $table->string('price_5_session',30)->nullable();
             $table->string('price_10_session',30)->nullable();
+            $table->string('display',10)->nullable();
+            $table->string('teaher',10)->nullable();
+
+
+            $table->string('seen',30)->nullable();
+            $table->string('port_img',30)->nullable();
+            $table->string('port_vid',30)->nullable();
+            $table->string('active_profile',10)->nullable();
             $table->string('bio',1500)->nullable();
             $table->string('email')->unique();
+            $table->timestamp('confirm')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

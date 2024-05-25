@@ -70,6 +70,9 @@
                                 <th>id</th>
                                 <th>Name</th>
                                 <th>email</th>
+                                <th>role</th>
+                                <th>display in  list</th>
+                                <th>confirm as teacher</th>
                                 <th>registred</th>
                                 <th class="w-1">action</th>
                             </tr>
@@ -80,6 +83,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td class="text-muted">
+                                    {{ $user->id }}
                                     {{ $user->name }}
                                 </td>
 
@@ -87,6 +91,17 @@
                                     {{ $user->email }}
                                 </td>
 
+                                <td class="text-muted">
+                                    {{ $user->role }}
+                                </td>
+
+                                <td class="text-muted">
+                                    <i class="fa-solid text text-{{ $user->display?"success":"danger" }} fa-{{ $user->display?"badge-check":"shield-xmark" }}"></i>
+                                </td>
+
+                                <td class="text-muted">
+                                    <i class="fa-solid text text-{{ $user->confirm?"success":"danger" }} fa-{{ $user->confirm?"badge-check":"shield-xmark" }}"></i>
+                                </td>
                                 <td class="text-muted">
                                     {{ $user->created_at }}
                                 </td>
@@ -123,7 +138,7 @@
                                             </div>
                                         </div>  --}}
                                         <a class="btn btn-outline-success ml-1 " href="{{ route("user.show",$user->id) }}">Detail</a>
-                                        {{--  <a class="btn btn-outline-secondary ml-1" href="{{ route("user.show",$user->id) }}">Translate</a>  --}}
+                                        <a class="btn btn-outline-secondary ml-1" href="{{ route("user.edit",$user->id) }}">edit</a>
                                     </div>
                                 </td>
                             </tr>

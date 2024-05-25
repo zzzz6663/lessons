@@ -36,13 +36,17 @@ class AdminController extends Controller
         $user = auth()->user();
         $setting=new Setting();
         if( $request->isMethod('post')){
-            if($request->setting){
                 $data=$request->validate([
                     'max_price'=>"required",
                     'min_price'=>"required",
-                    'max_price'=>"required",
+                    'site_share'=>"required",
                 ]);
-            }
+                foreach( $data as $key=>$val){
+                    $setting=  $setting->whereName($key)->first();
+                    $setting->update(["val"=>$data[$key]]);
+                }
+                toast()->success("all data saved successfully");
+                return redirect()->route("setting.site");
         }
         return view('admin.setting.all',compact(['setting']));
     }

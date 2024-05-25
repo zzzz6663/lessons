@@ -83,7 +83,10 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td class="text-muted">
+                                    @if( $transaction->user)
                                     {{ $transaction->user->name }}
+
+                                    @endif
                                 </td>
 
                                 <td class="text-muted">

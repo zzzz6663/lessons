@@ -154,6 +154,7 @@
                         <form id="pay" action="{{ route("send.pay") }}" method="post">
                             @csrf
                             @method('post')
+                            <input type="text" name="type" value="charg_wallet">
                             <div class="button-container reight gray ">
                                 <button class="butt w-320"><i class="icon-charg"></i>
                                     {{ $user->short(31) }}</button>
@@ -207,21 +208,29 @@
                         <div class="left">
                             <span class="title"> {{ $user->short(37) }} :</span>
                             <ul class="oredering">
-                                <li><span>
-                                        {{ $user->short(38) }}
-                                    </span></li>
-                                <li><span>
+                                <li>
+                                    <a class="{{ request("type")==""?"acb":"" }}"  href="{{ route("panel.financial") }}">
+                                        <span>
+                                            {{ $user->short(38) }}
+                                        </span>
+                                    </a>
 
-                                        {{ $user->short(39) }}
+                                </li>
+                                <li>
+                                    <a class="{{ request("type")=="charge_wallet"?"acb":"" }}"  href="{{ route("panel.financial",['type'=>"charge_wallet"]) }}">
+                                        <span>
+                                            {{ $user->short(31) }}
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="{{ request("type")=="reserve_class"?"acb":"" }}" href="{{ route("panel.financial",['type'=>"reserve_class"]) }}">
+                                        <span>
+                                            {{ $user->short(152) }}
+                                        </span>
+                                    </a>
+                                </li>
 
-                                    </span></li>
-                                <li class="active"><span>
-                                        {{ $user->short(40) }}
-
-                                    </span></li>
-                                <li><span>
-                                        {{ $user->short(41) }}
-                                    </span></li>
                             </ul>
                         </div>
                     </div>
@@ -262,7 +271,7 @@
                                     </td>
                                     <td class="text-muted">
                                     </td>
-                                 
+
                                 </tr>
                                 @endforeach
 

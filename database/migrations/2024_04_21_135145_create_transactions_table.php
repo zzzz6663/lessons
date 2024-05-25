@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('meet_id')->default(null);
+            $table->string('class_type');
             $table->string('amount');
             $table->string('transactionId');
             $table->string('type');
+            $table->string('via')->nullable();
             $table->string('status')->default('created');
             $table->string('currency')->default('usd');
             $table->timestamps();

@@ -27,10 +27,9 @@
                 @method('post')
 
                 <div class="expert-section">
-                    <h4>سطوح تدریس</h4>
+                    <h4> {{ $user->short(165) }}</h4>
                     <div class="forsm">
                         <div class="ra row">
-
                             <div class="col-lg-4 col-md-12">
                                 <div>
                                     <div class="lable-container" style="line-height: 50px">
@@ -38,7 +37,7 @@
                                         <input type="checkbox" {{($customer->attr('Starter'))?'checked':''}} id="Starter" name="Starter">
                                         <label class="key" for="Starter">
                                             <div class="right">
-                                                <span> Starter</span>
+                                                <span> {{ $user->short(166) }}</span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -49,7 +48,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-lg-4 col-md-12">
                                 <div>
                                     <div class="lable-container" style="line-height: 50px">
@@ -57,7 +55,7 @@
                                         <input type="checkbox" {{($customer->attr('Elementary'))?'checked':''}} id="Elementary" name="Elementary">
                                         <label class="key" for="Elementary">
                                             <div class="right">
-                                                <span> Elementary</span>
+                                                <span> {{ $user->short(167) }}</span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -75,7 +73,7 @@
                                         <input type="checkbox" {{($customer->attr('Intermediate'))?'checked':''}} id="Intermediate" name="Intermediate">
                                         <label class="key" for="Intermediate">
                                             <div class="right">
-                                                <span> Intermediate</span>
+                                                <span> {{ $user->short(168) }}</span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -95,7 +93,9 @@
                                         <label class="key" for="Upper_intermediate">
 
                                             <div class="right">
-                                                <span> Upper intermediate</span>
+                                                <span>
+                                                    {{ $user->short(169) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -115,7 +115,9 @@
                                         <label class="key" for="Advanced">
 
                                             <div class="right">
-                                                <span> Advanced</span>
+                                                <span>
+                                                    {{ $user->short(170) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -135,7 +137,8 @@
                                         <label class="key" for="Mastery">
 
                                             <div class="right">
-                                                <span> Mastery</span>
+
+                                                <span> {{ $user->short(171) }}</span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -154,7 +157,9 @@
 
 
                 <div class="expert-section">
-                    <h4>لهجه مدرس</h4>
+                    <h4>
+                        {{ $user->short(239) }}
+                    </h4>
                     <div class="forsm">
                         <div class="ra row">
                             <div class="col-lg-4 col-md-12">
@@ -165,7 +170,10 @@
                                         <label class="key" for="American_Accent">
 
                                             <div class="right">
-                                                <span> American Accent</span>
+
+                                                <span>
+                                                    {{ $user->short(172) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -185,7 +193,10 @@
                                         <label class="key" for="British_Accent">
 
                                             <div class="right">
-                                                <span> British Accent</span>
+
+                                                <span>
+                                                    {{ $user->short(173) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -205,7 +216,11 @@
                                         <label class="key" for="Australian_Accent">
 
                                             <div class="right">
-                                                <span> Australian Accent</span>
+
+                                                <span>
+                                                    {{ $user->short(174) }}
+
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -225,7 +240,11 @@
                                         <label class="key" for="Indian_Accent">
 
                                             <div class="right">
-                                                <span> Indian Accent</span>
+
+                                                <span>
+
+                                                    {{ $user->short(175) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -245,7 +264,10 @@
                                         <label class="key" for="Irish_Accent">
 
                                             <div class="right">
-                                                <span> Irish Accent</span>
+
+                                                <span>
+                                                    {{ $user->short(176) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -265,7 +287,11 @@
                                         <label class="key" for="Scottish_Accent">
 
                                             <div class="right">
-                                                <span> Scottish Accent</span>
+
+                                                <span>
+
+                                                    {{ $user->short(177) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -285,7 +311,10 @@
                                         <label class="key" for="South_African_Accent">
 
                                             <div class="right">
-                                                <span> South African Accent</span>
+
+                                                <span>
+                                                    {{ $user->short(178) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -302,7 +331,11 @@
                 </div>
 
                 <div class="expert-section">
-                    <h4>سن</h4>
+                    <h4>
+
+
+                        {{ $user->short(238) }}
+                    </h4>
                     <div class="forsm">
                         <div class="ra row">
                             <div class="col-lg-4 col-md-12">
@@ -313,7 +346,11 @@
                                         <label class="key" for="Children_(4-11)">
 
                                             <div class="right">
-                                                <span> Children (4-11)</span>
+
+                                                <span>
+
+                                                    {{ $user->short(179) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -333,7 +370,10 @@
                                         <label class="key" for="Teenagers_(12-18)">
 
                                             <div class="right">
-                                                <span> Teenagers (12-18)</span>
+
+                                                <span>
+                                                    {{ $user->short(180) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -353,7 +393,10 @@
                                         <label class="key" for="Adults_(18+)">
 
                                             <div class="right">
-                                                <span> Adults (18+)</span>
+
+                                                <span>
+                                                    {{ $user->short(181) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -370,7 +413,11 @@
                 </div>
 
                 <div class="expert-section">
-                    <h4>کلاس شامل چه مواردی میشود</h4>
+                    <h4>
+                        {{ $user->short(237) }}
+
+
+                    </h4>
                     <div class="forsm">
                         <div class="ra row">
                             <div class="col-lg-4 col-md-12">
@@ -381,7 +428,11 @@
                                         <label class="key" for="Curriculum">
 
                                             <div class="right">
-                                                <span> Curriculum</span>
+
+                                                <span>
+                                                    {{ $user->short(182) }}
+
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -401,7 +452,11 @@
                                         <label class="key" for="Homework">
 
                                             <div class="right">
-                                                <span> Homework</span>
+
+                                                <span>
+
+                                                    {{ $user->short(183) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -421,7 +476,10 @@
                                         <label class="key" for="Learning_Materials">
 
                                             <div class="right">
-                                                <span> Learning Materials</span>
+
+                                                <span>
+                                                    {{ $user->short(184) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -441,7 +499,10 @@
                                         <label class="key" for="Writing_Exercises">
 
                                             <div class="right">
-                                                <span> Writing Exercises</span>
+
+                                                <span>
+                                                    {{ $user->short(185) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -461,7 +522,10 @@
                                         <label class="key" for="Lesson_Plans">
 
                                             <div class="right">
-                                                <span> Lesson Plans</span>
+
+                                                <span>
+                                                    {{ $user->short(186) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -481,7 +545,10 @@
                                         <label class="key" for="Proficiency_Assessment">
 
                                             <div class="right">
-                                                <span> Proficiency Assessment</span>
+
+                                                <span>
+                                                    {{ $user->short(187) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -501,7 +568,10 @@
                                         <label class="key" for="Quizzes">
 
                                             <div class="right">
-                                                <span> Quizzes </span>
+
+                                                <span>
+                                                    {{ $user->short(188) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -520,7 +590,11 @@
                                         <label class="key" for="Tests">
 
                                             <div class="right">
-                                                <span>   Tests</span>
+
+                                                <span>
+
+                                                    {{ $user->short(189) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -540,7 +614,11 @@
                                         <label class="key" for="Reading_Exercises">
 
                                             <div class="right">
-                                                <span> Reading Exercises</span>
+
+                                                <span>
+                                                    {{ $user->short(190) }}
+
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -557,7 +635,10 @@
                 </div>
 
                 <div class="expert-section">
-                    <h4>موضوعات</h4>
+                    <h4>
+                        {{ $user->short(236) }}
+
+                    </h4>
                     <div class="forsm">
                         <div class="ra row">
                             <div class="col-lg-4 col-md-12">
@@ -568,7 +649,10 @@
                                         <label class="key" for="Business_English">
 
                                             <div class="right">
-                                                <span> Business English</span>
+
+                                                <span>
+                                                    {{ $user->short(191) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -588,7 +672,10 @@
                                         <label class="key" for="Interview_Preparation">
 
                                             <div class="right">
-                                                <span> Interview Preparation</span>
+
+                                                <span>
+                                                    {{ $user->short(192) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -608,7 +695,10 @@
                                         <label class="key" for="Reading_Comprehension">
 
                                             <div class="right">
-                                                <span> Reading Comprehension</span>
+
+                                                <span>
+                                                    {{ $user->short(193) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -628,7 +718,10 @@
                                         <label class="key" for="Listening_Comprehension">
 
                                             <div class="right">
-                                                <span> Listening Comprehension</span>
+
+                                                <span>
+                                                    {{ $user->short(194) }}
+                                                    </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -648,7 +741,10 @@
                                         <label class="key" for="Speaking_Practice">
 
                                             <div class="right">
-                                                <span> Speaking Practice</span>
+
+                                                <span>
+                                                    {{ $user->short(195) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -668,7 +764,9 @@
                                         <label class="key" for="Writing_Correction">
 
                                             <div class="right">
-                                                <span> Writing Correction</span>
+                                                <span>
+                                                    {{ $user->short(196) }}
+                                                    </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -688,7 +786,10 @@
                                         <label class="key" for="Vocabulary_Development">
 
                                             <div class="right">
-                                                <span> Vocabulary Development</span>
+                                                <span>
+                                                    {{ $user->short(170) }}
+
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -708,7 +809,10 @@
                                         <label class="key" for="Grammar_Development">
 
                                             <div class="right">
-                                                <span> Grammar Development</span>
+                                                <span>
+                                                    {{ $user->short(198) }}
+
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -728,7 +832,9 @@
                                         <label class="key" for="Academic_English">
 
                                             <div class="right">
-                                                <span> Academic English</span>
+                                                <span>
+                                                    {{ $user->short(199) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -748,7 +854,10 @@
                                         <label class="key" for="Accent_Reduction">
 
                                             <div class="right">
-                                                <span> Accent Reduction</span>
+                                                <span>
+                                                    {{ $user->short(200) }}
+
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -768,7 +877,9 @@
                                         <label class="key" for="Phonetics">
 
                                             <div class="right">
-                                                <span> Phonetics</span>
+                                                <span>
+                                                    {{ $user->short(201) }}
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -788,7 +899,10 @@
                                         <label class="key" for="Colloquial_English">
 
                                             <div class="right">
-                                                <span> Colloquial English</span>
+                                                <span>
+                                                    {{ $user->short(202) }}
+
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -800,7 +914,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4 col-md-12">
+                            {{--  <div class="col-lg-4 col-md-12">
                                 <div>
                                     <div class="lable-container" style="line-height: 50px">
                                         <input type="text" hidden value="0" name="Phonetics">
@@ -808,7 +922,10 @@
                                         <label class="key" for="Phonetics">
 
                                             <div class="right">
-                                                <span> Phonetics</span>
+                                                <span>
+                                                    {{ $user->short(203) }}
+
+                                                </span>
                                             </div>
                                             <div class="left">
                                                 <div class="toggle">
@@ -818,7 +935,7 @@
                                         </label>
                                     </div>
                                 </div>
-                            </div>
+                            </div>  --}}
 
                         </div>
                     </div>
@@ -830,12 +947,18 @@
 
 
                 <div class="expert-section">
-                    <h4>آمادگی برای آزمون</h4>
+                    <h4>
+
+                        {{ $user->short(234) }}
+                    </h4>
                     <div class="forsm">
                         <div class="ra ">
                             <br>
                             <br>
-                            <h3>انگلیسی:</h3>
+                            <h3>
+                                {{ $user->short(235) }}
+
+                                :</h3>
 
                             <div class="row">
 
@@ -848,7 +971,10 @@
                                             <label class="key" for="TOEFL">
 
                                                 <div class="right">
-                                                    <span> TOEFL</span>
+                                                    <span>
+                                                        {{ $user->short(204) }}
+
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -868,7 +994,10 @@
                                             <label class="key" for="IELTS">
 
                                                 <div class="right">
-                                                    <span> IELTS</span>
+                                                    <span>
+                                                        {{ $user->short(205) }}
+
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -888,7 +1017,10 @@
                                             <label class="key" for="PTE">
 
                                                 <div class="right">
-                                                    <span> PTE</span>
+                                                    <span>
+                                                        {{ $user->short(206) }}
+
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -908,7 +1040,11 @@
                                             <label class="key" for="GRE">
 
                                                 <div class="right">
-                                                    <span> GRE</span>
+
+                                                    <span>
+
+                                                        {{ $user->short(207) }}
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -928,7 +1064,10 @@
                                             <label class="key" for="CELPIP">
 
                                                 <div class="right">
-                                                    <span> CELPIP</span>
+
+                                                    <span>
+                                                        {{ $user->short(208) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -948,7 +1087,10 @@
                                             <label class="key" for="Duolingo">
 
                                                 <div class="right">
-                                                    <span> Duolingo</span>
+                                                    <span>
+                                                        {{ $user->short(209) }}
+
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -968,7 +1110,10 @@
                                             <label class="key" for="TOEIC">
 
                                                 <div class="right">
-                                                    <span> TOEIC</span>
+
+                                                    <span>
+                                                        {{ $user->short(210) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -988,7 +1133,10 @@
                                             <label class="key" for="KET">
 
                                                 <div class="right">
-                                                    <span> KET</span>
+
+                                                    <span>
+                                                        {{ $user->short(211) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1008,7 +1156,10 @@
                                             <label class="key" for="PET">
 
                                                 <div class="right">
-                                                    <span> PET</span>
+
+                                                    <span>
+                                                        {{ $user->short(212) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1028,7 +1179,10 @@
                                             <label class="key" for="CAE">
 
                                                 <div class="right">
-                                                    <span> CAE</span>
+
+                                                    <span>
+                                                        {{ $user->short(213) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1048,7 +1202,11 @@
                                             <label class="key" for="FCE">
 
                                                 <div class="right">
-                                                    <span> FCE</span>
+
+                                                    <span>
+                                                        {{ $user->short(214) }}
+
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1068,7 +1226,10 @@
                                             <label class="key" for="CPE">
 
                                                 <div class="right">
-                                                    <span> CPE</span>
+
+                                                    <span>
+                                                        {{ $user->short(215) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1088,7 +1249,10 @@
                                             <label class="key" for="BEC">
 
                                                 <div class="right">
-                                                    <span> BEC</span>
+                                                    <span>
+                                                        {{ $user->short(216) }}
+
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1110,7 +1274,10 @@
                                             <label class="key" for="TOEFLPhD">
 
                                                 <div class="right">
-                                                    <span> TOEFL PhD</span>
+
+                                                    <span>
+                                                        {{ $user->short(217) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1125,7 +1292,9 @@
                                 <br>
                             </div>
                             <div class="clr"></div>
-                            <h3>فرانسه:</h3>
+                            <h3>
+                                {{ $user->short(234) }}
+                                :</h3>
 
                             <div class="row">
                                 <div class="col-lg-4 col-md-12">
@@ -1136,7 +1305,11 @@
                                             <label class="key" for="TCF">
 
                                                 <div class="right">
-                                                    <span> TCF</span>
+
+                                                    <span>
+
+                                                        {{ $user->short(218) }}
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1156,7 +1329,10 @@
                                             <label class="key" for="TEF">
 
                                                 <div class="right">
-                                                    <span> TEF</span>
+
+                                                    <span>
+                                                        {{ $user->short(219) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1176,7 +1352,11 @@
                                             <label class="key" for="DELF">
 
                                                 <div class="right">
-                                                    <span> DELF</span>
+                                                    <span>
+                                                        {{ $user->short(220) }}
+
+
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1196,7 +1376,11 @@
                                             <label class="key" for="DALF">
 
                                                 <div class="right">
-                                                    <span> DALF</span>
+
+                                                    <span>
+
+                                                        {{ $user->short(221) }}
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1212,7 +1396,9 @@
                             </div>
                             <div class="clr"></div>
 
-                            <h3>آلمانی:</h3>
+                            <h3>
+                                {{ $user->short(232) }}
+                                :</h3>
 
                             <div class="row">
                                 <div class="col-lg-4 col-md-12">
@@ -1223,7 +1409,10 @@
                                             <label class="key" for="Goethe">
 
                                                 <div class="right">
-                                                    <span> Goethe</span>
+
+                                                    <span>
+                                                        {{ $user->short(222) }}
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1243,7 +1432,9 @@
                                             <label class="key" for="Telc">
 
                                                 <div class="right">
-                                                    <span> Telc</span>
+                                                    <span>
+                                                        {{ $user->short(223) }}
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1263,7 +1454,12 @@
                                             <label class="key" for="Test_Daf">
 
                                                 <div class="right">
-                                                    <span> Test Daf</span>
+
+                                                    <span>
+                                                         {{ $user->short(224) }}
+
+
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1283,7 +1479,11 @@
                                             <label class="key" for="OSD">
 
                                                 <div class="right">
-                                                    <span> OSD</span>
+                                                    <span>
+                                                        {{ $user->short(225) }}
+
+
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1299,7 +1499,11 @@
                             </div>
                             <div class="clr"></div>
 
-                            <h3>ترکی استانبولی:</h3>
+                            <h3>
+
+
+                                {{ $user->short(231) }}
+                                :</h3>
 
                             <div class="row">
                                 <div class="col-lg-4 col-md-12">
@@ -1310,7 +1514,10 @@
                                             <label class="key" for="TOMER">
 
                                                 <div class="right">
-                                                    <span> TOMER</span>
+
+                                                    <span>
+                                                        {{ $user->short(226) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1330,7 +1537,10 @@
                                             <label class="key" for="TYS">
 
                                                 <div class="right">
-                                                    <span> TYS</span>
+
+                                                    <span>
+                                                        {{ $user->short(227) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1346,7 +1556,9 @@
                             </div>
                             <div class="clr"></div>
 
-                            <h3>اسپانیایی:</h3>
+                            <h3>
+                                {{ $user->short(230) }}
+                                :</h3>
 
                             <div class="row">
                                 <div class="col-lg-4 col-md-12">
@@ -1357,7 +1569,11 @@
                                             <label class="key" for="DELE">
 
                                                 <div class="right">
-                                                    <span> DELE</span>
+
+                                                    <span>
+                                                        {{ $user->short(228) }}
+
+                                                    </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1377,7 +1593,10 @@
                                             <label class="key" for="SIELE">
 
                                                 <div class="right">
-                                                    <span> SIELE</span>
+
+                                                    <span>
+                                                        {{ $user->short(229) }}
+                                                        </span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="toggle">
@@ -1403,7 +1622,7 @@
                     <div class="col-lg-12">
                         <div>
                             <div class="button-container reight">
-                                <input type="submit" value="ثبت" class="bt fln">
+                                <input type="submit" value="           {{ $user->short(23) }}" class="bt fln">
 
                             </div>
 

@@ -60,14 +60,16 @@
 
                 <div class="profile-setting">
                     <div class="cover">
-                        <img src="/site/images/cover.png" alt="">
-                        <form action="">
+                        <img src="{{ $customer->cover()?$customer->cover():"/site/images/cover.png" }}" alt="" class="cover_im">
+                        <form action="{{ route("panel.update.cover") }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('post')
                             <div class="lable-container">
-                                <input id="cover-file" type="file">
+                                <input id="cover-file" type="file"   accept="image/*" class="form_su1" name="cover">
+
                                 <label for="cover-file">
                                     <i class="icon-info"></i>
                                     <span>
-
                                         {{ $user->Short(16) }}
                                     </span>
                                 </label>
@@ -75,13 +77,13 @@
                         </form>
 
                     </div>
-
                     <div class="profile-pic">
-                        <img src="/site/images/person4.jpg" alt="">
-
-                        <form action="">
+                        <img src="{{ $customer->avatar()?$customer->avatar():"/site/images/person4.jpg" }}" alt="">
+                        <form action="{{ route("panel.update.avatar") }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            @method('post')
                             <div class="lable-container">
-                                <input id="profile-file" type="file">
+                                <input id="profile-file" type="file"   accept="image/*" class="form_su" name="avatar">
                                 <label for="profile-file">
                                     <i class="icon-info"></i>
                                 </label>
@@ -99,7 +101,6 @@
                                         @csrf
                                         @method('post')
                                         @include('master.error')
-
                                         <div class="input-container fill">
                                             <label for="">
                                                 {{ $user->Short(4) }}
@@ -216,7 +217,7 @@
                                     {{--  <div class="input-container fill">
                                         <label for="">کلمه عبور فعلی</label>
                                         <i class="icon-key"></i>
-                                        <input type="text" placeholder="‏">
+                                        <input type="text" placeholder="">
                                     </div>  --}}
 
                                     <div class="input-container fill">
@@ -224,7 +225,7 @@
                                             {{ $user->short(26) }}
                                         </label>
                                         <i class="icon-lock"></i>
-                                        <input type="text" name="password" placeholder="‏">
+                                        <input type="text" name="password" placeholder="">
                                     </div>
 
                                     <div class="input-container fill">
@@ -232,7 +233,7 @@
                                             {{ $user->short(7) }}
                                         </label>
                                         <i class="icon-lock"></i>
-                                        <input type="text"  name="password_confirmation"  placeholder="‏">
+                                        <input type="text"  name="password_confirmation"  placeholder="">
                                     </div>
 
                                     <div class="button-container reight">

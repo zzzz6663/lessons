@@ -19,7 +19,7 @@ class UserController extends Controller
             $query->where('name', 'LIKE', "%{$search}%")
                 ->orWhere('email', 'LIKE', "%{$search}%");
         });
-        $users = $users->whereRole("customer")->latest()->get();
+        $users = $users->whereIn("role",['student','teacher'])->latest()->get();
         return view("admin.user.all", compact(['users']));
     }
 
@@ -50,17 +50,23 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( User $user)
     {
-        //
+        return view("admin.user.edit", compact(['user']));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $user)
     {
-        //
+      $data=$request->validate([
+        'name'=>"required",
+        'confirm'=>"nullable",
+      ]);
+      $user->update($data);
+      toast()->success("all data saved successfully");
+      return redirect()->route('user.index');
     }
 
     /**

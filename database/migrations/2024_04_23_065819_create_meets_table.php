@@ -21,8 +21,10 @@ return new class extends Migration
             $table->unsignedBigInteger('transaction_id')->nullable();
             $table->unsignedBigInteger('price')->nullable();
             $table->string('type')->default('pay');
-            $table->string('t_click')->nullable();
-            $table->string('s_click')->nullable();
+            $table->timestamp('edit')->nullable();
+            $table->timestamp('cancel')->nullable();
+            $table->timestamp('t_click')->nullable();
+            $table->timestamp('s_click')->nullable();
             $table->string('canceled')->nullable();
             $table->string('status')->default('free')->nullable();
             $table->string('pair')->nullable();

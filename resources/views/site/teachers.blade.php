@@ -42,7 +42,7 @@
                                 <input type="checkbox" name="languege" id="{{ $language->name }}" value="{{ $language->id }}">
                                 <label for="{{ $language->name }}">
                                     <div class="right">
-                                        <img  class="flag" src="{{ $language->flag() }}" alt="">
+                                        <img class="flag" src="{{ $language->flag() }}" alt="">
                                     </div>
                                     <div class="left">
                                         <span class="top">{{ $language->name }}</span>
@@ -78,21 +78,21 @@
 
                 <div id="slider-range"></div>
                 <p>
-                  <span class="left">
-                    {{ $user->short(124) }}
-                      <input type="text" id="amount1" readonly>
-                  </span>
-                  <span class="right">
+                    <span class="left">
+                        {{ $user->short(124) }}
+                        <input type="text" id="amount1" readonly>
+                    </span>
+                    <span class="right">
 
-                      {{ $user->short(125) }}
-                  <input type="text" id="amount2" readonly>
-                  </span>
+                        {{ $user->short(125) }}
+                        <input type="text" id="amount2" readonly>
+                    </span>
                 </p>
                 <div class="avr">
                     <span> ميانگين قيمت :</span>
                     <span class="pr"> </span>
                 </div>
-                {{--  <div class="send">
+                {{-- <div class="send">
                     <span class="btn">اعمال</span>
                 </div>  --}}
             </div>
@@ -108,7 +108,7 @@
     <div class="filter-wdiget">
         <div class="ftitle">
             <i class="icon-up"></i>
-            <span>      {{ $user->short(126) }}</span>
+            <span> {{ $user->short(126) }}</span>
         </div>
         <div class="f-content">
             <div class="show">
@@ -193,7 +193,7 @@
                             <label for="female">
                                 <div class="right">
                                     <i class="icon-female"></i>
-                                    <span>         {{ $user->short(131) }}</span>
+                                    <span> {{ $user->short(131) }}</span>
                                 </div>
                                 <div class="left">
                                     <div class="toggle">
@@ -576,23 +576,31 @@
             <form action="">
                 <span class="butt"><i class="icon-search"></i></span>
                 <span class="close"><i class="icon-close"></i></span>
-                <input type="text" placeholder="جست وجو براساس زبان، نام مدرس و ...">
+                <input type="text" placeholder="        {{ $user->short(142) }} ">
             </form>
 
         </div>
         <div class="left">
-            <span class="title">نمایش  :</span>
+            <span class="title">
+                {{ $user->short(137) }}
+                :</span>
             <ul class="oredering">
-                <li><span>همه</span></li>
-                <li><span>ارزان ترین</span></li>
-                <li><span>گران ترین</span></li>
-                <li class="active"><span>پر سابقه</span></li>
-                <li><span>محبوبیت</span></li>
+                <li><span> {{ $user->short(38) }}</span></li>
+                <li><span>
+                        {{ $user->short(138) }}
+                    </span></li>
+                <li><span> {{ $user->short(139) }}</span></li>
+                <li class="active"><span>
+                        {{ $user->short(140) }}
+                    </span></li>
+                <li><span>
+                        {{ $user->short(141) }}
+                    </span></li>
             </ul>
         </div>
     </div>
 
-
+    {{--
     <div id="forsat" class="shade">
         <div class="right">
             <h4>این یک فرصت طلایی است</h4>
@@ -607,133 +615,20 @@
         <div class="left">
             <img src="/site/images/forsat.png" alt="">
         </div>
-    </div>
+    </div>  --}}
 
     <div class="teachers-list">
-
-        <div class="single-teacher shade">
-            <div class="rowd">
-                <div class="teacher-right">
-                    <div>
-
-                        <div class="teacher-det">
-                            <div class="det-r">
-
-                                <div class="tlinks">
-                                    <a href="#" class="reserv">رزرو جلسه رایگان</a>
-                                </div>
-
-                                <div class="img">
-                                    <span class="like"><i class="icon-heart"></i></span>
-
-                                    <img src="/site/images/teacher.jpg" alt="">
-                                </div>
-
-                                <ul>
-                                    <li class="name">
-                                        <span>امير شريفی</span>
-                                    </li>
-                                    <li class="ti">
-                                        <span>استاد مجرب</span>
-                                    </li>
-                                    <li class="rate">
-                                        <i class="icon-star gray"></i>
-                                        <i class="icon-star gray"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <i class="icon-star"></i>
-                                        <span>3/5</span>
-                                    </li>
-                                </ul>
-
-                            </div>
-                            <div class="det-l">
-
-                                <div class="teaching-lng">
-                                    <span class="title">
-                                         زبان تدریس  :
-                                    </span>
-                                    <ul>
-                                        <li><img src="/site/images/english.png" alt=""><span>انگلیسی</span></li>
-                                        <li><img src="/site/images/french.png" alt=""><span>فرانسوی</span></li>
-                                    </ul>
-                                </div>
-                                <ul>
-                                    <li class="classes">
-                                        <span class="num">46</span>
-                                        <span class="nam">
-                                            <i class="icon-training"></i>
-                                            <span>کلاس ها</span>
-                                        </span>
-                                    </li>
-                                    <li class="student">
-                                        <span class="num">446</span>
-                                        <span class="nam">
-                                            <i class="icon-cap"></i>
-                                            <span>زبان‌آموزان</span>
-                                        </span>
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li class="price">
-                                        <span>قیمت هر جلسه (هر ساعت)</span>
-                                    </li>
-                                    <li class="mprice">
-                                        <span class="num">46000</span>
-                                        <span class="cur">تومان</span>
-                                        <span class="lable">تخفیف</span>
-                                    </li>
-                                    <li class="disc">
-                                        <span class="num">66000</span>
-                                        <span class="cur">تومان</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+        @foreach ($teachers as $teacher )
+        @include('site.single_teacher')
 
 
-
-                    </div>
-                </div>
-                <div class="teacher-left">
-                    <div>
-                        <div class="tabs">
-                            <ul class="tab-nav">
-                                <li class="active"><span><span>ویدیو </span><i class="icon-video-on"></i></span></li>
-                                <li><span><span>درباره </span><i class="icon-about"></i></span></li>
-                            </ul>
-                            <ul class="tab-container">
-                                <li class="active">
-                                    <div>
-
-                                        <video id="player" class="js-player" playsinline controls data-poster="/path/to/poster.jpg">
-                                          <source src="/site/images/video.mp4" type="video/mp4" />
-
-                                        </video>
-
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>
-                                            سلام خدمت شما عزیزان، سینا هستم فوق لیسانس مهندسی صنایع و مدرس زبان انگلیسی. تحصیلات خودم رو در مالزی ادامه دادم و در شرکت های متعددی مشغول به کار شدم. چند سالیسیت که به صورت فریلنس و مشاوره ادامه فعالیت می کنم. زبان انگلیسی رو از سال های دور تدریس می کنم،
-                                            <a href="#"> خواندن ادامه <i class="icon-left"></i><i class="icon-left"></i></a>
-
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
 
     </div>
 
-    <div class="more-teacher">
+    {{-- <div class="more-teacher">
         <span>مشاهده بیشتر</span>
-    </div>
+    </div>  --}}
 
 </div>
 @endsection

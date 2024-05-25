@@ -49,8 +49,9 @@
     <script src="{{ asset('/site/js/jquery.event.drop.live-2.2.js') }}"></script>
     <script src="{{ asset('/site/js/jquery.event.drag-2.2.js') }}"></script>
     <script src="{{ asset('/site/js/jquery.event.drag.live-2.2.js') }}"></script>
-    <script src="{{ asset('/site/js/') }}"></script>
+    <script src="{{ asset('/site/js/apexcharts.min.js') }}"></script>
 
+    <script src="{{ asset('/site/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('/site/js/template.js') }}"></script>
     <script src="{{ asset('/libs/sw.js') }}"></script>
     <script src="{{ asset('/libs/select2.js') }}"></script>

@@ -17,6 +17,9 @@ class Transaction extends Model
         'type',
         'status',
         'currency',
+        'class_type',//نوع کلاس  چند جلسه یا ازمایشی
+        'meet_count',
+        'via',
     ];
     public function user(){
         return $this->belongsTo(User::class);

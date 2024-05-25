@@ -2,16 +2,23 @@
 
     <div class="teacher-prfile">
         <div class="pic">
-            <span class="percent"> ۷۰%</span>
+            <span class="percent">
+
+                {{ $customer->percent() }}
+                %</span>
             <img class="bg" src="/site/images/profile.svg" alt="">
-            <img class="pro" src="/site/images/person4.jpg" alt="">
+            <a href="{{ route("panel.profile") }}">
+                <img class="pro" src="{{ $customer->avatar()?$customer->avatar():"/site/images/person4.jpg" }}" alt="">
+            </a>
             <i class="icon-info"></i>
         </div>
         <div class="name">
-        {{ $customer->name }}
+            {{ $customer->name }}
         </div>
         <div class="email">
             {{ $customer->email }}
+            <br>
+            {{ $customer->id }}
         </div>
     </div>
 
@@ -26,24 +33,14 @@
                 </a>
             </li>
 
-            {{--  <li class="{{ Request::url() == route('panel.setting') ? 'active' : '' }}">
-                <a href="{{ route("panel.setting") }}">
-                    <i class="icon-dsetting"></i>
-                    <span>
-                        {{ $user->short(11) }}
-                    </span>
-                </a>
-            </li>  --}}
-
-
-            <li class="{{ Request::url() == route('panel.prices') ? 'active' : '' }}">
-                <a href="{{ route("panel.prices") }}">
-                    <i class="icon-dsetting"></i>
-                    <span>
-                        {{ $user->short(107) }}
-                    </span>
-                </a>
-            </li>
+            {{-- <li class="{{ Request::url() == route('panel.setting') ? 'active' : '' }}">
+            <a href="{{ route("panel.setting") }}">
+                <i class="icon-dsetting"></i>
+                <span>
+                    {{ $user->short(11) }}
+                </span>
+            </a>
+            </li> --}}
             <li class="{{ Request::url() == route('panel.profile') ? 'active' : '' }}">
                 <a href="{{ route("panel.profile") }}">
                     <i class="icon-dsetting"></i>
@@ -53,7 +50,6 @@
                 </a>
             </li>
 
-
             <li class="{{ Request::url() == route('panel.financial') ? 'active' : '' }}">
                 <a href="{{ route("panel.financial") }}">
                     <i class="icon-dsetting"></i>
@@ -62,6 +58,20 @@
                     </span>
                 </a>
             </li>
+
+            @if(auth()->user()->role=="teacher")
+            <li class="{{ Request::url() == route('panel.prices') ? 'active' : '' }}">
+                <a href="{{ route("panel.prices") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(107) }}
+                    </span>
+                </a>
+            </li>
+
+
+
+
             <li class="{{ Request::url() == route('panel.written') ? 'active' : '' }}">
                 <a href="{{ route("panel.written") }}">
                     <i class="icon-dsetting"></i>
@@ -108,16 +118,43 @@
 
 
 
-            {{--  <li class="{{ Request::url() == route('panel.dashboard') ? 'active' : '' }}"><a href="{{ route("panel.dashboard") }}"><i class="icon-dsetting"></i><span>پیشخوان</span></a></li>  --}}
-            {{-- <li><a href="#"><i class="icon-dsetting"></i><span>تنظیمات</span></a></li>
-            <li><a href="#"><i class="icon-dcalass"></i><span>کلاس ها</span></a></li>
-            <li><a href="#"><i class="icon-dwallet"></i><span>کیف پول</span></a></li>
-            <li><a href="#"><i class="icon-ddownload"></i><span>دانلود ها</span></a></li>
-            <li><a href="#"><i class="icon-dtest"></i><span>مقاله</span></a></li>
-            <li><a href="#"><i class="icon-calender"></i><span>برنامه زمانی</span></a></li>
-            <li><a href="#"><i class="icon-discount"></i><span>قیمت ها</span></a></li>
-            <li><a href="#"><i class="icon-dcourse"></i><span>دوره ها</span></a></li>
-            <li><a href="#"><i class="icon-dtest"></i><span>آزمون ها</span></a></li>  --}}
+            <li class="{{ Request::url() == route('panel.intro.video') ? 'active' : '' }}">
+                <a href="{{ route("panel.intro.video") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(315) }}
+                    </span>
+                </a>
+            </li>
+
+            <li class="{{ Request::url() == route('panel.edited.class') ? 'active' : '' }}">
+                <a href="{{ route("panel.edited.class") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(357) }}
+                    </span>
+                </a>
+            </li>
+            @endif
+
+
+            @if(auth()->user()->role=="student")
+            <li class="{{ Request::url() == route('panel.fave') ? 'active' : '' }}">
+                <a href="{{ route("panel.fave") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(330) }}
+                    </span>
+                </a>
+            </li>
+            @endif
+
+
+
+            <li class="exit"><a href="{{ route("logoute") }}"><i class="icon-exit"></i><span>
+
+                {{ $user->short(339) }}
+            </span></a></li>
         </ul>
     </div>
 

@@ -181,12 +181,18 @@
                                             {{ $day->isoFormat('dd') }}
                                         </span>
                                     </div>
-                                    {{--  @dump($all_meets)
+                                    {{--  @dump($free_meets)
                                     @dump($can->copy()->addMinutes(30)->format("Y-m-d H:i").":00")  --}}
                                     @for ($b =0 ; $b <34 ; $b++)
-                                    <div class="hour {{ in_array($can->addMinutes(30)->format("Y-m-d H:i").":00",$all_meets) ?"open":""}}" data-time="{{  $can->format("Y-m-d H:i")}}:00">
+                                    <div class="hour
+
+                                    {{ in_array($can->addMinutes(30)->format("Y-m-d H:i").":00",$free_meets) ?"open":""}}
+                                    {{ in_array($res->addMinutes(30)->format("Y-m-d H:i").":00",$reserved_meets) ?"reserved":""}}
+                                    "
+
+                                    data-time="{{  $can->format("Y-m-d H:i")}}:00">
                                         <input type="text" class="can" data-time="" name="can[]" id="" hidden>
-                                        <input type="text" class="reserve" data-time="" name="reserve[]" id="" value="{{ in_array($can->format("Y-m-d H:i").":00",$all_meets) ?$can->format("Y-m-d H:i").":00":""}}" hidden>
+                                        <input type="text" class="reserve" data-time="" name="reserve[]" id="" value="{{ in_array($can->format("Y-m-d H:i").":00",$free_meets) ?$can->format("Y-m-d H:i").":00":""}}" hidden>
                                     </div>
                                         @endfor
                                 </li>

@@ -154,7 +154,6 @@
                                     </li>
                                 </ul>
                             </div>
-
                             <div class="input-container clas_sec fill" {{(old('test_session_status') == 'nofree' || $customer->test_session_status=='nofree') ? '' : 'hidden'}}>
                                 <div class="input-container fill">
                                     <label for="">
