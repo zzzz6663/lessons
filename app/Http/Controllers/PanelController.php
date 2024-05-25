@@ -151,8 +151,8 @@ class PanelController extends Controller
                 $start = Carbon::parse($meet->start)->addMinutes(30);
                 $meet_next = Meet::where("user_id", $meet->user->id)->whereStart($start)->first();
                 $price = $meet->price;
-                $meet->update(['status=>"done']);
-                $meet_next->update(['status=>"done']);
+                $meet->update([['status'=>"done"]]);
+                $meet_next->update(['status'=>"done"]);
                 $teacher_share = ($price * $perent) / 100;
                 $admin_share = $price - $teacher_share;
                 $admin = User::find(1);
