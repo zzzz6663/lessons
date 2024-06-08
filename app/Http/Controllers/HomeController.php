@@ -149,7 +149,10 @@ class HomeController extends Controller
         // $teachers->whereDisplay(1);
         $teachers=$teachers->latest()->get();
         $languages=Language::where("active_course",1)->get();
-        $faves= $customer->faves()->pluck('fave_id')->toArray();
+        $faves=[];
+        if($customer){
+            $faves= $customer->faves()->pluck('fave_id')->toArray();
+        }
         return view('site.teachers', compact(["languages","teachers","faves"]));
     }
     public function profile(User $user)
