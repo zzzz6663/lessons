@@ -333,12 +333,14 @@ class PanelController extends Controller
                 'content' => "required|max:4000",
                 'image' => "required|max:4000",
                 'tags' => "required|max:100",
+                'acat' => "required",
                 'publish' => "nullable",
                 'draft' => "nullable",
             ]);
             $data['status'] = "created";
             $data['tags'] = implode('_', $data['tags']);
             $post = $customer->posts()->create($data);
+            $post->acats()->sync($data['acat']);
 
             if ($request->hasFile('image')) {
                 $lan = $request->file('image');
@@ -360,10 +362,11 @@ class PanelController extends Controller
                 'content' => "required|max:4000",
                 'image' => "nullable|max:4000",
                 'tags' => "required|max:100",
+                'acat' => "required",
                 'publish' => "nullable",
                 'draft' => "nullable",
             ]);
-            if ($data['draft']) {
+            if (isset($data['draft'])) {
                 $data['publish'] = null;
             }
             $data['tags'] = implode('_', $data['tags']);
@@ -373,6 +376,7 @@ class PanelController extends Controller
                 $lan->move(public_path('/media/post/'), $name_img);
                 $data['image'] = $name_img;
             }
+            $post->acats()->sync($data['acat']);
             $post->update($data);
             return redirect()->route("panel.written");
         }

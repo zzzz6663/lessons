@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Comment;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -132,6 +133,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Resume::class);
     }
+
+    public function comments()
+    {
+        return  $this->morphMany(Comment::class,'commentable');
+    }
+    public function scomments()
+    {
+        return  $this->morphMany(Comment::class,'commentable','','user_id');
+    }
+
+
     public function short($id)
     {
         $ca = null;

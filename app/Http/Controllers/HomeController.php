@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Acat;
+use App\Models\Post;
 use App\Models\Site;
 use App\Models\User;
 use App\Models\Action;
 use App\Models\Course;
 use App\Models\Section;
-use App\Models\Advertise;
 use App\Models\Language;
+use App\Models\Advertise;
 use App\Models\Attribute;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,7 +44,103 @@ class HomeController extends Controller
         // toast()->success("ss");
         return view('site.index', compact([]));
     }
+    public function tag_articles(Request $request, $tag)
+    {
 
+        $articles = Post::whereNotNull('confirm')->whereNotNull('publish');
+
+        $articles = $articles->Where(function ($query) use ($tag) {
+            $query->Where('tags', 'LIKE', "%{$tag}%");
+        });
+        $articles = $articles->latest()->paginate(6);
+        return view('site.articles', compact(['articles']));
+    }
+    public function comment_article(Request $request, Post $post)
+    {
+        $user=auth()->user();
+        $article=$post;
+        $valid = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'comment' => 'required',
+            'parent_id' => 'required',
+        ]);
+        $comm = $article->comments()->where('parent_id', $valid['parent_id'])->count();
+        if (Auth::check()) {
+            $comment = $article->comments()->create([
+                'user_id' => \auth()->user()->id,
+                'name' => \auth()->user()->name,
+                'email' => \auth()->user()->email,
+                'comment' => $valid['comment'],
+                'parent_id' => $valid['parent_id'],
+            ]);
+        } else {
+            $comment = $article->comments()->create([
+                'name' => $valid['name'],
+                'email' => $valid['email'],
+                'comment' => $valid['comment'],
+                'parent_id' => $valid['parent_id'],
+            ]);
+        }
+
+        toast()->success( $user->short(368));
+        return back();
+    }
+    public function article(Request $request,Post $post)
+    {
+
+        $article=$post;
+        $tags = explode('_', $article->tags);
+        $related = Post::query();
+        for ($i = 0; $i < sizeof($tags), $i++;) {
+            $related = $related->Where(function ($query) use ($tags, $i) {
+                $query->orWhere('tag', 'LIKE', "%{$tags[$i]}%");
+            });
+        }
+        $related = $related->latest()->take(3)->get();
+
+        $all = Post::whereNotNull('publish')->whereNotNull('confirm')->pluck('id')->toArray();
+        $pos =  array_search($article->id, $all);
+        $next = null;
+        $prv = null;
+        $n = $pos + 1;
+        $p = $pos - 1;
+        if (isset($all[$n])) {
+            $next = Post::find($all[$n]);
+        }
+        if (isset($all[$p])) {
+            $prv = Post::find($all[$p]);
+        }
+        return view('site.article', compact(['article', 'next', 'prv', 'tags', 'related']));
+    }
+    public function articles(Request $request,Acat $acat)
+    {
+        if ($acat->id){
+            $childs=Acat::where('parent_id',$acat->id)->get();
+            if ($childs->first()){
+                $articles= Post::whereHas('acats',function ($query) use ($childs){
+                    $query->whereIn('acat_id',$childs->pluck('id')->toArray());
+                })->whereNotNull('confirm');
+            }else{
+                // $articles=$acat->articles()->whereNotNull('confirm')->whereNotNull('publish');
+                $articles=$acat->articles()->whereNotNull('confirm')->whereNotNull('publish');
+
+            }
+            $articles=$articles->latest()->paginate(6);
+            return view('site.cat',compact(['articles','acat']));
+        }
+        $articles=Post::query();
+        if ($request->has('search')){
+            $articles=$articles  ->Where( function($query) use ($request){
+                $search=$request->search;
+                $query->Where('title' ,'LIKE',"%{$search}%")
+                ->orWhere('content' ,'LIKE',"%{$search}%");
+            });
+        }
+        $articles=$articles->whereNotNull('confirm')->whereNotNull('publish')->latest()->paginate(9);
+
+        return view('site.articles', compact(["articles"]));
+    }
     public function teachers()
     {
         $customer=auth()->user();

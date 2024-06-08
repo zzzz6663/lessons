@@ -56,6 +56,27 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::url() == route('acat.index') ? 'active' : '' }}" href="{{ route("acat.index") }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fas fa-money-check-alt"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Blog category
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::url() == route('comment.index') ? 'active' : '' }}" href="{{ route("comment.index") }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fas fa-money-check-alt"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Comments
+                        </span>
+                    </a>
+                </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link {{ Request::url() == route('write.index') ? 'active' : '' }}" href="{{ route("write.index") }}">

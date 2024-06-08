@@ -160,6 +160,19 @@ if ($('.timerDisplay').length) {
 
 }
 
+$("#menu1").metisMenu({
+    preventDefault: false
+});
+
+$('#menu2').metisMenu({
+toggle: false
+});
+
+$('#menu3').metisMenu();
+
+
+
+
 
 $("form").submit(function (e) {
     if (!$(this).hasClass("no_link")) {

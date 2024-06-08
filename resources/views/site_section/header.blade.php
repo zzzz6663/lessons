@@ -88,6 +88,8 @@
             </ul>
         </div>
         <div id="usermenu" class="login">
+            <a href="{{ route("articles") }}"> {{ $user->short(365) }}</a>
+
             <a href="{{ route("teachers") }}"> {{ $user->short(120) }}</a>
             @guest
             <a href="{{ route("register") }}">{{ $user->short(9) }}</a>
@@ -289,4 +291,3 @@
 
 
 
-    

@@ -351,8 +351,8 @@
                     <div class="activate-profile shade">
 
                         <div class="pic">
-                            <img src="images/profile.svg" alt="" class="bg">
-                            <img src="images/person3.jpg" alt="" class="pro">
+                            <img src="/site/images/profile.svg" alt="" class="bg">
+                            <img src="/site/images/person3.jpg" alt="" class="pro">
                         </div>
 
                         <div class="percent">
@@ -478,7 +478,7 @@
 
                         <div class="right">
                             <div class="pic">
-                                <img src="images/team_presentation_two_color.png" alt="">
+                                <img src="/site/images/team_presentation_two_color.png" alt="">
                             </div>
                             <div class="left">
                                 <h4>
@@ -502,7 +502,7 @@
 
                         <div class="right">
                             <div class="pic">
-                                <img src="images/new_message.png" alt="">
+                                <img src="/site/images/new_message.png" alt="">
                             </div>
                             <div class="left">
                                 <h4> {{ $user->short(292) }}</h4>
@@ -521,7 +521,7 @@
                             <a href="#">ایجاد کلاس</a>
                         </div>
                         <div class="left">
-                            <img src="images/online_presentation_two_color.png" alt="">
+                            <img src="/site/images/online_presentation_two_color.png" alt="">
                         </div>
                     </div>  --}}
 
@@ -721,7 +721,7 @@
 
                                 <div class="ho-comment">
                                     <div class="right">
-                                        <img src="images/person5.jpg" alt="">
+                                        <img src="/site/images/person5.jpg" alt="">
                                     </div>
 
                                     <div class="mtexct">
@@ -741,7 +741,7 @@
 
                                 <div class="ho-comment">
                                     <div class="right">
-                                        <img src="images/person5.jpg" alt="">
+                                        <img src="/site/images/person5.jpg" alt="">
                                     </div>
 
                                     <div class="mtexct">

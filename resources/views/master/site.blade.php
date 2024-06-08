@@ -13,12 +13,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('/libs/sw.css') }}">
+    <link rel="stylesheet" href="{{ asset('/libs/metisMenu.css') }}">
     <link rel="stylesheet" href="{{ asset('/libs/select2.css') }}">
     <link rel="stylesheet" href="{{ asset('/libs/modal-loading.css') }}">
     <link rel="stylesheet" href="{{ asset('/site/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/site/css/style2.css') }}">
     <link rel="stylesheet" href="{{ asset('/site/css/more.css') }}">
     <link rel="stylesheet" href="{{ asset('/site/css/responsive.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="{{ asset('/libs/sw.js') }}"></script>
     @vite('resources/css/site.css')
 </head>
@@ -53,6 +55,7 @@
 
     <script src="{{ asset('/site/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('/site/js/template.js') }}"></script>
+    <script src="{{ asset('/libs/metisMenu.js') }}"></script>
     <script src="{{ asset('/libs/sw.js') }}"></script>
     <script src="{{ asset('/libs/select2.js') }}"></script>
     <script src="{{ asset('/libs/modal-loading.js') }}"></script>

@@ -66,6 +66,34 @@
 
                 <div class="row">
                     <div class="col-lg-12">
+                        <div class="input-container fill">
+                            <label for="">
+
+                                {{ $user->short(366) }}
+
+                            </label>
+                            <select name="acat[]" id="" class="select_2" multiple>
+                                <option >        {{ $user->short(367) }} </option>
+                                @foreach(\App\Models\Acat::whereNull('parent_id')->latest()->get() as $ac)
+                                    @if(\App\Models\Acat::where('parent_id',$ac->id)->latest()->get()->first()  )
+                                        <optgroup  label="{{$ac->name}}" >
+                                            <option {{(in_array($ac->id,old('cat',[] ))?'selected':'')}}  value="{{$ac->id}}">{{$ac->name}}</option>
+
+                                        @foreach(\App\Models\Acat::where('parent_id',$ac->id)->latest()->get() as $accc)
+                                                <option {{(in_array($accc->id,old('cat',[] ))?'selected':'')}}  value="{{$accc->id}}">{{$accc->name}}</option>
+                                            @endforeach
+                                        </optgroup>
+                                    @else
+                                        <optgroup  label="{{$ac->name}}" >
+                                            <option {{(in_array($ac->id,old('cat' ,[]))?'selected':'')}} value="{{$ac->id}}">{{$ac->name}}</option>
+                                        </optgroup>
+                                    @endif
+                                @endforeach
+                            </select>
+                            @error('cat')<div class="eerror">{{ $message }}</div>@enderror
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
                         <div>
                             <textarea id="mytextarea" name="content">{{ old("content") }}</textarea>
 

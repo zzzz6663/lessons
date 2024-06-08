@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PanelController;
+use App\Http\Controllers\admin\AcatController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ShortController;
 use App\Http\Controllers\admin\WriteController;
 use App\Http\Controllers\admin\ResumeController;
+use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\LanguageController;
 use App\Http\Controllers\admin\TransactionController;
@@ -21,8 +23,12 @@ Route::get('/locale/{language}', [HomeController::class,"locale"])->name('locale
 Route::get('/', [HomeController::class,"index"])->name('login');
 Route::get('/logoute', [HomeController::class,"logoute"])->name('logoute');
 Route::get('/clear', [HomeController::class,"clear"])->name('clear');
+Route::get('/article/{post}', [HomeController::class,"article"])->name('article');
+Route::get('/articles/{acat?}', [HomeController::class,"articles"])->name('articles');
 Route::get('/teachers', [HomeController::class,"teachers"])->name('teachers');
 Route::get('/profile/{user}', [HomeController::class,"profile"])->name('profile');
+Route::post('/comment_article/{post?}', [HomeController::class,"comment_article"])->name('home.comment.article');
+Route::get('/tag_articles/{tag}', [HomeController::class,"tag_articles"] )->name('home.tag.articles');
 
 
 Route::prefix('admin')->namespace('admin')->group(function () {
@@ -41,6 +47,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('write', WriteController::class)->middleware(['role:admin']);
     Route::resource('resume', ResumeController::class)->middleware(['role:admin']);
     Route::resource('short', ShortController::class)->middleware(['role:admin']);
+    Route::resource('acat', AcatController::class)->middleware(['role:admin']);
+    Route::resource('comment', CommentController::class)->middleware(['role:admin']);
+
     Route::any('/setting_site', [AdminController::class,"setting_site"])->name('setting.site');
 
 });

@@ -195,6 +195,8 @@ return [
     'price_10_session' => 'The price of ten session',
     'test_session_status' => '',
     'test_session_price' => '',
+    'acat' => 'category',
+    '' => '',
 
 
     ],
