@@ -115,6 +115,17 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link {{ Request::url() == route('ticket.index') ? 'active' : '' }}" href="{{ route("ticket.index") }}">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fas fa-language"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            tickets
+                        </span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link {{ Request::url() == route('setting.site') ? 'active' : '' }}" href="{{ route("setting.site") }}">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
                             <i class="fas fa-users-cog"></i>
@@ -124,6 +135,7 @@
                         </span>
                     </a>
                 </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link {{ Request::url() == route('logoute') ? 'active' : '' }}" href="{{ route("logoute") }}">

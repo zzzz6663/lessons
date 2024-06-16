@@ -34,7 +34,7 @@
                             @csrf
                             @method('post')
                             <div class="label">
-                                <span>    {{ $user->short(95) }}</span>
+                                <span> {{ $user->short(95) }}</span>
                             </div>
 
                             <div class="check-buttonlist">
@@ -42,10 +42,10 @@
                                     <li>
 
                                         <div class="lable-container">
-                                            <input type="radio" name="type" {{ old("type")=="education"?"checked":"" }}  id="education" value="education">
+                                            <input type="radio" name="type" {{ old("type")=="education"?"checked":"" }} id="education" value="education">
                                             <label for="education">
                                                 <div class="right">
-                                                    <span>  {{ $user->short(96) }}</span>
+                                                    <span> {{ $user->short(96) }}</span>
                                                 </div>
                                                 <div class="left">
                                                     <div class="circle">
@@ -122,9 +122,8 @@
                                                 <option value="">
                                                     {{ $user->short(24) }}
                                                 </option>
-                                                @for($i=1950;$i<2024;$i++)
-                                                 <option {{(old('from')==$i)?'selected':''}} value="{{$i}}">{{$i}}</option>
-                                                @endfor
+                                                @for($i=1950;$i<2024;$i++) <option {{(old('from')==$i)?'selected':''}} value="{{$i}}">{{$i}}</option>
+                                                    @endfor
                                             </select>
                                         </div>
                                     </div>
@@ -136,9 +135,9 @@
                                                 {{ $user->short(103) }}
                                                 :</label>
                                             <select name="till" id="till">
-                                                <option value="">        {{ $user->short(24) }}</option>
+                                                <option value=""> {{ $user->short(24) }}</option>
                                                 @for($b=1950;$b<2024;$b++) <option {{(old('till')==$b)?'selected':''}} value="{{$b}}">{{$b}}</option>
-                                                @endfor
+                                                    @endfor
                                             </select>
                                         </div>
                                     </div>

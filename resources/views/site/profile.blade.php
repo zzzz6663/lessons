@@ -81,27 +81,45 @@
                     </span>
                     <span class="number">36</span>
                 </li>
+                <?php
 
+                $comm=$teacher->comments()->where('active','1')->latest()->get();
+                ?>
                 <li class="points">
-                    <span class="tex"> {{ $user->short(242) }}</span>
+                    <span class="tex">{{ $teacher->short(242) }}</span>
                     <span class="rate">
 
-                        <i class="icon-star gray"></i>
-                        <i class="icon-star gray"></i>
-                        <i class="icon-star"></i>
-                        <i class="icon-star"></i>
-                        <i class="icon-star"></i>
-                        <span class="av">3/5</span>
-                        <span>از ۹ نظر</span>
+                           <i class="icon-star {{$teacher->score()['av']>=1?'':'gray'}}  "></i>
+                    <i class="icon-star {{$teacher->score()['av']>=2?'':'gray'}}  "></i>
+                    <i class="icon-star {{$teacher->score()['av']>=3?'':'gray'}}"></i>
+                    <i class="icon-star {{$teacher->score()['av']>=4?'':'gray'}}"></i>
+                    <i class="icon-star {{$teacher->score()['av']>=5?'':'gray'}}"></i>
+                    {{--  <span>{{$teacher->score()['av']}}</span>  --}}
+                        <span>
 
-                    </span>
+                            {{$comm->count()}}
+
+                            {{ $user->short(249) }}
+
+                        </span>
+
+                        </span>
+
+
                 </li>
 
+
+
                 <li class="lang">
-                    <span class="text"> {{ $user->short(242) }}</span>
+                    <span class="text">
+                         {{ $user->short(90) }}
+
+
+                    </span>
                     <ul>
-                        <li><img src="images/english.png" alt=""><span>انگلیسی</span></li>
-                        <li><img src="images/french.png" alt=""><span>فرانسوی</span></li>
+                        @foreach ($teacher->languages as  $lan)
+                        <li><img class="fla" src="{{ $lan->flag() }}" alt=""><span>{{ $lan->name }}</span></li>
+                        @endforeach
                     </ul>
                 </li>
 
@@ -167,13 +185,7 @@
             </div>
             <div class="about-text">
                 <div>
-
-                    <p> دارم و به مهارت i-to-i رو از شرکت TEFL هستم. گواهی تدریس (Lower-advanced) و پیشرفته پایین (Intermediate) مدرس زبان انگلیسی با سه سال سابقه تدریس در رده های متوسط
-                        و (Visual Aid) خودم افتخار می کنم و اون رو مهم ترین ابزارم برای آموزش به زبان آموز می دونم. اعتقاد دارم که با تاکید بر یادگیری مبتنی بر تحقیق، ابزارهای کمک دیداری Speaking بالای
-                        .می تونم سطح فعلی زبان دانش آموز رو ارتقا بدم (Personalization) شخصی سازی تدریس</p>
-                    <p> دارم و به مهارت i-to-i رو از شرکت TEFL هستم. گواهی تدریس (Lower-advanced) و پیشرفته پایین (Intermediate) مدرس زبان انگلیسی با سه سال سابقه تدریس در رده های متوسط
-                        و (Visual Aid) خودم افتخار می کنم و اون رو مهم ترین ابزارم برای آموزش به زبان آموز می دونم. اعتقاد دارم که با تاکید بر یادگیری مبتنی بر تحقیق، ابزارهای کمک دیداری Speaking بالای
-                        .می تونم سطح فعلی زبان دانش آموز رو ارتقا بدم (Personalization) شخصی سازی تدریس</p>
+                    {{ $teacher->bio }}
                 </div>
             </div>
             <div class="about-more">
@@ -849,6 +861,7 @@
             </ul>
         </div>
     </div>
+    @php($comm=$teacher->comments()->where('active','1')->latest()->get())
 
     <div class="tnav" id="teacher-comments">
         <div class="t-icon-title">
@@ -867,8 +880,8 @@
         <div class="right-avrage">
             <div class="title">
                 <h3>
-                    <span>%86</span>
-                    <span>رضایت</span>
+                    <span>%{{$teacher->score()['per']}}</span>
+                    <span>  {{ $user->short(398) }}</span>
                 </h3>
             </div>
             <ul>
@@ -877,7 +890,7 @@
                         <i class="icon-sohappy"></i>
                     </div>
                     <div class="right">
-                        <div class="bar"><span style="width: 40%"></span></div>
+                        <div class="bar"><span style="width: {{$teacher->score()['pr5']}}%"></span></div>
                     </div>
                 </li>
                 <li>
@@ -885,7 +898,7 @@
                         <i class="icon-happy"></i>
                     </div>
                     <div class="right">
-                        <div class="bar"><span style="width: 50%"></span></div>
+                        <div class="bar"><span style="width: {{$teacher->score()['pr4']}}%"></span></div>
                     </div>
                 </li>
                 <li>
@@ -893,7 +906,7 @@
                         <i class="icon-mood"></i>
                     </div>
                     <div class="right">
-                        <div class="bar"><span style="width: 30%"></span></div>
+                        <div class="bar"><span style="width: {{$teacher->score()['pr3']}}%"></span></div>
                     </div>
                 </li>
                 <li>
@@ -901,58 +914,112 @@
                         <i class="icon-sad"></i>
                     </div>
                     <div class="right">
-                        <div class="bar"><span style="width: 77%"></span></div>
+                        <div class="bar"><span style="width: {{$teacher->score()['pr2']}}%"></span></div>
                     </div>
                 </li>
             </ul>
-            <div class="avr">
-                <span>امتیاز :</span>
-                <span>از 13 نظر</span>
+            <div class="avr" style="text-align: center">
+                <span>     {{ $user->short(399) }}  :</span>
+                <span>از {{$comm->count()}} {{ $user->short(249) }} </span>
             </div>
-            <div class="points">
-                <i class="icon-star gray"></i>
-                <i class="icon-star gray"></i>
-                <i class="icon-star"></i>
-                <i class="icon-star"></i>
-                <i class="icon-star"></i>
-                <span>3/5</span>
+            <div class="points" style="text-align: center">
+                <i class="icon-star {{$teacher->score()['av']>=1?'':'gray'}}  "></i>
+                <i class="icon-star {{$teacher->score()['av']>=2?'':'gray'}}  "></i>
+                <i class="icon-star {{$teacher->score()['av']>=3?'':'gray'}}"></i>
+                <i class="icon-star {{$teacher->score()['av']>=4?'':'gray'}}"></i>
+                <i class="icon-star {{$teacher->score()['av']>=5?'':'gray'}}"></i>
+                <span>{{$teacher->score()['av']}}</span>
             </div>
         </div>
 
         <div class="comment-list">
             <ul class="owl-carousel owl-theme">
+                @foreach($comm as $com)
+                @php($student=\App\Models\User::find($com->user_id))
                 <li>
                     <div class="single-comment">
                         <div class="pic">
                             <i class="icon-comment"></i>
-                            <img src="images/person1.jpg" alt="">
+                            <img src="{{asset('/src/avatar/'.$student->attr('avatar'))}}" alt="">
                         </div>
                         <div class="name">
-                            <span>سمانه خرّمی</span>
+                            <span>{{$student->name}}  </span>
                         </div>
-                        <div class="job">
-                            <span>دانشجوی نرم افزار</span>
-                        </div>
+
                         <div class="text">
-                            <p>استاد بسیار خوبی هستند روش تدریس شون به گونه ای بود که مباحث رو خیلی خوب می فهمیدم. من تا به الان با ايشون 18 جلسه کلاس داشتم که با کمک استاد و همت خودم به نتیجه مطلوب برسم</p>
+                            {{$com->comment}}
                         </div>
                         <div class="date">
                             <span>
-                                پنج‌شنبه ۲۵ اردیبهشت ۰۷:۵۷
+                                {{$com->creatde_at}}
                             </span>
                         </div>
                         <div class="point">
-                            <i class="icon-star gray"></i>
-                            <i class="icon-star gray"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
+                            @for($i=1; $i<6 ; $i++)
+                            <i class="icon-star {{$com->rate >= $i?'':'gray'}}"></i>
+                                @endfor
                         </div>
                     </div>
                 </li>
+            @endforeach
 
             </ul>
         </div>
+    </div>
+
+    <div class="teacher-cform shade">
+
+        <div class="widget-title">
+            <h3>
+                {{ $user->short(399) }}
+            </h3>
+
+            <div class="dot3">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="widget-content">
+            <?php if($errors->any()): ?>
+            <div class="e_section" id="e_section">
+                <?php echo implode('', $errors->all('<span class="text text-danger">:message</span><br>')); ?>
+            </div>
+            <?php endif; ?>
+            <form action="{{{route('home.comment.teacher',$teacher->id)}}}" method="post">
+                @csrf
+                @method('post')
+
+                <div class="input-container">
+                    <label for=""> {{ $user->short(4) }}</label>
+                    <input type="text" hidden name="parent_id" value="0" placeholder="">
+                    <input type="text" name="name" value="{{old('name')}}" placeholder="">
+                </div>
+
+                <div class="input-container">
+                    <label for="">     {{ $user->short(249) }}</label>
+                    <textarea name="comment" id="" cols="30" rows="10">{{old('comment')}}</textarea>
+                </div>
+
+                <div class="button-container">
+                    <div class="rate">
+                        <input {{old('rate')=='5'?'checked':""}} type="radio" id="star5" name="rate" value="5">
+                        <label for="star5" title="text">5 stars</label>
+                        <input {{old('rate')=='4'?'checked':""}} type="radio" id="star4" name="rate" value="4">
+                        <label for="star4" title="text">4 stars</label>
+                        <input {{old('rate')=='3'?'checked':""}} type="radio" id="star3" name="rate" value="3">
+                        <label for="star3" title="text">3 stars</label>
+                        <input {{old('rate')=='2'?'checked':""}} type="radio" id="star2" name="rate" value="2">
+                        <label for="star2" title="text">2 stars</label>
+                        <input {{old('rate')=='1'?'checked':""}} type="radio" id="star1" name="rate" value="1">
+                        <label for="star1" title="text">1 star</label>
+                    </div>
+                    <input type="submit" value="{{ $user->short(378) }} " class="bt" style="float: left">
+                </div>
+            </form>
+        </div>
+
     </div>
 
 </div>

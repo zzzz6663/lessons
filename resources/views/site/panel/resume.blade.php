@@ -33,7 +33,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <span onclick="document.getElementById('ff_{{$re->id}}').submit()">
-                                    حذف<i class="icon-trash"></i></span>
+                                    {{ $user->short(51) }}<i class="icon-trash"></i></span>
                                 {{-- <span class="sane">ﺗﺎﯾﯿﺪ و ﺛﺒﺖ</span>--}}
                                 {{-- <span class="cancel">لغو</span>--}}
                             </form>
@@ -43,7 +43,9 @@
                                 @csrf
                                 @method('get')
                                 <span onclick="document.getElementById('dd_{{$re->id}}').submit()">
-                                    ویرایش<i class="icon-trash"></i></span>
+{{ $user->short(52) }}
+
+                                    <i class="icon-trash"></i></span>
                                 {{-- <span class="sane">ﺗﺎﯾﯿﺪ و ﺛﺒﺖ</span>--}}
                                 {{-- <span class="cancel">لغو</span>--}}
                             </form>
@@ -51,7 +53,11 @@
                     </ul>
                 </div>
                 <div class="left">
-                    <h5>{{__('arr.'.$re->type)}}: {{$re->place}} </h5>
+                    <h5>
+
+                        {{__('arr.'.$re->type)}}:
+
+                        {{$re->place}} </h5>
                     <p>{{$re->title}} : {{$re->info}} </p>
                     <span class="date">
                         <span>

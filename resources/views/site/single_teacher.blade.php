@@ -40,23 +40,24 @@
                             </span>
                             <ul>
                                 @foreach ($teacher->languages as $lan)
-                                <li><img src="{{ $lan->flag() }}" alt=""><span>{{ $lan->name }}</span></li>
+                                <li><img class="fla" src="{{ $lan->flag() }}" alt=""><span>{{ $lan->name }}</span></li>
                                 @endforeach
                             </ul>
                         </div>
                         <ul>
                             <li class="classes">
-                                <span class="num">46</span>
+                                <span class="num">{{$teacher->meets()->whereStatus("down")->distinct('user_id')->count('user_id')/2}}</span>
+
                                 <span class="nam">
                                     <i class="icon-training"></i>
                                     <span>
 
-                                        {{ $user->short(145) }}
+                                        {{ $user->short(400) }}
                                     </span>
                                 </span>
                             </li>
                             <li class="student">
-                                <span class="num">446</span>
+                                <span class="num">{{$teacher->meets()->whereStatus("down")->count()/2}}</span>
                                 <span class="nam">
                                     <i class="icon-cap"></i>
                                     <span>
@@ -88,25 +89,25 @@
             <div>
                 <div class="tabs">
                     <ul class="tab-nav">
-                        <li class="active"><span><span> {{ $user->short(150) }} </span><i class="icon-video-on"></i></span></li>
-                        <li><span><span> {{ $user->short(149) }} </span><i class="icon-about"></i></span></li>
+                        <li class=""><span><span> {{ $user->short(150) }} </span><i class="icon-video-on"></i></span></li>
+                        <li class="active"><span><span> {{ $user->short(149) }} </span><i class="icon-about"></i></span></li>
                     </ul>
                     <ul class="tab-container">
-                        <li class="active">
+                        <li >
                             <div>
-
-                                <video id="player" class="js-player" playsinline controls data-poster="/path/to/poster.jpg">
-                                    <source src="/site/images/video.mp4" type="video/mp4" />
-
+                                <video class="max-w" controls poster="{{ $teacher->port_img() }}">
+                                    <source src="{{ $teacher->port_vid()  }}" type="video/mp4">
+                                    Your browser does not support the video tag.
                                 </video>
+
 
                             </div>
                         </li>
-                        <li>
+                        <li class="active">
                             <div>
                                 <p>
-                                    سلام خدمت شما عزیزان، سینا هستم فوق لیسانس مهندسی صنایع و مدرس زبان انگلیسی. تحصیلات خودم رو در مالزی ادامه دادم و در شرکت های متعددی مشغول به کار شدم. چند سالیسیت که به صورت فریلنس و مشاوره ادامه فعالیت می کنم. زبان انگلیسی رو از سال های دور تدریس می کنم،
-                                    <a href="#">
+                                    {{ $teacher->bio }}
+                                     <a href="#">
 
                                         <i class="icon-left"></i><i class="icon-left"></i></a>
 

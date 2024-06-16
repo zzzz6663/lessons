@@ -1,5 +1,15 @@
 @extends('master.site')
 @section('content')
+<div id="filter_t">
+    <div class="sm-title">
+        <h3>
+            <i class="icon-setting"></i>
+            <span> {{ $user->short(121) }}
+
+            </span>
+        </h3>
+    </div>
+</div>
 <div id="sidefilter">
 
     <div class="sm-title">
@@ -572,13 +582,11 @@
 
     <div id="topfilter" class="shade">
         <div class="right">
-
             <form action="">
                 <span class="butt"><i class="icon-search"></i></span>
                 <span class="close"><i class="icon-close"></i></span>
                 <input type="text" placeholder="        {{ $user->short(142) }} ">
             </form>
-
         </div>
         <div class="left">
             <span class="title">

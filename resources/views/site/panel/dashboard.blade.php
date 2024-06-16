@@ -2,7 +2,6 @@
 @section('content')
 @include('site.panel.section.panel_sidebar')
 <div id="teacherpish">
-
     <div class="welcome">
         <span class="name">
             {{ $user->short(302) }}

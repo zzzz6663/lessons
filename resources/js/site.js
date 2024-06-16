@@ -171,7 +171,16 @@ toggle: false
 $('#menu3').metisMenu();
 
 
+$(document).on('change', '#file_select', function (event) {
+    let el = $(this)
+    var filename = el.val().split('\\').pop();
+    $('.file_name').text(filename)
+});
 
+
+$(document).on('click', '#filter_t', function (event) {
+ $('body').toggleClass('filter_out')
+});
 
 
 $("form").submit(function (e) {

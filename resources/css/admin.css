@@ -10,3 +10,89 @@ i{
 .nav-link.active{
     background: #5c5858;
 }
+.nk-chat-head-info{
+    display: flex;
+    align-items: center;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.nk-chat-head{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.75rem;
+    border-bottom: 1px solid #e5e9f2;
+    background-color: #fff;
+}
+.d-flex{
+    display: flex;
+}
+.user-avatar, [class^=user-avatar]:not([class*=-group])
+{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: #9d72ff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+    position: relative;
+}
+.chat {
+    display: flex;
+    align-items: flex-end;
+   margin-bottom: 20px;
+}
+.chat.is-me {
+    justify-content: flex-end;
+}
+.chat-bubble{
+    display: flex;
+    align-items: center;
+    padding: 0.125rem 0;
+}
+.chat-msg{
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+}
+.chat-avatar{
+    margin-bottom: 1.4rem;
+}
+.simplebar-content{
+    padding: 20px 60px;
+    box-sizing: border-box;
+}
+.nk-chat-editor{
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background-color: #fff;
+}
+.nk-chat-editor {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background-color: #fff;
+}
+.nk-chat-editor-form {
+    padding: 0 0.5rem;
+    flex-grow: 1;
+}
+.nk-chat-editor-upload, .nk-chat-editor-tools {
+    display: flex;
+    align-items: center;
+}
+.nk-chat-panel{
+    max-height: 600px;
+    overflow: auto;
+}

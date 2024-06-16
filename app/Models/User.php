@@ -305,4 +305,74 @@ class User extends Authenticatable
             return true;
         }
     }
+
+
+
+
+
+
+
+
+    public function score(){
+        $comments=   $this->comments()->where('active','1')->latest()->get();
+        $sum=0;
+        $ar['per']=0;
+        $ar['av']=0;
+        $ar['r1']=0;
+        $ar['r2']=0;
+        $ar['r3']=0;
+        $ar['r4']=0;
+        $ar['r5']=0;
+        $ar['pr1']=0;
+        $ar['pr2']=0;
+        $ar['pr3']=0;
+        $ar['pr4']=0;
+        $ar['pr5']=0;
+        if ($comments){
+            foreach ($comments as $comment){
+                $ar['r'.$comment->rate]++;
+                $sum+=$comment->rate;
+            }
+            if ($comments->count()>0){
+                for ($i=1;$i<6;$i++){
+                    $ar['pr'.$i] =($ar['r'.$i]*100)/$comments->count();
+                }
+                $ar['av']=$sum/$comments->count();
+
+            }
+
+            $ar['per']= ($ar['av']*100)/5;
+        }
+       return $ar;
+
+       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

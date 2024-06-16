@@ -105,7 +105,7 @@
                                             <label for="">
                                                 {{ $user->Short(4) }}
                                             </label>
-                                            <i class="icon-user"></i>
+                                            {{--  <i class="icon-user"></i>  --}}
                                             <input type="text" name="name" value="{{ old("name",$customer->name) }}" placeholder="Emilio C. Alvarez">
                                         </div>
 
@@ -130,7 +130,7 @@
                                                         <label for="male">
                                                             <div>
                                                                 <span> {{ $user->Short(18) }}</span>
-                                                                <i class="icon-male"></i>
+                                                                {{--  <i class="icon-male"></i>  --}}
                                                             </div>
                                                         </label>
                                                     </div>
@@ -141,11 +141,12 @@
                                                         <label for="female">
                                                             <div>
                                                                 <span> {{ $user->Short(19) }}</span>
-                                                                <i class="icon-female"></i>
+                                                                {{--  <i class="icon-female"></i>  --}}
                                                             </div>
                                                         </label>
                                                     </div>
                                                 </li>
+
                                             </ul>
                                         </div>
 
@@ -157,6 +158,13 @@
                                                 <option  {{ old("country_id",$customer->country_id)==$country->id?"selected":"" }}  value="{{ $country->id }}">{{ $country->name }}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                        <div class="input-container fill">
+                                            <label for="">
+                                                {{ $user->Short(395) }}
+                                            </label>
+                                            {{--  <i class="icon-user"></i>  --}}
+                                            <textarea name="bio" id="" cols="30" rows="10">{{ old("bio",$customer->bio) }}</textarea>
                                         </div>
 
                                         {{--  <div class="add-language">
@@ -173,7 +181,6 @@
 
                                         <div class="button-container reight full">
                                             <button class="butt">
-
                                                 {{ $user->Short(23) }}
                                             </button>
                                         </div>

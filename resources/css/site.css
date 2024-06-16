@@ -34,7 +34,9 @@
 #topleft #usermenu a {
     display: inline-block;
 }
-
+#filter_t {
+    display: none;
+}
 #mo {
     width: 80%;
     margin: 0 auto;
@@ -48,14 +50,143 @@
 .select2-container {
     width: 100% !important;
 }
-
+#sidefilter .filter-wdiget .choose-language{
+    padding: 0;
+}
+#sidefilter .filter-wdiget .price{
+    padding: 10px;
+}
+#sidefilter .filter-wdiget .madrak{
+    padding: 0;
+}
+#sidefilter .filter-wdiget .point{
+    padding: 0;
+}
 #er {
     padding: 30px;
     color: red;
     background: rgb(252, 225, 225);
     border: 1px solid red;
 }
+#sidefilter .filter-wdiget .show label .left{
+    margin-right: 0;
+}
+#sidefilter{
+    overflow: auto;
+    padding:  0 20px;
+}
+#sidefilter .filter-wdiget .show label .right{
+    font-size: 14px;
+}
+.fla{
+    width: 50px;
+    border-radius: 50%;
 
+}
+.max-w{
+    max-width:100%
+}
+.single-teacher{
+padding: 15px 15px;
+}
+.teacher-det{
+    padding: 0!important;;
+}
+#sidefilter{
+    width: 280px;
+}
+@media screen and (min-width: 1300px) {
+    .draggable {
+        margin-top: 60px;
+    }
+}
+@media screen and (max-width: 800px) {
+    #sidefilter{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 300px;
+        transition: all .3s ;
+        transform: translateX(-350px);
+    }
+    #filter_t{
+        display: block;
+        position: fixed !important;
+        left: 30px;
+        top: 120px;
+        z-index: 99999999999999;
+    }
+    .filter_out #sidefilter{
+        transform:  translateX(-20px)!important;;
+
+    }
+}
+@media screen and (max-width: 600px) {
+    #sideteachernav{
+        display: none!important;
+    }
+    #header{
+        position: sticky;
+    }
+    #langs,#usermenu{
+        display: none;
+    }
+    .dot3{
+        display: none;
+
+    }
+}
+#sideteachernav{
+    width: 250px;
+}
+
+#sideteachernav .pishkhan-nav li a {
+    font-size: 15px;
+    padding: 0 30px;
+}
+/* .simplebar-content{
+    display: flex;
+} */
+#sideteachernav .pishkhan-nav li.active a:before{
+    height: 37px;
+    width: 63px;
+}
+#sideteachernav .pishkhan-nav li {
+    line-height: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.chat {
+    display: flex;
+}
+#sidefilter .filter-wdiget{
+    margin-bottom: 10px;
+}
+#sidefilter .filter-wdiget .ftitle{
+    margin-bottom: 10px;
+}
+#sidefilter .filter-wdiget .choose-language .lang-search{
+    margin-bottom: 10px;
+}
+.chat.is-me {
+    justify-content: flex-end;
+}
+.chat-meta{
+    font-size: 10px;
+}
+#teacher_ab_form label.key .right{
+    float: left!important;
+}
+#teacher_ab_form label.key .left{
+    float: right!important;
+}
+.expert-form .lable-container{
+    background: #f3f3f357;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding: 10px 30px;
+}
 @media screen and (max-width: 1800px) {}
 
 #langs {
@@ -266,6 +397,77 @@ video[poster]{
     padding: 10px 130px 12px;
     -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  }
+  .fl label{
+    padding: 0 15px 0 110px!important;
+  }
+  .tick .pay-form{
+    padding: 20px;
+  }
+  .w-90{
+    width: 90%;
+  }
+  .lg50{
+    height: 50px;
+    overflow: visible!important;;
+  }
+  .btn-atta{
+    position: absolute;
+    right: 20px;
+    top: 18px;
+  }
+  .pos_re{
+    position: relative;
+  }
+  .chat {
+    margin-bottom: 30px;
+  }
+  .mb-1{
+    margin-bottom: 1rem;
+  }
+  .mb-2{
+    margin-bottom: 2rem;
+  }
+  .mb-3{
+    margin-bottom: 3rem;
+  }
+  .d-flex{
+    display: flex;
+
+  }
+  .simplebar-content{
+    padding: 30px;
+    box-sizing: border-box;
+  }
+  .chat-meta li{
+    margin-left: 30px;
+
+  }
+  .chat-bubbles {
+
+    margin-left: 30px;
+
+  }
+  .sden_e{
+    margin-left: 20px;
+  }
+  .align-items-center{
+    align-items: center;
+  }
+  .justify-content-center{
+    justify-content: center;
+
+  }
+  .chat-avatar .user-avatar{
+    width: 50px;
+  }
+  .user-card{
+
+  }
+  .user-avatar img{
+    width: 100px;
+    border-radius: 50%;
+    padding: 10px;
   }
   .nextstep .left {
     float: left;

@@ -16,6 +16,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('/libs/fs.css') }}">
     <link rel="stylesheet" href="{{ asset('/libs/sw.css') }}">
+    
     <script src="{{ asset('/libs/sw.js') }}"></script>
     <script src="{{ asset('/libs/jq.js') }}"></script>
     @vite('resources/css/admin.css')

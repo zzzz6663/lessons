@@ -6228,7 +6228,8 @@ body {
   top: 3px;
 }
 .addresume {
-  padding: 70px 0;
+  padding: 70px 30px;
+  box-sizing: border-box;
 }
 .addresume .label {
   font-size: 17px;

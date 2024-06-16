@@ -186,11 +186,13 @@ class PanelController extends Controller
     {
         $customer = auth()->user();
         $meets = Meet::query();
+
         if ($customer->role == "student") {
             $meets->where("student_id", $customer->id);
             $helds= $customer->student_meets()->whereStatus("done")->count()/2;
             $upcoming = $customer->student_meets()->whereStatus("reserved")->count()/2;
             $not_reserved= $customer->student_meets()->whereStatus("no_reserved")->count()/2;
+
         }
         if ($customer->role == "teacher") {
             $meets->where("user_id", $customer->id);
@@ -444,7 +446,7 @@ class PanelController extends Controller
                 $vid = $request->file('port_vid');
                 $name_vid = $customer->id . '_port_vid' . '.' . $vid->getClientOriginalExtension();
                 $vid->move(public_path('/media/customer/video/'), $name_vid);
-                $arr['name_vid'] = $name_vid;
+                $arr['port_vid'] = $name_vid;
             }
 
             if (sizeof($arr)) {
@@ -697,6 +699,7 @@ class PanelController extends Controller
                     'name' => "required",
                     'gender' => "required",
                     'country_id' => "required",
+                    'bio' => "required",
                     // 'languages'=>"required|array|min:1",
                 ]);
                 $customer->update($data);

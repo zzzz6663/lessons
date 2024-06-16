@@ -131,13 +131,12 @@
                                     </div>
                                 </div>
                                 @if($customer->port_img())
-
                                 <div class="col-lg-4 col-md-12">
                                     <div>
                                         <h5>
                                             {{ $user->short(329) }}
                                         </h5>
-                                        <video controls poster="{{ $customer->port_img() }}">
+                                        <video class="max-w" controls poster="{{ $customer->port_img() }}">
                                             <source src="{{ $customer->port_vid()  }}" type="video/mp4">
                                             Your browser does not support the video tag.
                                         </video>
@@ -147,7 +146,7 @@
 
                                 <div class="col-lg-4 col-md-12">
                                     <div>
-                                        <video controls>
+                                        <video class="max-w" controls>
                                             <source src="{{ asset("site/video/test.mp4") }}" type="video/mp4">
                                             Your browser does not support the video tag.
                                         </video>

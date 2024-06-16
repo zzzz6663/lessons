@@ -2,10 +2,10 @@
 
     <div class="teacher-prfile">
         <div class="pic">
-            <span class="percent">
+            {{--  <span class="percent">
 
                 {{ $customer->percent() }}
-                %</span>
+                %</span>  --}}
             <img class="bg" src="/site/images/profile.svg" alt="">
             <a href="{{ route("panel.profile") }}">
                 <img class="pro" src="{{ $customer->avatar()?$customer->avatar():"/site/images/person4.jpg" }}" alt="">
@@ -58,6 +58,18 @@
                     </span>
                 </a>
             </li>
+
+
+            <li class="{{ Request::url() == route('userticket.index') ? 'active' : '' }}">
+                <a href="{{ route("userticket.index") }}">
+                    <i class="icon-dsetting"></i>
+                    <span>
+                        {{ $user->short(385) }}
+                    </span>
+                </a>
+            </li>
+
+
 
             @if(auth()->user()->role=="teacher")
             <li class="{{ Request::url() == route('panel.prices') ? 'active' : '' }}">

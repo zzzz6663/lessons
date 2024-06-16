@@ -7,10 +7,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\admin\AcatController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\UserTicketController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ShortController;
 use App\Http\Controllers\admin\WriteController;
 use App\Http\Controllers\admin\ResumeController;
+use App\Http\Controllers\admin\TicketController;
 use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\LanguageController;
@@ -49,7 +51,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('short', ShortController::class)->middleware(['role:admin']);
     Route::resource('acat', AcatController::class)->middleware(['role:admin']);
     Route::resource('comment', CommentController::class)->middleware(['role:admin']);
-
+    Route::resource('ticket', TicketController::class)->middleware(['role:admin']);
     Route::any('/setting_site', [AdminController::class,"setting_site"])->name('setting.site');
 
 });
@@ -84,9 +86,16 @@ Route::prefix('panel')->middleware(['auth'])->group(function () {
     Route::any('/edit_write/{post}', [PanelController::class,"edit_write"])->name('panel.edit.write');
     Route::post('/remove_write/{post}', [PanelController::class,"remove_write"])->name('panel.remove.write');
     Route::post('/detach_lang/{languages}', [PanelController::class,"detach_lang"])->name('panel.detach.lang');
+    Route::any('/new_answer/{ticket}', [UserTicketController::class,"new_answer"])->name('advertiser.new.answer');
+    Route::post('/close_ticket', [UserTicketController::class,"close_ticket"])->name('advertiser.close.ticket');
+    Route::resource('userticket', UserTicketController::class);
+
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('/comment_teacher/{user}', [HomeController::class,"comment_teacher"])->name('home.comment.teacher');
+
+    Route::get('/download', [HomeController::class,"download"])->name('download');
     Route::post('/send_pay', [PayController::class,"send_pay"])->name('send.pay');
     Route::get('/pay_result', [PayController::class,"pay_result"])->name('pay.result');
     Route::get('/pay_cancel', [PayController::class,"pay_cancel"])->name('pay.cancel');

@@ -9,6 +9,7 @@ use App\Models\Site;
 use App\Models\User;
 use App\Models\Action;
 use App\Models\Course;
+use App\Models\Comment;
 use App\Models\Section;
 use App\Models\Language;
 use App\Models\Advertise;
@@ -43,6 +44,33 @@ class HomeController extends Controller
         // $user=auth()->user();
         // toast()->success("ss");
         return view('site.index', compact([]));
+    }
+    public function comment_teacher(Request $request, User $user)
+    {
+        $auth = \auth()->user();
+        if (!$auth) {
+            toast()->error(' ابتدا وارد حساب کاربری خود شوید سپس نظر خود را ثبت کنید ');
+            return back();
+        }
+        $com = Comment::where('commentable_type', 'App\Models\User')->where('commentable_id', $user->id)->where('user_id', $auth->id)->first();
+        $meet = $user->meets()->where('student_id', $auth->id)->first();
+        // if (!$meet) {
+        //     toast()->error('شما قبلا با این استاد کلاسی نداشته اید ');
+        //     return back();
+        // }
+        if ($com) {
+            toast()->error(  $auth->Short(396));
+            return back();
+        }
+        $valid = $request->validate([
+            'name' => 'required',
+            'comment' => 'required',
+            'rate' => 'required',
+        ]);
+        $valid['user_id'] = $auth->id;
+        $comment = $user->comments()->create($valid);
+        toast()->success(' ');
+        return back();
     }
     public function tag_articles(Request $request, $tag)
     {
@@ -154,6 +182,11 @@ class HomeController extends Controller
             $faves= $customer->faves()->pluck('fave_id')->toArray();
         }
         return view('site.teachers', compact(["languages","teachers","faves"]));
+    }
+    public function download(Request $request)
+    {
+
+        return response()->download(($request->path));;
     }
     public function profile(User $user)
     {

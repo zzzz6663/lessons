@@ -1,11 +1,11 @@
 {
   "resources/css/admin.css": {
-    "file": "assets/admin-Ddp2FPdq.css",
+    "file": "assets/admin-DG762yym.css",
     "src": "resources/css/admin.css",
     "isEntry": true
   },
   "resources/css/site.css": {
-    "file": "assets/site-I5aPHniY.css",
+    "file": "assets/site-Dut4ptBk.css",
     "src": "resources/css/site.css",
     "isEntry": true
   },
@@ -16,7 +16,7 @@
     "isEntry": true
   },
   "resources/js/site.js": {
-    "file": "assets/site-BcEh1dco.js",
+    "file": "assets/site-DtauFONE.js",
     "name": "site",
     "src": "resources/js/site.js",
     "isEntry": true
