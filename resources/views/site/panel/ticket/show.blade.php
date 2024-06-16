@@ -116,7 +116,7 @@
                 <form class="nk-chat-editor" style="width: 100%" action="{{ route("advertiser.new.answer",$userticket->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('post')
-
+ 
                     <div class="">
                         <div class="nk-chat-editor-form d-flex align-items-center" >
                             <div class="form-control-wrap w-90  pos_re">

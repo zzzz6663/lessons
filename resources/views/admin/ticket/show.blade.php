@@ -149,7 +149,7 @@
                         </div>
                     </div>
                     <ul class="nk-chat-editor-tools g-2">
-                        <li>
+                        <li> 
 
                             <label class="btn btn-sm btn-icon btn-trigger text-primary" for="file_select"><i class="fas fa-paperclip"></i>
                                 <span class="file_name"></span>
