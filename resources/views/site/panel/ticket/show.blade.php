@@ -109,7 +109,7 @@
 
     <div id="" class="shade">
         <div class="widget-content">
-            @if($userticket->status=="close")
+            @if($userticket->status!="close")
 
             <div class="nk-chat-editor">
 
