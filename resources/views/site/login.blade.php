@@ -17,8 +17,7 @@
                     <label for="">
                         {{ $user->short(5) }}
                     </label>
-                    <i class="icon-user"></i>
-                    <input type="text" name="email" value="{{ old("email") }}" placeholder="email@info.com">
+                    <input type="text" name="email" value="{{ old("email") }}" >
                 </div>
 
 
@@ -26,10 +25,11 @@
                     <label for="">
                         {{ $user->short(6) }}
                     </label>
-                    <i class="icon-user"></i>
-                    <input type="text" name="password" value="{{ old("password") }}" placeholder="12345">
+                    <i class="fas fa-eye show_p" style="right: 40px"></i>
+                    <i class="fas fa-question-circle tooltip" title="  {{ $user->short(402) }}"></i>
+                    <input type="password" name="password" value="{{ old("password") }}">
                 </div>
-
+                <br>
                 <div class="button-container reight">
                     <button class="butt">
                         {{ $user->short(12) }}

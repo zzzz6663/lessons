@@ -572,10 +572,10 @@ input[type=number] {
   margin-left: 15px !important;
 }
 
-.profile-setting .sex li label {
+/* .profile-setting .sex li label {
   height: 50px !important;
   line-height: 50px !important;
-}
+} */
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

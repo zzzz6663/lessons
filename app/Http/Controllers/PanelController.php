@@ -600,17 +600,24 @@ class PanelController extends Controller
             } else {
                 $data = $request->validate([
                     'price_1_session' => "required|numeric",
-                    'price_5_session' => "required|numeric",
-                    'price_10_session' => "required|numeric",
+                    'price_5_session' => "required|numeric|max:".$request->price_1_session,
+                    'price_10_session' => "required|numeric|max:".$request->price_5_session,
                 ]);
             }
 
             // dd(  $data);
             $customer->update($data);
-
+            toast()->success($customer->short(25));
             return Redirect::back();
         }
-        return view('site.panel.prices', compact(['customer']));
+        $transactions = Transaction::query();
+        $transactions->where("user_id", $customer->id);
+        if ($request->type) {
+            $transactions->whereType($request->type);
+        }
+        $transactions->whereStatus("payed");
+        $transactions = $transactions->latest()->get();
+        return view('site.panel.prices', compact(['customer',"transactions"]));
     }
 
 

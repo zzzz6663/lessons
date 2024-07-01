@@ -7,12 +7,12 @@
   <div id="lang" class="teacher-pricing shade" >
     <div class="widget-title">
         <h3>              {{ $user->short(84) }} </h3>
-
+{{--  
         <div class="dot3">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </div>  --}}
     </div>
     <div class="widget-content">
         <div class="add-language">

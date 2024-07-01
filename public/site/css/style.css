@@ -452,8 +452,8 @@ input::-webkit-input-placeholder {
 .input-container.fill .text,
 .input-container.fill select,
 .input-container.fill input {
-  height: 80px;
-  line-height: 80px;
+  height: 40px;
+  line-height: 40px;
   border-width: 3px;
   text-align: center;
   background: #f7f7fa;
@@ -555,8 +555,8 @@ input::-webkit-input-placeholder {
 .button-container.reight .butt,
 .button-container.reight .button {
   float: left;
-  height: 75px;
-  line-height: 75px;
+  height: 45px;
+  line-height: 45px;
   padding: 0 45px;
   font-size: 18px;
   -webkit-border-radius: 38px;
@@ -5856,7 +5856,7 @@ body {
   font-weight: bold;
 }
 .profile-setting {
-  padding: 0 16px 40px;
+  /* padding: 0 16px 40px; */
 }
 .profile-setting .cover {
   position: relative;
@@ -5944,6 +5944,10 @@ body {
 .profile-setting .profile-pic form * {
   cursor: pointer;
 }
+.popup-container .button-container.reight .butt, .popup-container .button-container.reight .button{
+    float: none;
+}
+
 .profile-setting .profile-pic .icon-info {
   font-size: 28px;
   width: 32px;
@@ -5963,12 +5967,15 @@ body {
   -o-border-radius: 50%;
   border-radius: 50%;
 }
+.show_p{
+    z-index: 9999999;
+}
 .profile-setting .sex {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .profile-setting .sex .label {
   font-size: 17px;
-  margin-bottom: 17px;
+  /* margin-bottom: 17px; */
   line-height: 33px;
   margin-left: 22px;
   font-weight: bold;
@@ -5981,8 +5988,8 @@ body {
   display: block;
   background: #f7f7fa;
   border: 3px solid #f7f7fa;
-  height: 76px;
-  line-height: 76px;
+  height: 40px;
+  line-height: 40px;
   width: 220px;
   font-size: 20px;
   color: #7B94AB;

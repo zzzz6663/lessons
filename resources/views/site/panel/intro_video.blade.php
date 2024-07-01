@@ -12,7 +12,7 @@
          @csrf
          @method('post')
                 <div class="row">
-                    <div class="col-lg-7 col-md-10 col-sm-12 center-block">
+                    <div class="col-lg-10 col-md-10 col-sm-12 center-block">
                         <div>
                             <p style="color: red">
                                 {{ $user->short(316) }}
@@ -31,9 +31,6 @@
 
                                 </div>
                             </div>
-                            <br>
-                            <br>
-                            <br>
 
                             <div class="featured-video">
                                 <h4>
@@ -61,9 +58,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <br>
-                            <br>
-                            <br>
                             <div class="video-op">
                                 <ul>
                                     <li>
@@ -82,9 +76,6 @@
                     </div>
                 </div>
             </form>
-            <br>
-            <br>
-            <br>
             <div class="row">
                 <div class="col-lg-12">
                     <div>

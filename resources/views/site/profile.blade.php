@@ -974,11 +974,7 @@
                 {{ $user->short(399) }}
             </h3>
 
-            <div class="dot3">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+           
         </div>
 
         <div class="widget-content">

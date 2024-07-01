@@ -2,9 +2,9 @@
 @section('content')
 @include('site.panel.section.panel_sidebar')
 <div id="teacherpish">
-    <div class="welcome">
-        <span class="name">
-            {{ $user->short(302) }}
+    <div class="welcosme">
+        {{-- <span class="name">
+
 
             {{ $customer->name }} ،</span>
         <span>
@@ -12,8 +12,10 @@
 
             -
             {{ Carbon\Carbon::now()->format("Y-m-d") }}
-        </span>
+        </span> --}}
     </div>
+    <br>
+    <br>
     @if(auth()->user()->role=="student")
 
     @if($unreserved=\App\Models\Select::where('user_id',$user->id)->where('Count','>','0')->get() )
@@ -23,11 +25,11 @@
             <h3>
                 {{ $user->short(341) }}
             </h3>
-            <div class="dot3">
+            {{-- <div class="dot3">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div>  --}}
         </div>
         <div class="widget-content">
             <ul class="stulist owl-carousel owl-theme">
@@ -135,31 +137,31 @@
             <form action="{{ route("panel.dashboard") }}" method="get">
                 @csrf
                 @method("get")
-            <div class="time-filter">
-                <span><i class="icon-time-line"></i> {{ $user->short(304) }} </span>
-                <select name="day" class="submit_form" id="">
-                    <option {{ request("day")=="0"?"selected":"" }}  value="0"> {{ $user->short(305) }} </option>
-                    <option {{ request("day")=="1"?"selected":"" }}  value="1"> {{ $user->short(306) }} </option>
-                    <option {{ request("day")=="2"?"selected":"" }}  value="2">
-                        {{ $user->short(307) }}
-                    </option>
-                </select>
-            </div>
-            <div class="stat-filter">
-                <span><i class="icon-stat"></i> {{ $user->short(92) }} </span>
-                <select  id="">
-                    <option value="0">{{ $user->short(308) }} </option>
-                    <option value="1">{{ $user->short(309) }}</option>
-                    <option value="2">
-                        {{ $user->short(310) }}
-                    </option>
-                </select>
-            </div>
-            <div class="dot3">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+                <div class="time-filter">
+                    <span><i class="icon-time-line"></i> {{ $user->short(304) }} </span>
+                    <select name="day" class="submit_form" id="">
+                        <option {{ request("day")=="0"?"selected":"" }} value="0"> {{ $user->short(305) }} </option>
+                        <option {{ request("day")=="1"?"selected":"" }} value="1"> {{ $user->short(306) }} </option>
+                        <option {{ request("day")=="2"?"selected":"" }} value="2">
+                            {{ $user->short(307) }}
+                        </option>
+                    </select>
+                </div>
+                <div class="stat-filter">
+                    <span><i class="icon-stat"></i> {{ $user->short(92) }} </span>
+                    <select id="">
+                        <option value="0">{{ $user->short(308) }} </option>
+                        <option value="1">{{ $user->short(309) }}</option>
+                        <option value="2">
+                            {{ $user->short(310) }}
+                        </option>
+                    </select>
+                </div>
+                <div class="dot3">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </form>
         </div>
 
@@ -227,9 +229,11 @@
 
             @else
             <div class="class-list-title">
-                <span>‏<i class="icon-dcourse"></i>0
+                <span>‏<i class="icon-dcourse"></i>
 
                     {{ $user->short(356) }}
+
+                    -({{$meets->total()}})
                 </span>
             </div>
             <div class="noclass">
@@ -258,20 +262,20 @@
                                 <span class="title">{{ $user->short(295) }}</span>
                                 <span class="titleen">Classes held</span>
                             </div>
-                            <div class="dot3">
+                            {{-- <div class="dot3">
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                            </div>
+                            </div>  --}}
                         </div>
-                        <div class="bar">
+                        {{-- <div class="bar">
                             <span style="width: 45%;"></span>
                         </div>
 
                         <div class="bot">
                             <span class="right">792 Points</span>
                             <span class="left">Professional</span>
-                        </div>
+                        </div>  --}}
                     </div>
                 </div>
             </div>
@@ -287,21 +291,21 @@
                                 <span class="title">{{ $user->short(296) }}</span>
                                 <span class="titleen">Classes ahead</span>
                             </div>
-                            <div class="dot3">
+                            {{-- <div class="dot3">
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                            </div>
+                            </div>  --}}
                         </div>
 
-                        <div class="bar">
+                        {{-- <div class="bar">
                             <span style="width: 57%"></span>
                         </div>
 
                         <div class="bot">
                             <span class="right">792 Points</span>
                             <span class="left">Professional</span>
-                        </div>
+                        </div>  --}}
                     </div>
                 </div>
             </div>
@@ -319,21 +323,21 @@
                                 </span>
                                 <span class="titleen">Unreserved classes</span>
                             </div>
-                            <div class="dot3">
+                            {{-- <div class="dot3">
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                            </div>
+                            </div>  --}}
                         </div>
 
-                        <div class="bar">
+                        {{-- <div class="bar">
                             <span style="width: 70%"></span>
                         </div>
 
                         <div class="bot">
                             <span class="right">792 Points</span>
                             <span class="left">Professional</span>
-                        </div>
+                        </div>  --}}
                     </div>
                 </div>
             </div>
@@ -345,172 +349,195 @@
         <div class="row">
             @if(auth()->user()->role=="teacher")
 
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-12 col-md-12">
                 <div>
-                    <div class="activate-profile shade">
+                    <div class="activate-profile shade" style="overflow: hidden">
 
-                        <div class="pic">
-                            <img src="/site/images/profile.svg" alt="" class="bg">
-                            <img src="/site/images/person3.jpg" alt="" class="pro">
-                        </div>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div>
+                                    <div class="pic">
+                                        <img src="/site/images/profile.svg" alt="" class="bg">
+                                        <img src="/site/images/person3.jpg" alt="" class="pro">
+                                    </div>
 
-                        <div class="percent">
-                            <spna class="num">
-                                {{ $customer->percent() }}
-                            </spna>
-                            <span>
-                                %
-                                {{ $user->short(277) }}
-                            </span>
-                        </div>
+                                    <div class="percent">
+                                        <spna class="num">
+                                            {{ $customer->percent() }}
+                                        </spna>
+                                        <span>
+                                            %
+                                            {{ $user->short(277) }}
+                                        </span>
+                                    </div>
 
-                        <div class="profilbut">
-                            <div class="lable-container">
-                                {{-- <input type="checkbox" name="activeprofile" id="activeprofile" value="activeprofile">  --}}
+                                    <div class="profilbut">
+                                        <div class="lable-container">
+                                            {{-- <input type="checkbox" name="activeprofile" id="activeprofile" value="activeprofile">  --}}
 
-                                <form id="activeprofile_form" action="{{route('panel.active.profile',$user->id)}}" method="post">
-                                    @csrf
-                                    @method('post')
-                                    <input type="text" name="active_profile" hidden value="">
-                                    <input type="checkbox" {{$customer->active_profile=='1'?'checked':''}} name="active_profile" class="submit_form" id="activeprofile" value="1">
-                                    <label for="activeprofile">
-                                        <div class="right">
-                                            <span> {{ $user->short(278) }}</span>
+                                            <form id="activeprofile_form" action="{{route('panel.active.profile',$user->id)}}" method="post">
+                                                @csrf
+                                                @method('post')
+                                                <input type="text" name="active_profile" hidden value="">
+                                                <input type="checkbox" {{$customer->active_profile=='1'?'checked':''}} name="active_profile" class="submit_form" id="activeprofile" value="1">
+                                                <label for="activeprofile">
+                                                    <div class="right">
+                                                        <span> {{ $user->short(278) }}</span>
+                                                    </div>
+                                                    <div class="left">
+                                                        <div class="toggle">
+                                                            <span></span>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                            </form>
                                         </div>
-                                        <div class="left">
-                                            <div class="toggle">
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                    </label>
-                                </form>
+                                    </div>
+
+                                    <div class="profile-link">
+                                        <a href="{{ route("profile",$customer->id) }}">
+                                            {{ $user->short(279) }}
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div>
+                                    <div class="process">
+                                        <p>
+                                            {{ $user->short(280) }}
+
+
+                                            :</p>
+                                        <ul>
+
+                                            <li class="pointer" onclick="window.location.href='{{route('panel.prices')}}'">
+                                                <div class="right">
+                                                    <span class="green">
+                                                        <i class="icon-discount"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="left">
+                                                    <span class="title">{{ $user->short(288) }}</span>
+                                                    <span class="stat {{$customer->price_1_session?'green':'orange'}}">
+                                                        {{$customer->price_1_session?$user->short(284):$user->short(285)}}
+                                                        <i class="icon-{{$customer->price_1_session?'tick2':'wait'}}"></i></span>
+
+                                                </div>
+                                            </li>
+
+                                            <li class="pointer" onclick="window.location.href='{{route('panel.plan')}}'">
+                                                <div class="right">
+                                                    <span class="blue">
+                                                        <i class="icon-calender"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="left">
+                                                    <span class="title">{{ $user->short(286) }}</span>
+                                                    <span class="stat {{$customer->meets()->count()?'green':'orange'}}"> {{$customer->meets()->count()?$user->short(284):$user->short(285)}}<i class="icon-{{$customer->meets()->count()?'tick2':'wait'}}"></i></span>
+
+                                                </div>
+                                            </li>
+
+                                            <li class="pointer" onclick="window.location.href='{{route('panel.langs')}}'">
+                                                <div class="right">
+                                                    <span class="blue">
+                                                        <i class="icon-calender"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="left">
+                                                    <span class="title"> {{ $user->short(122) }}</span>
+                                                    <span class="stat {{$customer->languages()->count() !=0?'green':'orange'}}">{{$customer->languages()->count() !=0?$user->short(284):$user->short(285)}} <i class="icon-{{$customer->languages()->count() !=0?'tick2':'wait'}}"></i></span>
+                                                </div>
+                                            </li>
+
+                                            <li class="pointer" onclick="window.location.href='{{route('panel.profile')}}'">
+                                                <div class="right">
+                                                    <span class="orange">
+                                                        <i class="icon-pic"></i>
+                                                    </span>
+                                                </div>
+
+                                                <div class="left">
+                                                    <span class="title">{{ $user->short(287) }}</span>
+                                                    <span class="stat {{$customer->avatar()?'green':'orange'}}"> {{$customer->avatar()?$user->short(284):$user->short(285)}}<i class=" icon-{{$customer->avatar()?'tick2':'wait'}}"></i></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="profile-link">
-                            <a href="{{ route("profile",$customer->id) }}">
-                                {{ $user->short(279) }}
-                            </a>
-                        </div>
 
-                        <div class="process">
-                            <p>
-                                {{ $user->short(280) }}
-
-
-                                :</p>
-                            <ul>
-
-                                <li class="pointer" onclick="window.location.href='{{route('panel.prices')}}'">
-                                    <div class="right">
-                                        <span class="green">
-                                            <i class="icon-discount"></i>
-                                        </span>
-                                    </div>
-                                    <div class="left">
-                                        <span class="title">{{ $user->short(288) }}</span>
-                                        <span class="stat {{$customer->price_1_session?'green':'orange'}}">
-                                            {{$customer->price_1_session?$user->short(284):$user->short(285)}}
-                                            <i class="icon-{{$customer->price_1_session?'tick2':'wait'}}"></i></span>
-
-                                    </div>
-                                </li>
-
-                                <li class="pointer" onclick="window.location.href='{{route('panel.plan')}}'">
-                                    <div class="right">
-                                        <span class="blue">
-                                            <i class="icon-calender"></i>
-                                        </span>
-                                    </div>
-                                    <div class="left">
-                                        <span class="title">{{ $user->short(286) }}</span>
-                                        <span class="stat {{$customer->meets()->count()?'green':'orange'}}"> {{$customer->meets()->count()?$user->short(284):$user->short(285)}}<i class="icon-{{$customer->meets()->count()?'tick2':'wait'}}"></i></span>
-
-                                    </div>
-                                </li>
-
-                                <li class="pointer" onclick="window.location.href='{{route('panel.langs')}}'">
-                                    <div class="right">
-                                        <span class="blue">
-                                            <i class="icon-calender"></i>
-                                        </span>
-                                    </div>
-                                    <div class="left">
-                                        <span class="title"> {{ $user->short(122) }}</span>
-                                        <span class="stat {{$customer->languages()->count() !=0?'green':'orange'}}">{{$customer->languages()->count() !=0?$user->short(284):$user->short(285)}} <i class="icon-{{$customer->languages()->count() !=0?'tick2':'wait'}}"></i></span>
-                                    </div>
-                                </li>
-
-                                <li class="pointer" onclick="window.location.href='{{route('panel.profile')}}'">
-                                    <div class="right">
-                                        <span class="orange">
-                                            <i class="icon-pic"></i>
-                                        </span>
-                                    </div>
-
-                                    <div class="left">
-                                        <span class="title">{{ $user->short(287) }}</span>
-                                        <span class="stat {{$customer->avatar()?'green':'orange'}}"> {{$customer->avatar()?$user->short(284):$user->short(285)}}<i class=" icon-{{$customer->avatar()?'tick2':'wait'}}"></i></span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
 
                     </div>
                 </div>
             </div>
             @endif
 
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-12 col-md-12">
                 <div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div>
+                                <div class="linkbox shade">
+                                    <div class="button">
+                                        <span href="" style="color: #0eb582; font-size:15px;cursor: pointer" id="show_video" class="green ar">
+                                            <i class="icon-movie"></i>
+                                            <span>
 
-                    <div class="linkbox shade">
-                        <div class="button">
-                            <span href="" style="color: #0eb582; font-size:15px;cursor: pointer" id="show_video" class="green ar">
-                                <i class="icon-movie"></i>
-                                <span>
+                                                {{ $user->short(290) }}
+                                            </span>
+                                        </span>
+                                    </div>
 
-                                    {{ $user->short(290) }}
-                                </span>
-                            </span>
-                        </div>
+                                    <div class="right">
+                                        <div class="pic">
+                                            <img src="/site/images/team_presentation_two_color.png" alt="">
+                                        </div>
+                                        <div class="left">
+                                            <h4>
 
-                        <div class="right">
-                            <div class="pic">
-                                <img src="/site/images/team_presentation_two_color.png" alt="">
+                                                {{ $user->short(289) }}
+                                            </h4>
+                                            <span>
+                                                {{ $user->short(293) }}
+                                            </span>
+                                            {{-- <span>اخبار، اطلاع رسانی و آموزش های حرفه ای</span>  --}}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="left">
-                                <h4>
+                        </div>
+                        <div class="col-lg-6">
+                            <div>
+                                <div class="linkbox shade">
+                                    <div class="button">
+                                        <a href="#" class="blue"><i class="icon-telegram"></i><span>
 
-                                    {{ $user->short(289) }}
-                                </h4>
-                                <span>
-                                    {{ $user->short(293) }}
-                                </span>
-                                {{-- <span>اخبار، اطلاع رسانی و آموزش های حرفه ای</span>  --}}
+                                                {{ $user->short(294) }}</span></a>
+                                    </div>
+
+                                    <div class="right">
+                                        <div class="pic">
+                                            <img src="/site/images/new_message.png" alt="">
+                                        </div>
+                                        <div class="left">
+                                            <h4> {{ $user->short(292) }}</h4>
+                                            <span>
+                                                {{ $user->short(293) }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
 
-                    <div class="linkbox shade">
-                        <div class="button">
-                            <a href="#" class="blue"><i class="icon-telegram"></i><span>
 
-                                    {{ $user->short(294) }}</span></a>
-                        </div>
-
-                        <div class="right">
-                            <div class="pic">
-                                <img src="/site/images/new_message.png" alt="">
-                            </div>
-                            <div class="left">
-                                <h4> {{ $user->short(292) }}</h4>
-                                <span>
-                                    {{ $user->short(293) }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
 
                     {{-- <div class="make-class-banner shade">
                         <div class="right">
@@ -543,13 +570,13 @@
                                 {{ $user->short(298) }}
                             </h3>
 
-                            <div class="dot3">
+                            {{-- <div class="dot3">
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                            </div>
+                            </div>  --}}
                         </div>
-                        <div class="widget-content">
+                        <div class="widget-content d_f">
 
                             <div class="statbox">
                                 <div class="icon">
@@ -591,36 +618,37 @@
 
                         <div class="widget-title">
                             <form action="{{ route("panel.dashboard") }}" method="get">
-@csrf
-@method("get")
-                            <h3>
-                                {{ $user->short(361) }}
-                            </h3>
-                            <div class="diag-filter">
-                                <select name="year" class="submit_form" id="">
-                                    <option {{ request("year")==0?"selected":"" }} value="0"> {{ $user->short(363) }}</option>
-                                    <option {{ request("year")==1?"selected":"" }} value="1">{{ $user->short(364) }}</option>
-                                </select>
-                            </div>
-                            <div class="dot3">
+                                @csrf
+                                @method("get")
+                                <h3>
+                                    {{ $user->short(361) }}
+                                </h3>
+                                <div class="diag-filter">
+                                    <select name="year" class="submit_form" id="">
+                                        <option {{ request("year")==0?"selected":"" }} value="0"> {{ $user->short(363) }}</option>
+                                        <option {{ request("year")==1?"selected":"" }} value="1">{{ $user->short(364) }}</option>
+                                    </select>
+                                </div>
+                                {{-- <div class="dot3">
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                            </div>
-                        </form>
+                            </div>  --}}
+                            </form>
 
                         </div>
                         <div class="widget-content">
                             <div class="exp">
-                                <p><i class="icon-checkout"></i> <span>
-                                    {{ $user->short(362) }}
+                                <p class="txt_left">
 
-                                    :</span><span>
+                                    <span>
+                                        {{ $user->short(362) }}
 
+                                        :</span>
+                                    {{ array_sum($income) }}$
+                                    <i class="icon-checkout"></i>
 
-
-
-                                    </span> <span>$</span></p>
+                                </p>
                             </div>
                             <script>
                                 window.onload = function() {
@@ -677,7 +705,7 @@
                                             }
                                         , }
                                         , xaxis: {
-                                            categories: ['January', 'February', 'March', 'April', 'May', 'Juan', 'July', 'August', 'September','October','November','December']
+                                            categories: ['January', 'February', 'March', 'April', 'May', 'Juan', 'July', 'August', 'September', 'October', 'November', 'December']
                                         , }
                                     };
 
@@ -698,7 +726,7 @@
         </div>
     </div>
 
-    <div class="teacher-diagrams">
+    {{-- <div class="teacher-diagrams">
         <div class="row">
 
             <div class="col-lg-7 col-md-12">
@@ -779,11 +807,7 @@
                         <div class="widget-title">
                             <h3>پیشنویس سریع مقاله </h3>
 
-                            <div class="dot3">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
+
                         </div>
 
                         <div class="widget-content">
@@ -812,7 +836,7 @@
             </div>
 
         </div>
-    </div>
+    </div>  --}}
     @endif
 
 </div>

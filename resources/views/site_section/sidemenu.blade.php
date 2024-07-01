@@ -5,10 +5,14 @@
             <i class="icon-cancel"></i>
         </span>
         <div id="slogo">
-            <a href="#">
+            {{--  <a href="#">
                 <i class="icon-logo"></i>
                 <span>Teacherpro</span>
+            </a>  --}}
+            <a href="{{route("login")}}">
+                <span class="greeen_l">Lessons</span>.<span>lives</span>
             </a>
+
         </div>
 
         <div id="ssearch">

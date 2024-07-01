@@ -37,11 +37,11 @@
     <br>
 
     <div class="profile-settings shade">
-        <div class="dot3">
+        {{--  <div class="dot3">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+        </div>  --}}
         <ul class="tab-nav">
             <li class="{{ old("pass")?"":"active" }} "><span>
                     {{ $user->short(15) }}
@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-6 col-md-10 col-sm-12 center-block">
+                        <div class="col-lg-10 col-md-10 col-sm-12 center-block">
                             <div>
                                 <div class="profile-form">
 

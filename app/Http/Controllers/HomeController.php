@@ -222,7 +222,7 @@ class HomeController extends Controller
                         ->numbers()
                         ->symbols()
                         ->uncompromised(),
-                    'confirmed'
+                    // 'confirmed'
                 ],
                 'role'=>"required",
 

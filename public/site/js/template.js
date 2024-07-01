@@ -210,7 +210,7 @@
                 mouseDrag: false,
                 // center: true,
                 autoplay: false,
-                navText: ["last week<i class='icon-larrow'></i>", "Next Week<i class='icon-rarrow'></i>"],
+                navText: ["last <i class='icon-larrow'></i>", "Next <i class='icon-rarrow'></i>"],
                 responsive: {
                     0: {
                         items: 1,
@@ -301,12 +301,12 @@
 
             } else
             //  if (b.hasClass('open'))
-                 {
+            {
                 var ftime = b.data('time');
                 var ltime = a.data('time');
             }
-        console.log(ftime, ltime);
-            let ttime=day+" "+ftime
+            console.log(ftime, ltime);
+            let ttime = day + " " + ftime
             var d = '<div class="resbox" style="top:' + totop + 'px; margin-left:' + ml + 'px; left:' + toleft + 'px;">' +
                 '<div class="ma">' +
                 '<div class="top">' +
@@ -320,18 +320,18 @@
                 '</div>' +
                 '<div class="date">' +
                 '<ul>' +
-                '<li><span>'+dat+' :</span><span class="vla">' + day + '</span></li>' +
-                '<li><span> '+tim+' :</span><span class="vla">' + ftime + '</span><span class="vla">-</span><span class="vla">' + ltime + '</span></li>' +
+                '<li><span>' + dat + ' :</span><span class="vla">' + day + '</span></li>' +
+                '<li><span> ' + tim + ' :</span><span class="vla">' + ftime + '</span><span class="vla">-</span><span class="vla">' + ltime + '</span></li>' +
                 // '<li><span> زمان :</span><span class="vla">' + ftime + '</span><span class="vla">-</span><span class="vla">' + ltime + '</span></li>' +
                 '</ul>' +
                 '</div>' +
-                '<div data-id="'+id+'"  data-ttime="'+ttime+'"  class="but new_reserve">' +
-                ' <span>'+sen+' </span>' +
+                '<div data-id="' + id + '"  data-ttime="' + ttime + '"  class="but new_reserve">' +
+                ' <span>' + sen + ' </span>' +
                 '</div>' +
                 '</div>' +
 
                 '</div>';
-            var e = '<div class="buto" data-id="'+id+'">' +
+            var e = '<div class="buto" data-id="' + id + '">' +
                 '<span class="lih">' + ftime + '</span>' +
                 '</div>';
 
@@ -556,24 +556,15 @@
         }
 
 
-
-
-
         if ($("#teacher-sidebatr").length) {
             $('.teacher-inform, #teacher-details').theiaStickySidebar({
                 // Settings
                 additionalMarginTop: 30
             });
         }
-
-
-
-
         if ($("#teacher-clander .cond ul").length) {
-
-
-
             $(document).drag("start", function (ev, dd) {
+
                 return $('<div class="selectiong" />')
                     .css('opacity', .65)
                     .appendTo(document.body);

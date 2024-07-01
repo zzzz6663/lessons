@@ -17,8 +17,7 @@
                 <label for="">
                     {{ $user->short(4) }}
                 </label>
-                <i class="icon-user"></i>
-                <input type="text" name="name" value="{{ old("name") }}" placeholder="Emilio C. Alvarez">
+                <input type="text" name="name" value="{{ old("name") }}">
             </div>
 
 
@@ -26,8 +25,7 @@
                 <label for="">
                     {{ $user->short(5) }}
                 </label>
-                <i class="icon-user"></i>
-                <input type="text" name="email" value="{{ old("email") }}" placeholder="Emilio@info.com">
+                <input type="text" name="email" value="{{ old("email") }}" >
             </div>
 
 
@@ -35,18 +33,18 @@
                 <label for="">
                     {{ $user->short(6) }}
                 </label>
-                <i class="icon-user"></i>
-                <input type="text" name="password" value="{{ old("password") }}" placeholder="Emilio@info.com">
+                <i class="fas fa-eye show_p" style="right: 40px"></i>
+               <i class="fas fa-question-circle tooltip" title="  {{ $user->short(402) }}"></i>
+                <input type="password" name="password" value="{{ old("password") }}">
             </div>
 
 
-            <div class="input-container fill">
+            {{--  <div class="input-container fill">
                 <label for="">
                     {{ $user->short(7) }}
                 </label>
-                <i class="icon-user"></i>
-                <input type="text" name="password_confirmation" value="{{ old("password_confirmation") }}" placeholder="Emilio@info.com">
-            </div>
+                <input type="text" name="password_confirmation" value="{{ old("password_confirmation") }}" >
+            </div>  --}}
 
             <div class="profile-setting">
 

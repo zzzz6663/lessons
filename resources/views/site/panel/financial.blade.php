@@ -3,17 +3,19 @@
 @include('site.panel.section.panel_sidebar')
 <div id="teacherpish">
     <br>
+    <br>
+
 
     <div class="etebar shade">
         <div class="widget-title">
             <h3> {{ $user->short(28) }}
 
             </h3>
-            <div class="dot3">
+            {{--  <div class="dot3">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div>  --}}
         </div>
         <div class="widget-content">
             <div class="row">

@@ -46,9 +46,18 @@
     margin-bottom: 0;
 
 }
-
+.register-form{
+    width: 600px;
+    margin: 0 auto;
+}
 .select2-container {
     width: 100% !important;
+}
+.flag{
+    vertical-align: middle;
+}
+.active_l{
+    background: #e1e1e1;
 }
 #sidefilter .filter-wdiget .choose-language{
     padding: 0;
@@ -89,18 +98,137 @@
 .single-teacher{
 padding: 15px 15px;
 }
+.popup-container .button-container.reight .butt, .popup-container .button-container.reight .button{
+    text-align: center;
+    min-width: 130px;
+    border-radius: 5px;
+}
+.input-container.fill .text, .input-container.fill select, .input-container.fill input{
+    border-radius: 5px;
+}
+.profile-setting .sex li label{
+    border-radius: 5px;
+}
+.video-setting{
+    padding: 30px;
+}
+.teacher-pricing .widget-content form{
+    margin-bottom: 0;
+}
+.resume-setting{
+    padding: 10px 15px;
+}
+#teacher-clander .cond > ul li{
+    width: 14%;
+}
+#teacher-clander .cond ul li .hour{
+    height: 23px;
+}
+#teacher-clander .cond .owl-nav{
+    top: -27px;
+}
+#teacher-clander .right li{
+    height: 31px;
+}
+#teacher-clander .right li {
+    margin-bottom: 35px;
+}
+#teacher-clander .cond .owl-nav .owl-next{
+    line-height: 0;
+}
+#teacher-clander .right {
+    margin-top: 77px;
+}
+.greeen_l{
+    color: #90ca90;
+    font-size:20px;
+}
+#article-from{
+    padding-bottom: 0;
+}
+.pay-form{
+    padding: 20px 30px;
+}
+.widget-content{
+    padding: 20px;
+}
+.single-article-ad {
+    padding-bottom:10px;
+    margin-bottom:10px;
+}
+.noclass{
+    padding: 10px 0;
+}
+.singl-statis{
+    padding: 10px 15px;
+}
+#lang{
+    padding: 0;
+}
+.input-container.fill{
+    margin-bottom: 10px;
+}
+.single-article-ad .right .date:after{
+    left: 0;
+}
+.button-container .butt,.select2-container--default .select2-selection--single, .button-container,.bt, .btr, .button,.single-article-ad .left ul li.del-link span, .single-article-ad .left ul li.edit-link span,.input-container.fill textarea,.single-article-ad .left ul li a{
+    border-radius: 5px!important;;
+
+}
+.single-article-ad .right .pic img{
+    width: 130px;
+}
+.mb3{
+    margin-top: 10px;
+}
 .teacher-det{
     padding: 0!important;;
 }
+.teacher-pricing .widget-content{
+    padding-top: 0;
+}
+.table-responsive *{
+    text-align: left!important;;
+}
+.txt_left{
+    text-align: left;
+}
+.input-container.fill label{
+    margin-bottom: 0;
+}
 #sidefilter{
     width: 280px;
+}
+.statbox{
+    padding: 10px;
+}
+@media screen and (max-width: 1100px) {
+    .teacher-pricing img{
+        display: none!important;;
+    }
 }
 @media screen and (min-width: 1300px) {
     .draggable {
         margin-top: 60px;
     }
+
 }
 @media screen and (max-width: 800px) {
+
+    .d_f{
+        display: flex;
+        justify-content:space-between
+    }
+    .statbox{
+       width: 200px;
+    }
+    .register-form .input-container{
+        margin-bottom: 30px;
+    }
+    .register-form{
+        width: 100%;
+        box-sizing: border-box;
+    }
     #sidefilter{
         position: fixed;
         top: 0;
@@ -239,9 +367,15 @@ padding: 15px 15px;
 #langs li a:hover {
     background: #a1a0a0;
 }
-
+.calendar-guide{
+    padding-bottom: 0;
+}
+.teacher-guide{
+    margin-bottom: 45px;
+}
 .w-320 {
-    width: 320px;
+    width: 150px;
+    margin: 0 10px;
 }
 
 #teacher-clander .cond ul li .hour:last-child {

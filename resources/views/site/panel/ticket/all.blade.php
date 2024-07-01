@@ -10,9 +10,8 @@
                 </h3>
                 <div class="dot3">
                     <div class="button-container reight gray ">
-
                         @role('customer')
-                        <a href="{{ route("userticket.create") }}" class="butt w-100">
+                        <a href="{{ route("userticket.create") }}" class="butt mb3 w-100">
                             {{ $user->short(386) }}
                         </a>
                         @endrole

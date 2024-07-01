@@ -13,9 +13,9 @@
             </h3>
             <div class="dot3">
                 <a href="{{ route("panel.create.resume") }}" class="bt fln">    {{ $user->short(106) }}</a>
+                {{--  <span></span>
                 <span></span>
-                <span></span>
-                <span></span>
+                <span></span>  --}}
             </div>
         </div>
 

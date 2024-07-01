@@ -176,7 +176,9 @@ $(document).on('change', '#file_select', function (event) {
     var filename = el.val().split('\\').pop();
     $('.file_name').text(filename)
 });
-
+$(window).on('popstate', function(event) {
+    stop_animation()
+   });
 
 $(document).on('click', '#filter_t', function (event) {
  $('body').toggleClass('filter_out')
@@ -209,7 +211,26 @@ $('#image_f').change(function (e) {
     }
 
 });
+if($('.tooltip').length){
+    $('.tooltip').tooltipster();
+}
+$('.show_p').click(function () {
+    let el = $(this)
+    // if(el.attr('type')=="password"){
+    //     el.closest(".input-container").find('[name="password"]').prop("type", "text");
+    // }else{
+    //     el.closest(".input-container").find('[name="password"]').prop("type", "password");
 
+    // }
+    let eld=el.closest(".input-container").find('[name="password"]')
+    if(eld.attr('type')=="password"){
+       eld.prop("type", "text");
+    }else{
+       eld.prop("type", "password");
+
+    }
+    console.log(232)
+});
 $('.edit_meet').click(function () {
     let el = $(this)
     let name = el.data("name")

@@ -7,19 +7,23 @@
                 {{ $customer->percent() }}
                 %</span>  --}}
             <img class="bg" src="/site/images/profile.svg" alt="">
+
             <a href="{{ route("panel.profile") }}">
                 <img class="pro" src="{{ $customer->avatar()?$customer->avatar():"/site/images/person4.jpg" }}" alt="">
+
             </a>
-            <i class="icon-info"></i>
+            <a href="{{ route("panel.profile") }}">
+                <i class="icon-info"></i>
+
+                </a>
         </div>
         <div class="name">
+            {{ $user->short(302) }}
             {{ $customer->name }}
         </div>
-        <div class="email">
-            {{ $customer->email }}
+        {{--  <div class="email">
             <br>
-            {{ $customer->id }}
-        </div>
+        </div>  --}}
     </div>
 
     <div class="pishkhan-nav">
@@ -50,14 +54,14 @@
                 </a>
             </li>
 
-            <li class="{{ Request::url() == route('panel.financial') ? 'active' : '' }}">
+            {{--  <li class="{{ Request::url() == route('panel.financial') ? 'active' : '' }}">
                 <a href="{{ route("panel.financial") }}">
                     <i class="icon-dsetting"></i>
                     <span>
                         {{ $user->short(27) }}
                     </span>
                 </a>
-            </li>
+            </li>  --}}
 
 
             <li class="{{ Request::url() == route('userticket.index') ? 'active' : '' }}">

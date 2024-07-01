@@ -11,11 +11,11 @@
                 {{ $user->short(118) }}
 
             </h3>
-            <div class="dot3">
+            {{--  <div class="dot3">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div>  --}}
         </div>
 
 

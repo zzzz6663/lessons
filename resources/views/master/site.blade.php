@@ -20,9 +20,10 @@
     <link rel="stylesheet" href="{{ asset('/site/css/style2.css') }}">
     <link rel="stylesheet" href="{{ asset('/site/css/more.css') }}">
     <link rel="stylesheet" href="{{ asset('/site/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('/site/css/tooltipster.bundle.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="{{ asset('/libs/sw.js') }}"></script>
-    
+
     @vite('resources/css/site.css')
 </head>
 
@@ -60,6 +61,7 @@
     <script src="{{ asset('/libs/sw.js') }}"></script>
     <script src="{{ asset('/libs/select2.js') }}"></script>
     <script src="{{ asset('/libs/modal-loading.js') }}"></script>
+    <script src="{{ asset('/site/js/tooltipster.bundle.min.js') }}"></script>
     @vite('resources/js/site.js')
     @yield('script')
 </body>

@@ -6,11 +6,11 @@
     <div class="etebar-table shade">
         <div class="widget-title">
             <h3>        {{ $user->short(357) }}</h3>
-            <div class="dot3">
+            {{--  <div class="dot3">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div>  --}}
         </div>
         <div class="widget-content">
             <div class="row">
