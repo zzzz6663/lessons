@@ -35,6 +35,7 @@ class CountryController extends Controller
         $data = $request->validate([
             'name' => "required|unique:countrys,name",
             'flag' => "required",
+            'zone_time' => "required",
         ]);
         $country = country::create($data);
         if ($request->hasFile('flag')) {
@@ -74,6 +75,7 @@ class CountryController extends Controller
             'name' => "required|unique:countries,name,".$country->id,
             'image' => "nullable",
             'publish' => "required",
+            'zone_time' => "required",
         ]);
         $country ->update($data);
         if ($request->hasFile('image')) {

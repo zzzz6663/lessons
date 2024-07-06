@@ -51,6 +51,9 @@ class PayController extends Controller
         $meet_id = $request->meet_id;
         $class_type = $request->class_type;
         $pay = $request->pay;
+        $amount = $request->amount;
+        // dd($request->all());
+        $teacher=null;
         if($type=="reserve"){
             $meet = Meet::find($meet_id);
             $start = Carbon::parse($meet->start)->addMinutes(30);
@@ -70,8 +73,6 @@ class PayController extends Controller
                 toast()->warning($customer->short(275));
                 return redirect()->route("profile", $meet_next->user_id);
             }
-
-
             $class_price = $teacher->class_price($class_type);
             $unit_class_price = $teacher->unit_class_price($class_type);
             if ($balance > $class_price) {
@@ -98,15 +99,14 @@ class PayController extends Controller
                         'price' => $unit_class_price,
                     ]);
                 }
-
-
                 return redirect()->route("pay.result", ['paymentId' => $paymentId]);
             } else {
                 toast()->warning($customer->short(276));
                 return redirect()->route("profile", $meet_next->user_id);
             }
+        }else{
+            $amount = $teacher->class_price($class_type);
         }
-
 
 
 
@@ -116,7 +116,7 @@ class PayController extends Controller
 
         try {
             $response = $this->getway->purchase([
-                'amount' => $request->amount,
+                'amount' => $amount,
                 'currency' => 'USD',
                 "returnUrl" => route("pay.result"),
                 "cancelUrl" => route('pay.cancel'),
@@ -127,10 +127,11 @@ class PayController extends Controller
                 $customer->transactions()->create([
                     'class_type' => $class_type,
                     'meet_id' => $meet_id,
-                    'amount' => $request->amount,
+                    'amount' => $amount,
                     'type' => $type,
                     'via' => $via,
                     'status' => "created",
+                    'class_type' => $class_type,
                     'currency' => "usd",
                     'transactionId' => $data['id'],
                 ]);
@@ -147,6 +148,7 @@ class PayController extends Controller
 
     public function pay_result(Request $request)
     {
+        $customer=auth()->user();
 
         $data = $request->all();
         $tran = Transaction::where('transactionId', $data['paymentId'])->first();
@@ -159,6 +161,47 @@ class PayController extends Controller
             if ($response->isSuccessful()) {
                 $arr = $response->getData();
                 $tran->update(['status' => "payed"]);
+                if( $tran->type=="reserve"){
+                    $meet=$tran->meet;
+                    $meet_id=$meet->id;
+                    $class_type=$tran->class_type;
+                    $class_price=$tran->amount;
+                    $teacher = $meet->user;
+                    $unit_class_price = $teacher->unit_class_price($class_type);
+                    $meet->update(['student_id' => $customer->id, "status" => "reserved","type"=>"charge_wallet"]);
+
+                    $start = Carbon::parse($meet->start)->addMinutes(30);
+                    $meet_next = Meet::where("user_id", $meet->user->id)->whereStart($start)->first();
+                    if(!$meet_next){
+                        $meet_next = Meet::find($meet_id);
+                        $start = Carbon::parse($meet->start)->subMinutes(30);
+                        $meet = Meet::where("user_id", $meet->user->id)->whereStart($start)->first();
+                    }
+
+
+                    $customer->transactions()->create([
+                        'class_type' => $class_type,
+                        'via' => "wallet",
+                        'meet_id' => $meet_id,
+                        'amount' => $class_price * -1,
+                        'type' => "reserve_class",
+                        'status' => "payed",
+                        'currency' => "usd",
+                        'transactionId' => $tran->transactionId,
+                    ]);
+                    if ($class_type != "test") {
+                        $meet_next->update(['student_id' => $customer->id, "status" => "reserved", "price" => $unit_class_price, "pair" => $meet->id]);
+                    }
+
+                    if (is_numeric($class_type) && $class_type > 1) {
+                        $customer->selects()->create([
+                            'count' => ($class_type - 1),
+                            'user_id' => $meet->user->id,
+                            'price' => $unit_class_price,
+                        ]);
+                    }
+                }
+
                 return redirect()->route('pay.success', ['transactionId' => $data['paymentId']]);
             } else {
                 $tran->update(['status' => "failed"]);

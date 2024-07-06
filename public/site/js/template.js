@@ -66,15 +66,29 @@
         if ($("#slider-range").length) {
 
             $(function () {
+                let min=$('#amount1').val()
+                if(!min){
+                    min=0
+                }
+                let max=$('#amount2').val()
+                if(!max){
+                    max=100
+                }
                 $("#slider-range").slider({
                     range: true,
                     min: 0,
                     max: 300,
-                    values: [5, 50],
+                    values: [min, max],
                     slide: function (event, ui) {
+
+                        $(".avr_pri").val( (ui.values[0]+ui.values[1])/2);
                         $("#amount1").val(ui.values[0] + " ");
                         $("#amount2").val(ui.values[1] + " ");
-                    }
+                    },
+                    change: function(event, ui) {
+                        console.log("Mouse released at value: " + ui.value);
+                        $('#filter_fo').submit();
+                      }
                 });
                 $("#amount1").val($("#slider-range").slider("values", 0) + " ");
                 $("#amount2").val($("#slider-range").slider("values", 1) + " ");

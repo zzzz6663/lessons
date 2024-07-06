@@ -296,11 +296,11 @@ class PanelController extends Controller
         if ($customer->percent() < 100) {
             toast()->warning($customer->short(281));
         } else {
-            $customer->update(['activeprofile' => $request->active_profile]);
+            $customer->update(['display' => $request->display]);
             if ($request->active_profile) {
-                toast()->warning($customer->short(282));
+                toast()->success($customer->short(282));
             } else {
-                toast()->warning($customer->short(283));
+                toast()->success($customer->short(283));
             }
         }
         return redirect()->route("panel.dashboard");

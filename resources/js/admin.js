@@ -1,6 +1,13 @@
 window.onload = function() {
     if (window.jQuery) {
 // sssss
+if ($('.select2').length) {
+    // $('.select2').select2()
+    $('.select2').select2({
+      closeOnSelect: true,
+      dir: "rtl"
+    });
+  }
         $(".translate").on("keyup change", function(e) {
             let el=$(this)
             let lang=el.data("lang")

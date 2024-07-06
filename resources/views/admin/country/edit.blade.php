@@ -63,7 +63,16 @@
                                 <input type="text" name="name" class="form-control" value="{{ old("name",$country->name) }}"  aria-describedby="emailHelp" placeholder="Enter name">
                             </div>
                         </div>
-
+                        <div class="mb-3">
+                            <label class="form-label ">time zone</label>
+                            <div>
+                                <select name="zone_time" class="form-control select2" id="zone_time">
+                                    @foreach (Carbon\CarbonTimeZone::listIdentifiers() as $t )
+                                    <option {{ old("zone_time",$country->zone_time)==$t?"selected":"" }} value="{{ $t }}">{{ $t }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                         <div class="mb-3">
                             <label class="form-label ">Active as course</label>
                             <div>

@@ -95,6 +95,18 @@
                             </div>
                         </div>
 
+
+                        <div class="mb-3">
+                            <label class="form-label required"> motivated ?</label>
+                            <div>
+                                <select name="motivated" class="form-control" id="">
+                                    <option value="">select an option </option>
+                                    <option {{ old("motivated",$user->motivated)==null?"selected":"" }} value="">deactive</option>
+                                    <option {{ old("motivated",$user->motivated)!=null?"selected":"" }} value="{{ Carbon\Carbon::now() }}"> active</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="card-footer text-end">
                         <button type="submit" class="btn btn-primary">Submit</button>

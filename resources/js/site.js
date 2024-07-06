@@ -312,6 +312,9 @@ $('input[type=radio][name=test_session_status]').change(function () {
     }
 });
 
+$(document).on('click', '.search_i', function () {
+    $('#filter_fo').submit()
+});
 $(document).on('click', '.popupc .close', function () {
     $(this).closest(".popupc").slideUp(400)
     console.log(12)
@@ -320,6 +323,27 @@ $(document).on('click', '.close_pop', function () {
     $(this).closest(".popupc").slideUp(400)
     console.log(12)
 });
+$(document).on('change', '.change_form', function () {
+    let el = $(this)
+    el.closest('form').submit()
+
+});
+function formatOption(option) {
+    if (!option.id) {
+      return option.text;
+    }
+    var imageUrl = $(option.element).data('image');
+    var $option = $(
+      '<span><img src="' + imageUrl + '" class="img-flag" /> ' + option.text + '</span>'
+    );
+    return $option;
+  }
+if($('.select_img').length){
+      $('.select_img').select2({
+        templateResult: formatOption,
+        templateSelection: formatOption
+      });
+}
 $(document).on('click', '.new_reserve', function () {
     let el = $(this)
     let id = el.data("id")

@@ -43,6 +43,7 @@ class User extends Authenticatable
         'port_img',//کاور ویدئو پروفایل
         'port_vid',//ویدئو   پروفایل
         'seen',//بازدید از پروفایل
+        'motivated',//با انگیزه
         '',
     ];
 
@@ -84,6 +85,16 @@ class User extends Authenticatable
     public  function teacher_faves()
     {
         return $this->hasMany(Fave::class,"fave_id");
+    }
+    public  function student_count()
+    {
+        return $this->meets()->whereNotNull("student_id")       ->distinct('student_id')
+        ->count('student_id');
+    }
+    public  function class_count()
+    {
+        return $this->meets()->whereNotNull("student_id")->whereStatus("down")
+        ->count()/2;
     }
 
     public  function selects()
@@ -134,6 +145,11 @@ class User extends Authenticatable
         return $this->hasMany(Resume::class);
     }
 
+    public  function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
     public function comments()
     {
         return  $this->morphMany(Comment::class,'commentable');
@@ -141,6 +157,13 @@ class User extends Authenticatable
     public function scomments()
     {
         return  $this->morphMany(Comment::class,'commentable','','user_id');
+    }
+    public function time_zone()
+    {
+        if($this->country_id){
+            return $this->country->zone_time??"UTC";
+        }
+        return  "UTC";
     }
 
 
@@ -221,10 +244,10 @@ class User extends Authenticatable
                 return $this->price_1_session;
                 break;
             case "5":
-                return $this->price_1_session;
+                return $this->price_5_session;
                 break;
             case "10":
-                return $this->price_1_session;
+                return $this->price_10_session;
                 break;
         }
     }

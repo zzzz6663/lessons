@@ -112,8 +112,45 @@ padding: 15px 15px;
 .video-setting{
     padding: 30px;
 }
+#sidefilter .filter-wdiget .point ul label .left{
+    float: none;
+}
 .teacher-pricing .widget-content form{
     margin-bottom: 0;
+}
+.img-flag{
+    height: 30px;
+    display: inline-block;;
+    border-radius: 50%;
+}
+#mobile_filter{
+    display: none;
+}
+.select2-container--default .select2-selection--multiple{
+    padding: 10px;
+}
+.select2-selection__choice image{
+    display: block;
+}
+
+
+.select2-results__option img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+#nextclass .widget-content{
+    padding: 20px 40px;
+}
+.select2-container--default .select2-selection--multiple{
+    height: auto !important;;
+}
+.chclass-pop{
+    padding: 10px;
+}
+.single-st{
+    padding: 0px 25px;
 }
 .resume-setting{
     padding: 10px 15px;
@@ -121,10 +158,14 @@ padding: 15px 15px;
 #teacher-clander .cond > ul li{
     width: 14%;
 }
-#teacher-clander .cond ul li .hour{
+#teacher-clander .cond ul li .hour,#teacher-clander .con ul li .hour{
     height: 23px;
 }
-#teacher-clander .cond .owl-nav{
+/* .single-st{
+    margin: 0 ;
+    padding: 0;
+} */
+#teacher-clander .cond .eowl-nav{
     top: -27px;
 }
 #teacher-clander .right li{
@@ -202,6 +243,9 @@ padding: 15px 15px;
 .statbox{
     padding: 10px;
 }
+#sidefilter .filter-wdiget .price > p{
+    margin-bottom: 0;
+}
 @media screen and (max-width: 1100px) {
     .teacher-pricing img{
         display: none!important;;
@@ -214,7 +258,9 @@ padding: 15px 15px;
 
 }
 @media screen and (max-width: 800px) {
-
+    #mobile_filter{
+        display: block ;
+    }
     .d_f{
         display: flex;
         justify-content:space-between
@@ -448,6 +494,7 @@ padding: 15px 15px;
 
 #teacher-clander .con ul li .hour .buto {
     line-height: 31px !important;
+    height: 47px;
 }
 
 .popup-container span.close {

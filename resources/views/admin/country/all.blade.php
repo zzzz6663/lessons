@@ -52,6 +52,7 @@
                             <tr>
                                 <th>id</th>
                                 <th>Name</th>
+                                <th>zone time</th>
                                 <th>actie as country</th>
                                 <th>actie as course</th>
                                 <th>flag</th>
@@ -65,6 +66,9 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td class="text-muted">
                                     {{ $country->name }}
+                                </td>
+                                <td class="text-muted">
+                                    {{ $country->zone_time }}
                                 </td>
                                 <td class="text-muted">
 

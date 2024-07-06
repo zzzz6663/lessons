@@ -77,13 +77,20 @@
         <div class="con">
 
             <ul class="owl-carousel owl-theme">
-                @for ($i=0;$i<14; $i++) @php $day=Carbon\Carbon::now()->addDays($i);
+                @for ($i=0;$i<14; $i++)
+                 @php $day=Carbon\Carbon::now()->addDays($i);
+
+                    $time_zone=Carbon\Carbon::parse(Carbon\Carbon::createFromTime(6,30,0))->addDays($i);
                     $can=Carbon\Carbon::parse(Carbon\Carbon::createFromTime(6,30,0))->addDays($i);
                     $res=Carbon\Carbon::parse(Carbon\Carbon::createFromTime(6,30,0))->addDays($i);
                     $now=Carbon\Carbon::now();
+                    if($customer){
+                        $time_zone= $time_zone->setTimezone($customer->time_zone());
+                          // $res= $res->setTimezone($customer->time_zone());
+                         //  $now= $res->setTimezone($customer->time_zone());
+                       }
                     @endphp
                     <li data-date="{{ $day->format('Y-m-d') }}">
-
                         <div class="date">
                             <span class="top"> {{ $day->isoFormat('dd') }}</span>
                             <span class="bot">{{ $day->format('d') }}</span>
@@ -93,7 +100,7 @@
                         @for ($b =0 ; $b <34 ; $b++) <div class="hour
                      {{ in_array($tt=$can->addMinutes(30)->format("Y-m-d H:i").":00",$meets_free) && $tt> $now ?"open":""}}
                      {{ in_array($res->addMinutes(30)->format("Y-m-d H:i").":00",$meets_reserved) ?"reserved":""}}
-                        " data-time="{{  $can->format(" H:i")}}" data-id="{{ array_search($tt, $meets_free)}}">
+                        " data-time="{{  $time_zone->format(" H:i")}}" data-id="{{ array_search($tt, $meets_free)}}">
                             {{-- <input type="text" class="can" data-time="" name="can[]" id="" hidden>  --}}
                             {{-- <input type="text" class="reserve" data-time="" name="reserve[]" id="" value="{{ in_array($can->format("Y-m-d H:i").":00",$all_meets) ?$can->format("Y-m-d H:i").":00":""}}" hidden> --}}
         </div>
@@ -105,4 +112,3 @@
 
         </ul>
     </div>
- 

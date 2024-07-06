@@ -71,6 +71,7 @@
                                 <th>Name</th>
                                 <th>email</th>
                                 <th>role</th>
+                                <th>motivated</th>
                                 <th>display in  list</th>
                                 <th>confirm as teacher</th>
                                 <th>registred</th>
@@ -93,6 +94,10 @@
 
                                 <td class="text-muted">
                                     {{ $user->role }}
+                                </td>
+
+                                <td class="text-muted">
+                                    <i class="fa-solid text text-{{ $user->motivated?"success":"danger" }} fa-{{ $user->motivated?"badge-check":"shield-xmark" }}"></i>
                                 </td>
 
                                 <td class="text-muted">

@@ -54,14 +54,14 @@
                 </a>
             </li>
 
-            {{--  <li class="{{ Request::url() == route('panel.financial') ? 'active' : '' }}">
+            <li class="{{ Request::url() == route('panel.financial') ? 'active' : '' }}">
                 <a href="{{ route("panel.financial") }}">
                     <i class="icon-dsetting"></i>
                     <span>
                         {{ $user->short(27) }}
                     </span>
                 </a>
-            </li>  --}}
+            </li>
 
 
             <li class="{{ Request::url() == route('userticket.index') ? 'active' : '' }}">

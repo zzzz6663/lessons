@@ -93,6 +93,7 @@ Route::prefix('panel')->middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('/get_lang_lis', [HomeController::class,"get_lang_lis"]);
     Route::post('/comment_teacher/{user}', [HomeController::class,"comment_teacher"])->name('home.comment.teacher');
 
     Route::get('/download', [HomeController::class,"download"])->name('download');

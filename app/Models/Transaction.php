@@ -24,4 +24,7 @@ class Transaction extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function meet(){
+        return $this->belongsTo(Meet::class);
+    }
 }

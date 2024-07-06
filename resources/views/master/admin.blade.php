@@ -16,7 +16,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('/libs/fs.css') }}">
     <link rel="stylesheet" href="{{ asset('/libs/sw.css') }}">
-    
+    <link rel="stylesheet" href="{{ asset('/libs/select2.css') }}">
+
     <script src="{{ asset('/libs/sw.js') }}"></script>
     <script src="{{ asset('/libs/jq.js') }}"></script>
     @vite('resources/css/admin.css')
@@ -54,7 +55,7 @@
     <script src="/admin/dist/libs/jsvectormap/dist/maps/world-merc.js" defer></script>
     <!-- Tabler Core -->
     <script src="/admin/dist/js/tabler.min.js" defer></script>
-    <script src="/admin/dist/js/demo.min.js" defer></script>
+    <script src="/libs/select2.js" defer></script>
     @vite('resources/js/admin.js')
 
     @yield('script')

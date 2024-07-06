@@ -69,17 +69,16 @@
             <ul>
                 <li class="classes">
                     <span class="tex">
-
                         {{ $user->short(240) }}
                     </span>
-                    <span class="number">45</span>
+                    <span class="number">{{ $teacher->class_count() }}</span>
                 </li>
 
                 <li class="students">
                     <span class="tex">
                         {{ $user->short(241) }}
                     </span>
-                    <span class="number">36</span>
+                    <span class="number">{{ $teacher->student_count() }}</span>
                 </li>
                 <?php
 
@@ -88,36 +87,33 @@
                 <li class="points">
                     <span class="tex">{{ $teacher->short(242) }}</span>
                     <span class="rate">
+                        <i class="icon-star {{$teacher->score()['av']>=1?'':'gray'}}  "></i>
+                        <i class="icon-star {{$teacher->score()['av']>=2?'':'gray'}}  "></i>
+                        <i class="icon-star {{$teacher->score()['av']>=3?'':'gray'}}"></i>
+                        <i class="icon-star {{$teacher->score()['av']>=4?'':'gray'}}"></i>
+                        <i class="icon-star {{$teacher->score()['av']>=5?'':'gray'}}"></i>
+                        {{-- <span>{{$teacher->score()['av']}}</span> --}}
+                    <span>
 
-                           <i class="icon-star {{$teacher->score()['av']>=1?'':'gray'}}  "></i>
-                    <i class="icon-star {{$teacher->score()['av']>=2?'':'gray'}}  "></i>
-                    <i class="icon-star {{$teacher->score()['av']>=3?'':'gray'}}"></i>
-                    <i class="icon-star {{$teacher->score()['av']>=4?'':'gray'}}"></i>
-                    <i class="icon-star {{$teacher->score()['av']>=5?'':'gray'}}"></i>
-                    {{--  <span>{{$teacher->score()['av']}}</span>  --}}
-                        <span>
+                        {{$comm->count()}}
 
-                            {{$comm->count()}}
+                        {{ $user->short(249) }}
 
-                            {{ $user->short(249) }}
+                    </span>
 
-                        </span>
-
-                        </span>
-
-
+                    </span>
                 </li>
 
 
 
                 <li class="lang">
                     <span class="text">
-                         {{ $user->short(90) }}
+                        {{ $user->short(90) }}
 
 
                     </span>
                     <ul>
-                        @foreach ($teacher->languages as  $lan)
+                        @foreach ($teacher->languages as $lan)
                         <li><img class="fla" src="{{ $lan->flag() }}" alt=""><span>{{ $lan->name }}</span></li>
                         @endforeach
                     </ul>
@@ -881,7 +877,7 @@
             <div class="title">
                 <h3>
                     <span>%{{$teacher->score()['per']}}</span>
-                    <span>  {{ $user->short(398) }}</span>
+                    <span> {{ $user->short(398) }}</span>
                 </h3>
             </div>
             <ul>
@@ -919,7 +915,7 @@
                 </li>
             </ul>
             <div class="avr" style="text-align: center">
-                <span>     {{ $user->short(399) }}  :</span>
+                <span> {{ $user->short(399) }} :</span>
                 <span>از {{$comm->count()}} {{ $user->short(249) }} </span>
             </div>
             <div class="points" style="text-align: center">
@@ -943,7 +939,7 @@
                             <img src="{{asset('/src/avatar/'.$student->attr('avatar'))}}" alt="">
                         </div>
                         <div class="name">
-                            <span>{{$student->name}}  </span>
+                            <span>{{$student->name}} </span>
                         </div>
 
                         <div class="text">
@@ -955,13 +951,12 @@
                             </span>
                         </div>
                         <div class="point">
-                            @for($i=1; $i<6 ; $i++)
-                            <i class="icon-star {{$com->rate >= $i?'':'gray'}}"></i>
+                            @for($i=1; $i<6 ; $i++) <i class="icon-star {{$com->rate >= $i?'':'gray'}}"></i>
                                 @endfor
                         </div>
                     </div>
                 </li>
-            @endforeach
+                @endforeach
 
             </ul>
         </div>
@@ -974,7 +969,7 @@
                 {{ $user->short(399) }}
             </h3>
 
-           
+
         </div>
 
         <div class="widget-content">
@@ -994,7 +989,7 @@
                 </div>
 
                 <div class="input-container">
-                    <label for="">     {{ $user->short(249) }}</label>
+                    <label for=""> {{ $user->short(249) }}</label>
                     <textarea name="comment" id="" cols="30" rows="10">{{old('comment')}}</textarea>
                 </div>
 

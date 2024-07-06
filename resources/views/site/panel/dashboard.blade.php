@@ -23,6 +23,7 @@
     <div id="stulist" class="shade">
         <div class="widget-title">
             <h3>
+
                 {{ $user->short(341) }}
             </h3>
             {{-- <div class="dot3">
@@ -67,6 +68,11 @@
     @endif
     @endif
     @if($first)
+    <?php
+    $time_first=Carbon\Carbon::parse($first->start);
+        $time_first= $time_first->setTimezone($customer->time_zone());
+    ?>
+
 
     <div id="nextclass" class="shade">
         <div class="widget-title">
@@ -94,7 +100,7 @@
                         {{-- <span>دانشجو</span>  --}}
                         <h4>{{ $first->name()}}</h4>
                         <span class="date">
-                            {{ $first->start }}
+                            {{  $time_first }}
                         </span>
                     </div>
                 </div>
@@ -104,7 +110,7 @@
                     {{ $user->short(303) }}
                 </a>
                 <div id="countdown" class="style colorDefinition lang-rtl labelformat">
-                    <span class="timerDisplay label4" data-endtime="{{ $first->start }}">
+                    <span class="timerDisplay label4" data-endtime="{{ $time_first }}">
                         <span class="displaySection">
                             <span class="numberDisplay">۰۰</span>
                             <span class="periodDisplay">روز</span>
@@ -175,7 +181,12 @@
                 </span>
             </div>
             @foreach ($meets as $me)
-            @php($ti=Carbon\Carbon::parse($me->start))
+
+            <?php
+            $ti=Carbon\Carbon::parse($me->start);
+                $ti= $ti->setTimezone($customer->time_zone());
+            ?>
+
             <div class="single-class">
                 <div class="date">
                     <span class="month">{{ $ti->format(' F ') }}</span>
@@ -195,7 +206,7 @@
                             <div class="date"><i class="icon-time-line"></i><span>
                                     {{ $user->short(304) }}
                                 </span> <span>
-                                    {{ $me->start }}
+                                    {{ $ti }}
 
                                 </span></div>
                         </div>
@@ -358,7 +369,7 @@
                                 <div>
                                     <div class="pic">
                                         <img src="/site/images/profile.svg" alt="" class="bg">
-                                        <img src="/site/images/person3.jpg" alt="" class="pro">
+                                        <img src="{{ $customer->avatar() }}" alt="" class="pro">
                                     </div>
 
                                     <div class="percent">
@@ -379,7 +390,7 @@
                                                 @csrf
                                                 @method('post')
                                                 <input type="text" name="active_profile" hidden value="">
-                                                <input type="checkbox" {{$customer->active_profile=='1'?'checked':''}} name="active_profile" class="submit_form" id="activeprofile" value="1">
+                                                <input type="checkbox" {{$customer->display=='1'?'checked':''}} name="display" class="submit_form" id="activeprofile" value="1">
                                                 <label for="activeprofile">
                                                     <div class="right">
                                                         <span> {{ $user->short(278) }}</span>
@@ -640,10 +651,8 @@
                         <div class="widget-content">
                             <div class="exp">
                                 <p class="txt_left">
-
                                     <span>
                                         {{ $user->short(362) }}
-
                                         :</span>
                                     {{ array_sum($income) }}$
                                     <i class="icon-checkout"></i>

@@ -24,12 +24,14 @@
                                 </span>
                             </li>
                             <li class="rate">
-                                <i class="icon-star gray"></i>
-                                <i class="icon-star gray"></i>
-                                <i class="icon-star"></i>
-                                <i class="icon-star"></i>
-                                <i class="icon-star"></i>
-                                <span>3/5</span>
+                                <span class="rate">
+                                    <i class="icon-star {{$teacher->score()['av']>=1?'':'gray'}}  "></i>
+                                    <i class="icon-star {{$teacher->score()['av']>=2?'':'gray'}}  "></i>
+                                    <i class="icon-star {{$teacher->score()['av']>=3?'':'gray'}}"></i>
+                                    <i class="icon-star {{$teacher->score()['av']>=4?'':'gray'}}"></i>
+                                    <i class="icon-star {{$teacher->score()['av']>=5?'':'gray'}}"></i>
+                                </span>
+                                {{--  <span>3/5</span>  --}}
                             </li>
                         </ul>
                     </div>
@@ -93,7 +95,7 @@
                         <li class="active"><span><span> {{ $user->short(149) }} </span><i class="icon-about"></i></span></li>
                     </ul>
                     <ul class="tab-container">
-                        <li >
+                        <li>
                             <div>
                                 <video class="max-w" controls poster="{{ $teacher->port_img() }}">
                                     <source src="{{ $teacher->port_vid()  }}" type="video/mp4">
@@ -107,7 +109,7 @@
                             <div>
                                 <p>
                                     {{ $teacher->bio }}
-                                     <a href="#">
+                                    <a href="#">
 
                                         <i class="icon-left"></i><i class="icon-left"></i></a>
 

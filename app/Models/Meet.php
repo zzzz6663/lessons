@@ -31,6 +31,9 @@ class Meet extends Model
     public function student(){
         return $this->belongsTo(User::class,"student_id");
     }
+    public function transactions(){
+        return $this->hasMany(Transaction::class);
+    }
 
     public function avatar(){
         $user=auth()->user();

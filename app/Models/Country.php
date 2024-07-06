@@ -13,8 +13,13 @@ class Country extends Model
         'image',
         'name',
         'publish',
+        'zone_time',
     ];
 
+    public function users(){
+        return $this->hasMany(User::class);
+
+    }
     public function image(){
         if($this->image){
             return asset("/media/country/".$this->image);

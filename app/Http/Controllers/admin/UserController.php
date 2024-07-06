@@ -63,6 +63,7 @@ class UserController extends Controller
       $data=$request->validate([
         'name'=>"required",
         'confirm'=>"nullable",
+        'motivated'=>"nullable",
       ]);
       $user->update($data);
       toast()->success("all data saved successfully");

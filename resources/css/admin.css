@@ -55,6 +55,7 @@ ul{
 .chat.is-me {
     justify-content: flex-end;
 }
+
 .chat-bubble{
     display: flex;
     align-items: center;
