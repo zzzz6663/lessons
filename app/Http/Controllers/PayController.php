@@ -160,7 +160,6 @@ class PayController extends Controller
             $response = $transaction->send();
             if ($response->isSuccessful()) {
                 $arr = $response->getData();
-                $tran->update(['status' => "payed","type"=>"charge_wallet"]);
                 if( $tran->type=="reserve"){
                     $meet=$tran->meet;
                     $meet_id=$meet->id;
@@ -202,6 +201,8 @@ class PayController extends Controller
                             'price' => $unit_class_price,
                         ]);
                     }
+                $tran->update(['status' => "payed","type"=>"charge_wallet"]);
+
                 }
 
                 return redirect()->route('pay.success', ['transactionId' => $data['paymentId']]);
