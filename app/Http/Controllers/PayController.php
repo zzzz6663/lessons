@@ -177,7 +177,9 @@ class PayController extends Controller
                         $start = Carbon::parse($meet->start)->subMinutes(30);
                         $meet = Meet::where("user_id", $meet->user->id)->whereStart($start)->first();
                     }
-
+                    if ($class_type != "test") {
+                        $meet_next->update(['student_id' => $customer->id, "status" => "reserved", "price" => $unit_class_price, "pair" => $meet->id]);
+                    }
 
                     $customer->transactions()->create([
                         'class_type' => $class_type,

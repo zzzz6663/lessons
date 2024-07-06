@@ -145,7 +145,7 @@
             <ul>
                 <li>
                     <div class="lable-container">
-                        <input {{ request("more_class")=="more_class"?"checked":"expensive" }} type="checkbox" name="classes" class="change_form" id="more_class" value="more_class">
+                        <input {{ request("classes")=="more_class"?"checked":"" }} type="checkbox" name="classes" class="change_form" id="more_class" value="more_class">
                         <label for="more_class">
                             <div class="right">
                                 <i class="icon-gift"></i>
