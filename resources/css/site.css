@@ -246,6 +246,10 @@ padding: 15px 15px;
 #sidefilter .filter-wdiget .price > p{
     margin-bottom: 0;
 }
+
+.pa1{
+    padding-top: 90px!important;
+}
 @media screen and (max-width: 1100px) {
     .teacher-pricing img{
         display: none!important;;

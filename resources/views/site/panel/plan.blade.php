@@ -78,10 +78,15 @@
                         <div>
                             <div class="time-zone">
                                 <i class="icon-timezone"></i>
+                                <span>{{ $user->short(80) }} :</span>
+                                @auth
                                 <span>
-                                    {{ $user->short(80) }}
-                                    :</span>
-                                <span>Asia/Tehran</span>
+                                {{auth()->user()->time_zone()}}
+                                </span>
+                                @endauth
+                                @guest
+                                    UTC
+                                @endguest
                             </div>
                         </div>
                     </div>
