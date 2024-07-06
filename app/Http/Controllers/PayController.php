@@ -160,7 +160,7 @@ class PayController extends Controller
             $response = $transaction->send();
             if ($response->isSuccessful()) {
                 $arr = $response->getData();
-                $tran->update(['status' => "payed"]);
+                $tran->update(['status' => "payed","type"=>"charge_wallet"]);
                 if( $tran->type=="reserve"){
                     $meet=$tran->meet;
                     $meet_id=$meet->id;
@@ -168,7 +168,7 @@ class PayController extends Controller
                     $class_price=$tran->amount;
                     $teacher = $meet->user;
                     $unit_class_price = $teacher->unit_class_price($class_type);
-                    $meet->update(['student_id' => $customer->id, "status" => "reserved","type"=>"charge_wallet"]);
+                    $meet->update(['student_id' => $customer->id, "status" => "reserved"]);
 
                     $start = Carbon::parse($meet->start)->addMinutes(30);
                     $meet_next = Meet::where("user_id", $meet->user->id)->whereStart($start)->first();
